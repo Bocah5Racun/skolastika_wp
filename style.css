@@ -1,0 +1,333 @@
+/*
+Theme Name: Skolastika
+Theme URI: https://komkom.id/wp_themes/skolastika
+Author: KOMKOM.id
+Author URI: https://komkom.id/
+Description: Skolastika is a responsive, accessibility-ready WordPress theme designed for academic institutions. It offers robust features like staff/lecturer management, study program and curriculum pages, and a customizable front page. Optimized for seamless navigation and engagement, Skolastika ensures an inclusive online experience, making it easier for everyone to access and manage academic content and enhancing the educational journey for students, faculty, and staff.
+Tags: education, academic, responsive design, accessibility ready, university, staff management, curriculum integration, customizable front page, higher education, faculty profiles
+Version: 1.0
+*/
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+.m-1 {
+  margin: 0.5rem;
+}
+.m-2 {
+  margin: 1rem;
+}
+.m-3 {
+  margin: 1.5rem;
+}
+.m-4 {
+  margin: 2rem;
+}
+.m-5 {
+  margin: 2.5rem;
+}
+.m-6 {
+  margin: 3rem;
+}
+.m-7 {
+  margin: 3.5rem;
+}
+.m-8 {
+  margin: 4rem;
+}
+
+.my-1 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.my-2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-4 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.my-5 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-6 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.my-7 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.my-8 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.p-1 {
+  padding: 0.5rem;
+}
+.p-2 {
+  padding: 1rem;
+}
+.p-3 {
+  padding: 1.5rem;
+}
+.p-4 {
+  padding: 2rem;
+}
+.p-5 {
+  padding: 2.5rem;
+}
+.p-6 {
+  padding: 3rem;
+}
+.p-7 {
+  padding: 3.5rem;
+}
+.p-8 {
+  padding: 4rem;
+}
+
+.py-1 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.py-2 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.py-3 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.py-4 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.py-5 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.py-6 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.py-7 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+.py-8 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 133%;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.85rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+  display: inline-block;
+  align-self: flex-start;
+  font-family: "IBM Plex Sans", sans-serif;
+  padding: 1rem;
+  border: none;
+}
+
+.button--blue {
+  background-color: #0a26c7;
+  color: #fff;
+  font-weight: 700;
+}
+
+.dark-gradient {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background: rgb(10, 10, 10);
+  background: linear-gradient(0deg, rgb(10, 10, 10) 7.5%, rgba(10, 10, 10, 0.5) 33%, rgba(10, 10, 10, 0) 50%);
+  width: 100%;
+  height: 100%;
+}
+
+.gradient--radial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 75%, rgb(0, 0, 0) 100%);
+}
+
+.container {
+  width: clamp(660px, 80vw, 1200px);
+  margin: 0 auto;
+}
+
+.container--full {
+  width: 100%;
+}
+
+.separator--yellow {
+  width: 60px;
+  border: none;
+  border-top-width: 6px;
+  border-top-style: solid;
+  border-top-color: #fff500;
+}
+.separator--blue {
+  width: 60px;
+  border: none;
+  border-top-width: 6px;
+  border-top-style: solid;
+  border-top-color: #0a26c7;
+}
+.separator--green {
+  width: 60px;
+  border: none;
+  border-top-width: 6px;
+  border-top-style: solid;
+  border-top-color: #01923e;
+}
+
+.unselectable {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.constrained {
+  width: clamp(330px, 66vw, 710px);
+}
+
+.centered-box {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  padding: 4rem 0;
+}
+.section--dark {
+  background-color: #0a0a0a;
+  color: #fff;
+}
+.section--dark a {
+  color: #fff;
+}
+.section--upri-yellow {
+  background-color: #fff500;
+  color: #fff;
+}
+.section--upri-blue {
+  background-color: #0a26c7;
+  color: #fff;
+}
+.section--light-gray {
+  background-color: #cccccc;
+  color: #000;
+}
+.section--light-yellow {
+  background-color: #f5f390;
+  color: #000;
+}
+
+.section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.see-more {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.see-more:hover {
+  text-decoration: underline;
+}
+
+.see-more--light {
+  color: #fff;
+}
+
+.see-more--dark {
+  color: #0a0a0a;
+}
+
+.see-more--blue {
+  color: #0a26c7;
+}
+
+.see-more--yellow {
+  color: #fff500;
+}/*# sourceMappingURL=style.css.map */

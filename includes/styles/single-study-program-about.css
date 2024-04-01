@@ -1,0 +1,66 @@
+#single-hero-container h1 {
+  align-self: self-start;
+  position: relative;
+  background-color: #fff500;
+  padding: 0 2rem;
+  z-index: 10;
+}
+
+.study-program-info-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #f5f390;
+  padding: 2rem 1.5rem;
+  font-size: 1.5rem;
+}
+
+.program-studi-info-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+.program-studi-info-list a {
+  text-decoration: none;
+}
+.program-studi-info-list a:hover {
+  text-decoration: underline;
+}
+
+.blog-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.blog-list .blog-card {
+  background-color: #cccccc;
+  width: calc(25% - 0.75rem);
+  min-height: 300px;
+}
+
+.staff-list {
+  display: flex;
+  gap: 1rem;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+  row-gap: 3rem;
+}
+.staff-list .staff-card {
+  width: calc(20% - 1rem);
+}
+.staff-list .staff-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+}
+.staff-list .staff-card-link:hover {
+  text-decoration: underline;
+}
+.staff-list .staff-card-link img {
+  width: 100%;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=single-study-program-about.css.map */

@@ -1,0 +1,37 @@
+#footer {
+  border-top: 1px solid #cccccc;
+}
+
+.footer-info {
+  display: flex;
+  border-bottom: 70px solid #f5f390;
+  justify-content: space-between;
+}
+.footer-info > div {
+  flex: 1 1 0;
+}
+.footer-info ul a:hover {
+  text-decoration: underline;
+}
+
+.footer-branding {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logo-kampus-merdeka {
+  max-width: 150px;
+}
+
+.footer-contact-container {
+  border-left: 1px solid #cccccc;
+  padding: 0 2rem;
+}
+.footer-contact-container h2 {
+  font-size: 1.25rem;
+}
+.footer-contact-container p {
+  font-size: 1rem;
+  line-height: 150%;
+}/*# sourceMappingURL=footer.css.map */

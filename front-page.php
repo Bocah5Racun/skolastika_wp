@@ -1,0 +1,315 @@
+<?php get_header(); ?>
+
+<section id="hero" class="container--full" style="background-image: url('<?= get_template_directory_uri() . "/includes/images/hero-default.png"; ?>');">
+    <?php
+
+    $args = array(
+        'post_type'         => 'attachment',
+        'posts_per_page'    => 1,
+        'post_status'       => 'any',
+        'tax_query'         => array(
+            array(
+                'taxonomy'  => 'image_locations',
+                'field'     => 'name',
+                'terms'     => 'hero',
+            )
+        )
+    );
+
+    $query = new WP_query( $args );
+
+    if( $query->have_posts() ):
+        while( $query->have_posts() ):
+            $query->the_post();
+    ?>
+
+    <img class="hero-bg" src="<?= wp_get_attachment_image_url( get_the_ID(), 'full' ); ?>" title="<?= wp_get_attachment_caption( get_the_ID() ); ?>" />
+
+    <?php
+    endwhile;
+    endif;
+    ?>
+
+
+    <div class="dark-gradient">
+    </div>
+    <div class="hero-inner container">
+        <h1 class="tagline"><?= bloginfo( 'description' ); ?></h1>
+        <div class="hero-cta-menu-container">
+            <?php wp_nav_menu( array( 'theme_location' => 'hero-cta-menu', 'container' => 'ul', 'menu_class' => 'hero-cta-menu')); ?>
+        </div>
+    </div>
+</section>
+
+<section id="prodi" class="section">
+    <div class="prodi-inner section-inner container text-center">
+        <h2>Berjuang Meraih Sukses.</h2>
+        <hr class="separator--blue align-center" />
+        <p class="centered-box constrained">Klik link di bawah untuk belajar bagaimana program-program studi FISIP UPRI dapat membantu Anda meraih keberhasilan dan mewujudkan potensi.</p>
+        <p style="font-weight: 200;"><i>Semua Program Studi di FISIP UPRI terakreditasi BAN-PT.</i></p>
+        <div class="prodi-list">
+        
+        <?php
+
+            $args = array(
+                'post_type'     => 'study-program-about',
+                'post_parent'   => 0,
+            );
+
+            $query = new WP_Query( $args );
+
+            if( $query->have_posts() ) :
+                while( $query->have_posts() ) :
+                    $query->the_post();
+
+        ?>
+
+        <div class="study-program-card py-2">
+            <a href="<?= get_permalink(); ?>" title="Program studi <?= get_the_title(); ?>">
+                    <img src="<?= get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" />
+                <h2><?= get_the_title(); ?></h2>
+            </a>
+        </div>
+
+        <?php
+            endwhile;
+            endif;
+            wp_reset_postdata();
+        ?>
+
+        </div>
+    </div>
+</section>
+
+<section id="details" class="section section--dark container--full">
+    <div class="section-inner container">
+        <div class="details-left-col">
+            <h2>Kurikulum Berorientasi Industri</h2>
+            <hr class="separator--yellow" />
+            <h3>FISIP UPRI menyiapkan setiap mahasiswa untuk sukses sejak hari pertama setelah lulus.</h3>
+            <p>Di FISIP UPRI, kami percaya bahwa landasan teori yang kokoh harus dilengkapi dengan keterampilan yang relevan. UPRI bekerja sama dengan sejumlah mitra untuk memberi mahasiswa kurikulum yang sesuai kebutuhan industri.</p>
+        </div>
+        <div class="details-right-col">
+            <?php
+
+                $args = array(
+                    'post_type'         => 'attachment',
+                    'posts_per_page'    => 3,
+                    'post_status'       => 'any',
+                    'tax_query'         => array(
+                        array(
+                            'taxonomy'  => 'image_locations',
+                            'field'     => 'name',
+                            'terms'     => 'stock',
+                        )
+                    )
+                );
+
+                $query = new WP_query( $args );
+
+                if( $query->have_posts() ):
+                    while( $query->have_posts() ):
+                        $query->the_post();
+            ?>
+
+                <img class="details-card" src="<?= wp_get_attachment_image_url( get_the_ID(), 'large' ); ?>" title="<?= wp_get_attachment_caption( get_the_ID() ); ?>" />
+
+            <?php
+                endwhile;
+                endif;
+            ?>
+        </div>
+    </div>
+</section>
+
+<section id="prodi" class="section">
+    <div class="prodi-inner section-inner container">
+        <h2>Kembangkan Karir. Kuliah Sambil Kerja.</h2>
+        <hr class="separator--blue" />
+        <h3>Konversi pengalaman kerja menjadi SKS.</h3>
+        <p class="constrained">Dengan Program RPL, Anda dapat mengkonversi pengetahuan dan pengalaman nyata dari dunia kerja menjadi Satuan Kredit Semester (SKS) untuk gelar Sarjana.</p>
+        <div>
+            <a class="see-more see-more--blue" href="#">Baca detail tentang program RPL →</a>
+        </div>
+    </div>
+</section>
+
+<section id="alumni" class="section section--upri-blue">
+    <div class="alumni-inner section-inner container text-center">
+        <h2>Kisah Alumni</h2>
+        <hr class="separator--yellow align-center" />
+        <h3>Keunggulan FISIP UPRI tercermin dalam kisah-kisah inspiratif dari alumni-alumni kami.</h3>
+        <div class="alumni-list">
+
+        <?php
+
+            $query = new WP_Query( array(
+                'post_type'         =>'alumni',
+                'posts_per_page'    => 4,
+                'orderby'           => 'rand',
+                )
+            );
+
+            if( $query->have_posts() ):
+                while( $query->have_posts() ):
+                    $query->the_post();
+
+        ?>
+
+            <div class="alumni-card">
+                <a href="<?= get_permalink(); ?>">
+                    <img src="<?= get_the_post_thumbnail_url(); ?>" />
+                    <h3><?= get_the_title(); ?></h3>
+                </a>
+            </div>
+        
+        <?php
+            endwhile;
+            endif;
+            wp_reset_postdata();
+        ?>
+
+        </div>
+        <div>
+            <a class="see-more see-more--yellow" href="http://fisip-upri-makassar.local/kisah-alumni/">Lihat semua kisah alumni →</a>
+        </div>
+    </div>
+</section>
+
+<section id="experience-fisip" class="section">
+    <div class="experience-fisip-inner section-inner container">
+        <h2>Experience FISIP@UPRI</h2>
+        <hr class="separator--blue" />
+        <h3>Lingkungan akademik yang aman dan nyaman.</h3>
+        <p class="constrained">UPRI berkomitmen memberi ruang yang nyaman untuk seluruh mahasiswa dan civitas akademika. Sebagai wujud komitmen itu, FISIP UPRI menyediakan sejumlah layanan dan fasilitas.</p>
+        <?php wp_nav_menu( array( 'theme_location' => 'highlights-menu', 'container' => 'ul', 'menu_class' => 'experience-fisip-list')); ?>
+    </div>
+</section>
+
+<section id="photovoice" class="section section--dark container--full">
+    <div class="photovoice-inner section-inner text-center">
+        <h2>Seputar FISIP</h2>
+        <hr class="separator--yellow align-center" />
+        <h3>Berita dan informasi terbaru tentang FISIP UPRI.</h3>
+        <div>
+            <a class="see-more see-more--yellow" href="#">Lihat semua artikel →</a>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="final-cta" class="section">
+    <div class="final-cta-inner section-inner container">
+        <h2>Siap Memulai Perjalanan Akademik Anda?</h2>
+        <hr class="separator--blue" />
+        <h3>Mari kita bersama-sama membuat dampak positif dalam komunitas.</h3>
+        <p class="constrained">Wujudkan potensi penuh Anda dengan pendidikan berkualitas di FISIP UPRI. Kejar ilmu, kembangkan diri, berjuang meraih sukses. </p>
+        <div class="final-cta-box">
+            <h3 class="final-cta-title"><i>Quicklinks</i> Info PMB</h3>
+            <div class="final-cta-list">
+                <?php
+
+                    $args = array(
+                        'post_type'     => 'page',
+                        'post_name__in'         => array(
+                            'penerimaan-mahasiswa-baru',
+                        ),
+                    );
+
+                    $query = new WP_Query( $args );
+
+                    if( !empty( $query )):
+                        $pmb_id = $query->posts[0]->ID; // id for PMB parent
+
+                        $args = array(
+                            'post_type'     => 'page',
+                            'post_parent'   => $pmb_id,
+                        );
+
+                        wp_reset_postdata();
+
+                        $query = new WP_Query( $args );
+
+                        if( $query->have_posts() ) :
+                            while( $query->have_posts() ) :
+                                $query->the_post();
+
+                ?>
+
+                    <a href=""><?= get_the_title(); ?> →</a>
+
+                <?php
+                    endwhile;
+                    endif;
+                    endif; 
+                ?>
+            </div>
+            <hr />
+            <h3 class="final-cta-title"><i>Quicklinks</i> Layanan Mahasiswa</h3>
+            <div class="final-cta-list">
+                <?php
+
+                    $args = array(
+                        'post_type'     => 'page',
+                        'post_name__in'         => array(
+                            'layanan-mahasiswa',
+                        ),
+                    );
+
+                    $query = new WP_Query( $args );
+
+                    if( !empty( $query )):
+                        $pmb_id = $query->posts[0]->ID; // id for PMB parent
+
+                        $args = array(
+                            'post_type'     => 'page',
+                            'post_parent'   => $pmb_id,
+                        );
+
+                        wp_reset_postdata();
+
+                        $query = new WP_Query( $args );
+
+                        if( $query->have_posts() ) :
+                            while( $query->have_posts() ) :
+                                $query->the_post();
+
+                ?>
+
+                    <a href=""><?= get_the_title(); ?> →</a>
+
+                <?php
+                    endwhile;
+                    endif;
+                    endif; 
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="brosur" class="section">
+    <section class="brosur-inner container">
+        <div class="brosur-girl-container unselectable">
+            <img class="brosur-girl" src="<?= get_template_directory_uri() . '/includes/images/upri_girl.png;' ?>" />
+        </div>
+        <div class="brosur-form-container py-4">
+            <h2>Download Brosur FISIP UPRI <?= date("Y"); ?></h2>
+            <hr class="separator--blue" />
+            <p>Download brosur FISIP UPRI untuk mendapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>
+            <div id="brosur-form">
+                <label for="nama">Nama</label><input type="text" required />
+                <label for="nama">Kota</label><input type="text" placeholder="Kota domisili Anda saat ini." required />
+                <label for="nama">Email</label><input type="text" required />
+            </div>
+            <button class="button button--blue ">Download Brosur</button>
+        </div>
+    </section>
+</section>
+
+
+<div class="footer-vista" style="background-image: url('<?= get_template_directory_uri() . "/includes/images/vista-background.jpeg"; ?>'); background-size: cover;">
+    <div class="dark-gradient"></div>
+</div>
+
+<?php get_footer(); ?>
