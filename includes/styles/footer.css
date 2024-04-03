@@ -5,9 +5,14 @@
 .footer-info {
   display: flex;
   justify-content: space-between;
+  padding: 2rem;
+  gap: 1rem;
 }
-.footer-info > div {
-  flex: 1 1 0;
+@media (max-width: 768px) {
+  .footer-info {
+    padding: 2rem;
+    flex-direction: column;
+  }
 }
 .footer-info ul a:hover {
   text-decoration: underline;
@@ -26,6 +31,12 @@
 .footer-contact-container {
   border-left: 1px solid #cccccc;
   padding: 0 2rem;
+}
+@media (max-width: 768px) {
+  .footer-contact-container {
+    border-left: none;
+    padding: 0;
+  }
 }
 .footer-contact-container h2 {
   font-size: 1.25rem;

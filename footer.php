@@ -1,5 +1,5 @@
 <footer id="footer">
-    <div class="footer-info p-8 py-4">
+    <div class="footer-info">
         <div class="footer-branding">
             <?php the_custom_logo(); ?>
             <a href="https://kampusmerdeka.kemdikbud.go.id/" target="_blank"><img class="logo-kampus-merdeka" src="<?= get_template_directory_uri() . '/includes/images/logo_kampus_merdeka.png'; ?>" /></a>

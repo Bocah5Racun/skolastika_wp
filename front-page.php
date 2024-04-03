@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="hero" class="container--full" style="background-image: url('<?= get_template_directory_uri() . "/includes/images/hero-default.png"; ?>');">
+<section id="hero" class="container--full">
     <?php
 
     $args = array(
