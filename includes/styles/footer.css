@@ -4,7 +4,6 @@
 
 .footer-info {
   display: flex;
-  border-bottom: 70px solid #f5f390;
   justify-content: space-between;
 }
 .footer-info > div {
@@ -34,4 +33,17 @@
 .footer-contact-container p {
   font-size: 1rem;
   line-height: 150%;
+}
+
+.footer-made-by {
+  background-color: #f5f390;
+  padding: 1rem 0;
+  font-size: 0.825rem;
+  text-align: center;
+}
+.footer-made-by a {
+  text-decoration: underline;
+}
+.footer-made-by a:hover {
+  text-decoration: none;
 }/*# sourceMappingURL=footer.css.map */

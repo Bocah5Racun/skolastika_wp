@@ -129,7 +129,7 @@
         <h3>Konversi pengalaman kerja menjadi SKS.</h3>
         <p class="constrained">Dengan Program RPL, Anda dapat mengkonversi pengetahuan dan pengalaman nyata dari dunia kerja menjadi Satuan Kredit Semester (SKS) untuk gelar Sarjana.</p>
         <div>
-            <a class="see-more see-more--blue" href="#">Baca detail tentang program RPL →</a>
+            <a class="see-more see-more--blue" href="http://fisip-upri-makassar.local/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca detail tentang program RPL →</a>
         </div>
     </div>
 </section>
@@ -192,7 +192,7 @@
         <hr class="separator--yellow align-center" />
         <h3>Berita dan informasi terbaru tentang FISIP UPRI.</h3>
         <div>
-            <a class="see-more see-more--yellow" href="#">Lihat semua artikel →</a>
+            <a class="see-more see-more--yellow" href="#">Lihat semua berita →</a>
         </div>
     </div>
 </div>
@@ -236,7 +236,7 @@
 
                 ?>
 
-                    <a href=""><?= get_the_title(); ?> →</a>
+                    <a href="<?= get_the_permalink(); ?>"><?= get_the_title(); ?> →</a>
 
                 <?php
                     endwhile;
@@ -276,7 +276,7 @@
 
                 ?>
 
-                    <a href=""><?= get_the_title(); ?> →</a>
+                    <a href="<?= get_the_permalink(); ?>"><?= get_the_title(); ?> →</a>
 
                 <?php
                     endwhile;
@@ -293,7 +293,7 @@
         <div class="brosur-girl-container unselectable">
             <img class="brosur-girl" src="<?= get_template_directory_uri() . '/includes/images/upri_girl.png;' ?>" />
         </div>
-        <div class="brosur-form-container py-4">
+        <div class="brosur-form-container p-4">
             <h2>Download Brosur FISIP UPRI <?= date("Y"); ?></h2>
             <hr class="separator--blue" />
             <p>Download brosur FISIP UPRI untuk mendapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>

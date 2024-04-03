@@ -9,6 +9,11 @@
   padding: 0.5rem 0;
   list-style-type: none;
 }
+@media (max-width: 768px) {
+  .top-bar-menu {
+    display: none;
+  }
+}
 .top-bar-menu a:hover {
   text-decoration: underline;
 }
@@ -28,6 +33,11 @@
 .header-menu {
   display: flex;
   list-style-type: none;
+}
+@media (max-width: 768px) {
+  .header-menu {
+    display: none;
+  }
 }
 .header-menu a {
   display: block;

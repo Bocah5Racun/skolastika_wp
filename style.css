@@ -228,6 +228,12 @@ button {
   width: clamp(660px, 80vw, 1200px);
   margin: 0 auto;
 }
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+    padding: 1rem;
+  }
+}
 
 .container--full {
   width: 100%;
@@ -267,6 +273,11 @@ button {
 .constrained {
   width: clamp(330px, 66vw, 710px);
 }
+@media (max-width: 768px) {
+  .constrained {
+    width: 100%;
+  }
+}
 
 .centered-box {
   text-align: left;
@@ -279,9 +290,6 @@ button {
 }
 .section--dark {
   background-color: #0a0a0a;
-  color: #fff;
-}
-.section--dark a {
   color: #fff;
 }
 .section--upri-yellow {
