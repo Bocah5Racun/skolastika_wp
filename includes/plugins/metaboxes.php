@@ -1,7 +1,11 @@
 <?php
 
 function skolastika_theme_metabox_styles() {
-    wp_enqueue_style( 'metabox_styles' , get_template_directory_uri() . '/includes/styles/metabox_styles.css');
+    $current_screen = get_current_screen();
+    if( 'post' === $current_screen->base && 'staff' === $current_screen->id ) {
+      wp_enqueue_style( 'metabox_styles', get_template_directory_uri() . '/includes/styles/metabox_styles.css');
+      wp_enqueue_script( 'metabox_scripts', get_template_directory_uri() . '/includes/scripts/metabox_scripts.js', array(), false, true, array( 'strategy' => 'defer' ));
+    }
 }
 add_action( 'admin_enqueue_scripts', 'skolastika_theme_metabox_styles' );
 
@@ -12,7 +16,7 @@ function skolastika_theme_metaboxes() {
       'Staff Data', // $title
       'show_staff_profile_metabox', // $callback
       'staff', // $screen
-      'advanced', // $context
+      'normal', // $context
       'high' // $priority
     );
     
@@ -21,8 +25,17 @@ function skolastika_theme_metaboxes() {
       'Staff Socials', // $title
       'show_staff_socials_metabox', // $callback
       'staff', // $screen
-      'side', // $context
+      'advanced', // $context
       'high' // $priority
+    );
+
+    add_meta_box(
+      'staff_cv', // $id
+      'Staff CV', // $title
+      'show_staff_cv_metabox', // $callback
+      'staff', // $screen
+      'advanced', // $context
+      'low' // $priority
     );
 
 }
@@ -36,27 +49,31 @@ function show_staff_profile_metabox() {
 
     <input type="hidden" name="staff_profile_nonce" id="staff_profile_nonce" value="<?php echo wp_create_nonce( "staff-profile-nonce" ); ?>">
 
-    <section id="staff-data-container" class="metabox-container">
-        <section class="staff-data-section">
-          <h3>Position and Job Name</h3>
-          <div class="staff-data-section-content">
+    <section class="metabox-container">
+        <section class="metabox-subsection-container">
+          <div class="subsection-title">
+            <h3>Position and Job Name</h3>
+          </div>
+          <div class="metabox-subsection-content">
             <p>This appears under the individual's name on their staff member profile page.</p>
             <div style="display: flex; gap: 1rem;">
               <div>
                 <label for="staff_profile[job]">Job Name</label>
-                <input type="text" size="25" name="staff_profile[job]" id="staff_profile[job]" placeholder="Lecturer" value="<?= ( is_array($meta) && isset( $meta[0]['job'] ) ) ? $meta[0]['job'] : ""; ?>" />
+                <input type="text" name="staff_profile[job]" id="staff_profile[job]" placeholder="Lecturer" value="<?= ( is_array($meta) && isset( $meta[0]['job'] ) ) ? $meta[0]['job'] : ""; ?>" />
               </div>
               <div>
                 <label for="staff_profile[position]">Position</label>
-                <input type="text"  size="25" name="staff_profile[position]" id="staff_profile[position]" placeholder="Department Director" value="<?= ( is_array($meta) && isset( $meta[0]['position'] ) ) ? $meta[0]['position'] : ""; ?>" />
+                <input type="text" name="staff_profile[position]" id="staff_profile[position]" placeholder="Department Director" value="<?= ( is_array($meta) && isset( $meta[0]['position'] ) ) ? $meta[0]['position'] : ""; ?>" />
               </div>
             </div>
           </div>
         </section>
 
-        <section class="staff-data-section">
-          <h3>Biography</h3>
-          <div class="staff-data-section-content">
+        <section class="metabox-subsection-container metabox-subsection-container--full">
+          <div class="subsection-title">
+            <h3>Biography</h3>
+          </div>
+          <div class="metabox-subsection-content">
             <p>Include relevant information about the staff member's personal background and interests.</p>
             <textarea name="staff_profile[biography]" id="staff_profile[about]" placeholder="Example: <?= get_the_title(); ?> is a professor and has written three books about digital literacy and digital culture."><?= ( is_array($meta) && isset( $meta[0]['biography'] ) ) ? $meta[0]['biography'] : ""; ?></textarea>
           </div>
@@ -73,27 +90,34 @@ function show_staff_socials_metabox() {
   <section id="staff-socials-container" class="metabox-container">
     <input type="hidden" name="staff_socials_nonce" id="staff_socials_nonce" value="<?php echo wp_create_nonce( "staff-socials-nonce" ); ?>">
 
-    <p>Enter full social profile URLs.</p>
-    <div class="socials-row">
-      <h3>Social Media</h3>
+    <div class="socials-row metabox-subsection-container">
+      <div class="subsection-title">
+        <h3>Social Media Profiles</h3>
+      </div>
       <div class="socials-row-content">
         <div class="staff-socials-list">
           <div class="staff-socials-card">
-            <h3 class="card-title">Facebook</h3>
+            <div class="subsection-title">
+              <h3 class="card-title">Facebook</h3>
+            </div>
             <div class="staff-socials-card-content">
               <small>URL</small>
               <input type="text" name="staff_socials[facebook]" id="staff_socials[facebook]" value="<?= ( is_array($meta) && isset( $meta[0]['facebook'] ) ) ? $meta[0]['facebook'] : ""; ?>" />
             </div>
           </div>
           <div class="staff-socials-card">
-            <h3 class="card-title">Instagram</h3>
+            <div class="subsection-title">
+              <h3 class="card-title">Instagram</h3>
+            </div>
             <div class="staff-socials-card-content">
               <small>URL</small>
               <input type="text" name="staff_socials[instagram]" id="staff_socials[instagram]" value="<?= ( is_array($meta) && isset( $meta[0]['instagram'] ) ) ? $meta[0]['instagram'] : ""; ?>" />
             </div>
           </div>
           <div class="staff-socials-card">
-            <h3 class="card-title">Twitter</h3>
+            <div class="subsection-title">
+              <h3 class="card-title">Twitter</h3>
+            </div>
             <div class="staff-socials-card-content">
               <small>URL</small>
               <input type="text" name="staff_socials[twitter]" id="staff_socials[twitter]" value="<?= ( is_array($meta) && isset( $meta[0]['twitter'] ) ) ? $meta[0]['twitter'] : ""; ?>" />
@@ -103,33 +127,43 @@ function show_staff_socials_metabox() {
       </div>
     </div>
 
-    <div class="socials-row">
-      <h3>Professional Profiles</h3>
+    <div class="socials-row metabox-subsection-container">
+      <div class="subsection-title">
+          <h3>Professional Profiles</h3>
+      </div>
       <div class="socials-row-content">
         <div class="staff-socials-list">
         <div class="staff-socials-card">
-            <h3 class="card-title">LinkedIn</h3>
+            <div class="subsection-title">
+              <h3 class="card-title">LinkedIn</h3>
+            </div>
             <div class="staff-socials-card-content">
               <small>URL</small>
               <input type="text" name="staff_socials[linkedin]" id="staff_socials[linkedin]" value="<?= ( is_array($meta) && isset( $meta[0]['linkedin'] ) ) ? $meta[0]['linkedin'] : ""; ?>"/>
             </div>
           </div>
           <div class="staff-socials-card">
-            <h3 class="card-title">Google Scholar</h3>
+            <div class="subsection-title">
+              <h3 class="card-title">Google Scholar</h3>
+            </div>
             <div class="staff-socials-card-content">
               <small>URL</small>
               <input type="text" name="staff_socials[scholar]" id="staff_socials[scholar]" value="<?= ( is_array($meta) && isset( $meta[0]['scholar'] ) ) ? $meta[0]['scholar'] : ""; ?>"/>
             </div>
           </div>
           <div class="staff-socials-card">
-            <h3 class="card-title">ORCID</h3>
+            <div class="subsection-title">
+              <h3 class="card-title">ORCID</h3>
+            </div>
             <div class="staff-socials-card-content">
               <small>URL</small>
               <input type="text" name="staff_socials[orcid]" id="staff_socials[orcid]" value="<?= ( is_array($meta) && isset( $meta[0]['orcid'] ) ) ? $meta[0]['orcid'] : ""; ?>" />
             </div>
           </div>
           <div class="staff-socials-card">
-            <h3 class="card-title">SINTA</h3>
+            <div class="subsection-title">
+              <h3 class="card-title">SINTA</h3>
+            </div>
             <div class="staff-socials-card-content">
               <small>URL</small>
               <input type="text" name="staff_socials[sinta]" id="staff_socials[sinta]" value="<?= ( is_array($meta) && isset( $meta[0]['sinta'] ) ) ? $meta[0]['sinta'] : ""; ?>" />
@@ -137,6 +171,53 @@ function show_staff_socials_metabox() {
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+<?php }
+function show_staff_cv_metabox() {
+  global $post;
+  $meta = get_post_meta( $post->ID, 'staff_cv' );
+  ?>
+
+  <section id="staff-cv-container" class="metabox-container">
+    <input type="hidden" name="staff_cv_nonce" id="staff_cv_nonce" value="<?php echo wp_create_nonce( "staff-cv-nonce" ); ?>">
+    <div class="metabox-subsection-container">
+      <div class="cv-row">
+        <div class="subsection-title">
+          <h3>Work Experience</h3>
+          <a class="add_item" id="add_job" title="Add Position"><img src="<?= get_template_directory_uri() . "/includes/images/add.png"; ?>" /></a>
+        </div>
+        <ul id="job-list" class="subsection-list">
+          <?php
+            if( is_array( $meta ) && isset( $meta[0]['job_list'] ) ):
+              $jobs = $meta[0]['job_list'];
+              foreach( $jobs as $key => $job ):
+          ?>
+                <li class="job-list-item">
+                  <input type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][title]" name="staff_cv[job_list][<?= $key; ?>][title]" value="<?= $job['title']; ?>" placeholder="Job title" />
+                  <input type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][company]" name="staff_cv[job_list][<?= $key; ?>][company]" value="<?= $job['company']; ?>" placeholder="Company name" />
+                  <input type="number" inputemode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][start]" name="staff_cv[job_list][<?= $key; ?>][start]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['start']; ?>" placeholder="Start" />
+                  <input type="number" inputemode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][end]" name="staff_cv[job_list][<?= $key; ?>][end]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['end']; ?>" placeholder="End" />
+                </li>
+
+          <?php
+              endforeach;
+            endif;
+          ?>
+        </ul>
+      </div>
+    </div>
+    <input type="hidden" name="staff_cv_nonce" id="staff_cv_nonce" value="<?php echo wp_create_nonce( "staff-cv-nonce" ); ?>">
+    <div class="metabox-subsection-container">
+      <div class="cv-row">
+        <div class="subsection-title">
+          <h3>Research and Innovations</h3>
+          <a class="add_item" id="add_research" title="Add Item"><img src="<?= get_template_directory_uri() . "/includes/images/add.png"; ?>" /></a>
+        </div>
+      </div>
+      <ul id="research-list" class="subsection-list">
+      </ul>
     </div>
   </section>
 
@@ -149,6 +230,10 @@ function skolastika_theme_save_metaboxes( $post_id ) {
     }
 
     if ( !wp_verify_nonce( $_POST["staff_socials_nonce"], 'staff-socials-nonce' ) ) {
+        return $post_id;
+    }
+    
+    if ( !wp_verify_nonce( $_POST["staff_cv_nonce"], 'staff-cv-nonce' ) ) {
         return $post_id;
     }
 
@@ -180,7 +265,22 @@ function skolastika_theme_save_metaboxes( $post_id ) {
     if ( $new && $new !== $old ) {
       update_post_meta( $post_id, 'staff_socials', $new );
     } elseif ( '' === $new && $old ) {
-      delete_post_meta( $post_id, 'staff_profile', $old );
+      delete_post_meta( $post_id, 'staff_socials', $old );
+    }
+
+    $old = get_post_meta( $post_id, 'staff_cv');
+    $new = $_POST['staff_cv'];
+
+    foreach( $new['job_list'] as $key => $job_data ) {
+      if( empty( $job_data['title'] ) || empty( $job_data['company'] ) ) {
+        array_splice( $new['job_list'], $key );
+      }
+    }
+  
+    if ( $new && $new !== $old ) {
+      update_post_meta( $post_id, 'staff_cv', $new );
+    } elseif ( '' === $new && $old ) {
+      delete_post_meta( $post_id, 'staff_cv', $old );
     }
 }
 add_action( 'save_post', 'skolastika_theme_save_metaboxes' );

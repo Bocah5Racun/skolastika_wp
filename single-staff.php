@@ -2,15 +2,18 @@
     get_header();
     $profile_meta = get_post_meta( get_the_ID(), 'staff_profile', true);
     $socials_meta = get_post_meta( get_the_ID(), 'staff_socials', true);
+    $cv_meta = get_post_meta( get_the_ID(), 'staff_cv', true);
 ?>
 
 <section id="staff-name" class="section">
     <div class="staff-name-inner container">
         <div class="staff-name-pic-container">
             <img class="staff-pic" src="<?= get_the_post_thumbnail_url( get_the_ID(), "large" ); ?>" />
-            <div class="socials-container">
                 <?php
-                    if( isset( $socials_meta ) ) :
+                    if( is_array( $socials_meta) && isset( $socials_meta ) ) :
+                ?>
+                <div class="socials-container">
+                <?php
                         foreach( $socials_meta as $platform => $url ) :
                             if( !empty( $url ) ) :
                                 $social_pic_url = get_template_directory_uri() . "/includes/images/social_" . $platform . ".png";
@@ -47,9 +50,9 @@
                 <?php
                         endif;
                     endforeach;
-                    endif;
                 ?>
                 </div>
+                <?php endif; ?>
                 <?php
                     $topics = wp_get_post_terms( get_the_ID(), 'expertise' );
                     if( is_array ($topics ) && isset( $topics ) && !empty( $topics ) ):
@@ -79,36 +82,51 @@
     </div>
 </section>
 
-<hr />
-
 <section id="staff-articles" class="section">
     <div class="staff-articles-inner section-inner container">
         <h2>Artikel Terkait</h2>
     </div>  
 </section>
 
+<?php
+    if( isset( $cv_meta ) && isset( $cv_meta['job_list'] ) ):
+?>
+
 <hr />
 
 <section id="staff-work-experience" class="section">
     <div class="staff-work-experience-inner section-inner container">
         <h2>Riwayat Kerja</h2>
+        <ul id="job-list" class="staff-list">
+            <?php foreach( $cv_meta['job_list'] as $job ): ?>
+            <li>
+                <div class="job-title">
+                    <?= $job['title']; ?>
+                </div>
+                <div class="job-period">
+                    <?= $job['start']; ?> – <?= !empty( $job['end'] ) ? $job['end'] : 'Sekarang'; ?>
+                </div>
+                <div class="job-company"><?= $job['company']; ?></div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
     </div>  
 </section>
+
+<?php endif; ?>
+
+<?php
+    if( isset( $cv_meta ) && isset( $cv_meta['research_list'] ) ):
+?>
 
 <hr />
 
-<section id="staff-trademarks" class="section">
-    <div class="staff-trademarks-inner section-inner container">
-        <h2>Karya & Inovasi</h2>
+<section id="staff-research" class="section">
+    <div class="staff-research-inner section-inner container">
+        <h2>Riset & Inovasi</h2>
     </div>  
 </section>
 
-<hr />
-
-<section id="staff-publications" class="section">
-    <div class="staff-publications-inner section-inner container">
-        <h2>Riset & Publikasi</h2>
-    </div>  
-</section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
