@@ -8,10 +8,6 @@
     <div class="staff-name-inner container">
         <div class="staff-name-pic-container">
             <img class="staff-pic" src="<?= get_the_post_thumbnail_url( get_the_ID(), "large" ); ?>" />
-                <?php
-                    $topics = wp_get_post_terms( get_the_ID(), 'expertise' );
-                    if( is_array ($topics ) && isset( $topics ) && !empty( $topics ) ):
-                ?>
             <div class="socials-container">
                 <?php
                     if( isset( $socials_meta ) ) :
@@ -49,11 +45,15 @@
                     </a>
 
                 <?php
-                            endif;
-                        endforeach;
+                        endif;
+                    endforeach;
                     endif;
                 ?>
                 </div>
+                <?php
+                    $topics = wp_get_post_terms( get_the_ID(), 'expertise' );
+                    if( is_array ($topics ) && isset( $topics ) && !empty( $topics ) ):
+                ?>
                 <div class="staff-name-expertise">
                     <div class="expertise-title">Bidang Keahlian</div>
                     <div class="topics">
