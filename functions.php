@@ -8,6 +8,7 @@ function skolastika_theme_styles() {
     if( is_front_page() ) wp_enqueue_style( 'front-page', get_template_directory_uri() . '/includes/styles/front-page.css', array(), '1.0', 'all' );
     if( is_single() ) wp_enqueue_style( 'single-page', get_template_directory_uri() . '/includes/styles/single-page.css', array(), '1.0', 'all' );
     if( is_singular( 'study-program-about' ) ) wp_enqueue_style( 'single-study-program-about', get_template_directory_uri() . '/includes/styles/single-study-program-about.css', array(), '1.0', 'all' );
+    if( is_singular( 'staff' ) ) wp_enqueue_style( 'single-staff', get_template_directory_uri() . '/includes/styles/single-staff.css', array(), '1.0', 'all' );
 }
 
 function skolastika_theme_menus() {
@@ -70,14 +71,13 @@ function skolastika_theme_posttypes() {
             'labels'            => array(
                 'name'              => __( 'Staff' ),
             ),
-            'supports'          => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+            'supports'          => array( 'title', 'thumbnail', 'page-attributes'),
             'public'            => true,
             'has_archive'       => true,
             'hierarchical'      => true,
             'rewrite'           => array( 'slug' => 'staff'),
             'menu_icon'         => 'dashicons-groups',
             'menu_position'     => 6,
-            'show_in_rest'  => true,
             'show_in_nav_menus' => true,
         ),
     );
@@ -125,6 +125,25 @@ function skolastika_theme_taxonomies() {
         'show_admin_column' => true,
         'query_var' => true,
         'rewrite' => array( 'slug' => 'study_program' ),
+        'show_in_menu' => false,
+      ) );
+      
+      $labels = array(
+        'name'              => 'Expertise Topics',
+        'singular_name'     => 'Topic',
+        'plural_name'       => 'Topics',
+        'menu_name'         => 'Expertise Topic',
+      );
+
+      register_taxonomy( 'expertise', array( 'staff' ), array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_in_rest' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'study_program' ),
+        'context'   => 'advanced',
         'show_in_menu' => false,
       ) );
 
@@ -230,4 +249,4 @@ add_action( 'wp_enqueue_scripts', 'skolastika_theme_styles' );
 add_theme_support( 'custom-logo' );
 add_theme_support( 'post-thumbnails' );
 
-; ?>
+include( get_template_directory() . "/includes/plugins/metaboxes.php" ); // metabox plugin

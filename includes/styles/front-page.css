@@ -424,7 +424,11 @@
 
 .brosur-girl-container {
   position: relative;
-  top: 1rem;
+}
+@media (max-width: 1024px) {
+  .brosur-girl-container {
+    top: 1rem;
+  }
 }
 .brosur-girl-container .brosur-girl {
   position: absolute;

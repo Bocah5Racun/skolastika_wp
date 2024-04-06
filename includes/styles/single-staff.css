@@ -1,0 +1,72 @@
+.staff-name-inner {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+@media (max-width: 480px) {
+  .staff-name-inner {
+    grid-template-columns: 1fr;
+  }
+}
+.staff-name-inner .staff-pic {
+  width: 100%;
+  height: auto;
+}
+
+.socials-container {
+  background-color: #cccccc;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.staff-name-pic-container {
+  display: flex;
+  flex-direction: column;
+}
+.staff-name-pic-container .social-pic {
+  width: 32px;
+}
+
+.staff-name-info {
+  display: flex;
+  flex-direction: column;
+}
+.staff-name-info h4 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #0a0a0a;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.staff-name-bio {
+  white-space: pre-line;
+  font-size: 1.25rem;
+}
+
+.staff-name-expertise {
+  padding: 0.5rem 1rem;
+  background: #f5f390;
+}
+
+.topics {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.expertise-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.topic-card {
+  background-color: #0a0a0a;
+  color: #fff;
+  padding: 0.25rem;
+  font-size: 0.825rem;
+  line-height: 1rem;
+}/*# sourceMappingURL=single-staff.css.map */

@@ -1,0 +1,58 @@
+.metabox-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 1rem;
+}
+.metabox-container h3 {
+  font-size: 14px;
+  padding: 8px 12px;
+  margin: 0;
+  line-height: 1.4;
+  border-bottom: 1px solid #c3c4c7;
+}
+.metabox-container label {
+  font-size: 14px;
+  padding: 8px 12px;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 600;
+}
+.metabox-container label:not(:first-child) {
+  margin-top: 1rem;
+}
+.metabox-container textarea {
+  width: 100%;
+  height: 300px;
+}
+
+.staff-data-section {
+  border: 1px solid #c3c4c7;
+}
+
+.staff-data-section-content {
+  padding: 8px 12px;
+}
+
+.socials-row {
+  border: 1px solid #c3c4c7;
+}
+.socials-row .socials-row-content {
+  padding: 1rem;
+}
+
+.staff-socials-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.staff-socials-card {
+  align-self: flex-start;
+  border: 1px solid #c3c4c7;
+}
+.staff-socials-card .staff-socials-card-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}/*# sourceMappingURL=metabox_styles.css.map */

@@ -64,7 +64,7 @@
 
         ?>
 
-        <div class="study-program-card py-2">
+        <div class="study-program-card p-2">
             <a href="<?= get_permalink(); ?>" title="Program studi <?= get_the_title(); ?>">
                     <img src="<?= get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" />
                 <h2><?= get_the_title(); ?></h2>
@@ -294,9 +294,9 @@
             <img class="brosur-girl" src="<?= get_template_directory_uri() . '/includes/images/upri_girl.png;' ?>" />
         </div>
         <div class="brosur-form-container p-4">
-            <h2>Download Brosur FISIP UPRI <?= date("Y"); ?></h2>
+            <h2>Brosur FISIP UPRI</h2>
             <hr class="separator--blue" />
-            <p>Download brosur FISIP UPRI untuk mendapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>
+            <p>Dapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>
             <div id="brosur-form">
                 <label for="nama">Nama</label><input type="text" required />
                 <label for="nama">Kota</label><input type="text" placeholder="Kota domisili Anda saat ini." required />

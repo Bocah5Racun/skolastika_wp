@@ -1,9 +1,15 @@
+@media (max-width: 768px) {
+  #single-hero-container {
+    padding: 1rem;
+  }
+}
 #single-hero-container h1 {
   align-self: self-start;
   position: relative;
   background-color: #fff500;
   padding: 0 2rem;
   z-index: 10;
+  max-width: 90vw;
 }
 
 .study-program-info-inner {
@@ -14,12 +20,29 @@
   padding: 2rem 1.5rem;
   font-size: 1.5rem;
 }
+@media (max-width: 768px) {
+  .study-program-info-inner {
+    padding: 1rem;
+  }
+}
 
 .program-studi-info-list {
   list-style-type: none;
   display: flex;
   justify-content: space-evenly;
+  padding: 0 1rem;
   gap: 2rem;
+}
+@media (max-width: 768px) {
+  .program-studi-info-list {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .program-studi-info-list {
+    font-size: 1.5rem;
+    flex-direction: column;
+  }
 }
 .program-studi-info-list a {
   text-decoration: none;
@@ -35,8 +58,18 @@
 }
 .blog-list .blog-card {
   background-color: #cccccc;
-  width: calc(25% - 0.75rem);
+  width: calc(25% - 1rem);
   min-height: 300px;
+}
+@media (max-width: 768px) {
+  .blog-list .blog-card {
+    width: calc(50% - 1rem);
+  }
+}
+@media (max-width: 480px) {
+  .blog-list .blog-card {
+    width: calc(100% - 1rem);
+  }
 }
 
 .staff-list {
@@ -49,11 +82,22 @@
 .staff-list .staff-card {
   width: calc(20% - 1rem);
 }
+@media (max-width: 768px) {
+  .staff-list .staff-card {
+    width: calc(33.3333333333% - 1rem);
+  }
+}
+@media (max-width: 480px) {
+  .staff-list .staff-card {
+    width: calc(50% - 1rem);
+  }
+}
 .staff-list .staff-card-link {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   font-size: 1.25rem;
+  color: inherit;
 }
 .staff-list .staff-card-link:hover {
   text-decoration: underline;

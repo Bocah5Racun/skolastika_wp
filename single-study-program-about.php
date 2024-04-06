@@ -57,13 +57,14 @@
     </div>
 </section>
 
-<article class="section container">
+<article class="section">
 
-<div class="study-program-desc-container text-center">
+<div class="study-program-desc-container text-center container">
     <div class="centered-box constrained">
         <?= the_content(); ?>
     </div>
-    <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Daftar Sekarang →</a>
+    <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi tentang pendaftaran mahasiswa baru →</a>
+    <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
 </div>
 
 </article>
@@ -90,7 +91,7 @@
     <div class="section-inner container">
         <h2>Blog <?= get_the_title(); ?></h2>
         <hr class="separator--blue" />
-        <h3>Baca artikel informasional tentang <?= get_the_title(); ?>.</h3>
+        <h3>Cicipan ilmu yang dipelajari mahasiswa <?= get_the_title(); ?>.</h3>
         <div class="blog-list">
             <?php
                 while( $query->have_posts() ):

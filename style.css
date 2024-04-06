@@ -160,17 +160,17 @@ h3 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.75rem, 4vw, 12vw);
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.825rem, 3vw, 2.5rem);
   font-weight: 600;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.35rem, 3vw, 1.5rem);
   font-weight: 300;
 }
 
@@ -180,8 +180,8 @@ a {
 }
 
 p {
-  font-size: 1.25rem;
-  line-height: 1.85rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 150%;
 }
 
 ul {
@@ -294,7 +294,7 @@ button {
 }
 .section--upri-yellow {
   background-color: #fff500;
-  color: #fff;
+  color: #0a0a0a;
 }
 .section--upri-blue {
   background-color: #0a26c7;
@@ -338,4 +338,9 @@ button {
 
 .see-more--yellow {
   color: #fff500;
+}
+
+.last-updated {
+  margin: 1rem 0;
+  font-style: italic;
 }/*# sourceMappingURL=style.css.map */

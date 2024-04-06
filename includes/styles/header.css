@@ -24,6 +24,11 @@
   justify-content: space-between;
   padding: 1rem 0;
 }
+@media (max-width: 768px) {
+  #middle-bar-inner {
+    padding: 1rem;
+  }
+}
 
 #header-menu-container {
   border-top: 1px solid #cccccc;
@@ -72,4 +77,10 @@
 #header-breadcrumbs-container {
   background-color: #fff500;
   font-size: 0.85rem;
+}
+
+@media (max-width: 480px) {
+  #search-container {
+    display: none;
+  }
 }/*# sourceMappingURL=header.css.map */
