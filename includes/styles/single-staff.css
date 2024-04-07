@@ -32,6 +32,29 @@
   scale: 0.85;
 }
 
+.staff-work-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.staff-work-header-container .accordion-toggle {
+  height: 40px;
+  transform: scaleY(1);
+  transition: all 75ms ease-in-out;
+  cursor: pointer;
+}
+.staff-work-header-container .accordion-toggle.on {
+  transform: scaleY(-1);
+}
+.staff-work-header-container .accordion-toggle:hover {
+  scale: 0.9;
+}
+.staff-work-header-container .accordion-toggle img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .staff-name-pic-container {
   display: flex;
   flex-direction: column;
@@ -84,9 +107,9 @@
 }
 
 .staff-list {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.825rem, 1vw, 1rem);
   line-height: 150%;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 .staff-list li {

@@ -118,7 +118,30 @@
   gap: 0.5rem;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+.job-list-move-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meta-move {
+  width: 16px;
+}
+.meta-move:hover {
+  scale: 1.15;
+  cursor: pointer;
+}
+.meta-move:active {
+  scale: 0.9;
+}
+.meta-move[disabled] {
+  opacity: 0.25;
+}
+.meta-move--up {
+  transform: scaleY(-1);
+}
+.meta-move img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=metabox_styles.css.map */

@@ -195,6 +195,14 @@ function show_staff_cv_metabox() {
               foreach( $jobs as $key => $job ):
           ?>
                 <li class="job-list-item">
+
+                  <div class="job-list-move-container">
+
+                    <a class="meta-move meta-move--up" <?php if( $key == 0 ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
+                    <a class="meta-move meta-move--down" <?php if( $key >= (count( $jobs ) - 1) ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>"></a>
+
+                  </div>
+                  
                   <input type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][title]" name="staff_cv[job_list][<?= $key; ?>][title]" value="<?= $job['title']; ?>" placeholder="Job title" />
                   <input type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][company]" name="staff_cv[job_list][<?= $key; ?>][company]" value="<?= $job['company']; ?>" placeholder="Company name" />
                   <input type="number" inputemode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][start]" name="staff_cv[job_list][<?= $key; ?>][start]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['start']; ?>" placeholder="Start" />

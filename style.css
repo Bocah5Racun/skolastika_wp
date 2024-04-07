@@ -286,7 +286,7 @@ button {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: clamp(2rem, 5vw, 4rem) 0;
 }
 .section--dark {
   background-color: #0a0a0a;

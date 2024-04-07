@@ -96,7 +96,10 @@
 
 <section id="staff-work-experience" class="section">
     <div class="staff-work-experience-inner section-inner container">
-        <h2>Riwayat Kerja</h2>
+        <div class="staff-work-header-container">
+            <h2>Riwayat Kerja</h2>
+            <a class="accordion-toggle" data-accordion-for-list="job-list"><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
+        </div>
         <ul id="job-list" class="staff-list">
             <?php foreach( $cv_meta['job_list'] as $job ): ?>
             <li>
@@ -128,5 +131,39 @@
 </section>
 
 <?php endif; ?>
+
+<script>
+
+    const accordions = document.querySelectorAll('.accordion-toggle')
+
+    accordions.forEach( (e) => {
+        e.addEventListener("click", () => {
+            const forList = e.getAttribute('data-accordion-for-list')
+            const forListNode = document.getElementById(forList)
+            const listStatusNow = e.hasAttribute('data-accordion-open')
+            
+            if(listStatusNow) {
+                e.removeAttribute('data-accordion-open')
+                e.classList.remove('on')
+            } else {
+                e.setAttribute('data-accordion-open', '')
+                e.classList.add('on')
+                accordions.forEach( (el) => {
+                  if( el.getAttribute('data-accordion-for-list') != forList ) {
+                    el.removeAttribute('data-accordion-open')
+                    el.classList.remove('on')
+                  }  
+                })
+            }
+
+            forListNode.style.display = e.hasAttribute('data-accordion-open') ? 'flex' : 'none'
+
+            console.log(e.hasAttribute('data-accordion-open'))
+
+            
+
+        })
+    })
+</script>
 
 <?php get_footer(); ?>
