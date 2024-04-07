@@ -111,14 +111,14 @@
      object-fit: cover;
 }
 
-.job-list-item {
+.list-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
 }
 
-.job-list-move-container {
+.list-item-move-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,6 +136,9 @@
 }
 .meta-move[disabled] {
   opacity: 0.25;
+}
+.meta-move[hidden] {
+  opacity: 0;
 }
 .meta-move--up {
   transform: scaleY(-1);

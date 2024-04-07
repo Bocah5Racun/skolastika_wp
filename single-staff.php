@@ -89,7 +89,7 @@
 </section>
 
 <?php
-    if( isset( $cv_meta ) && isset( $cv_meta['job_list'] ) ):
+    if( isset( $cv_meta ) && isset( $cv_meta['job_list'] ) && !empty( $cv_meta['job_list'] ) ):
 ?>
 
 <hr />
@@ -119,14 +119,30 @@
 <?php endif; ?>
 
 <?php
-    if( isset( $cv_meta ) && isset( $cv_meta['research_list'] ) ):
+    if( isset( $cv_meta ) && isset( $cv_meta['research_list'] ) && !empty( $cv_meta['research_list'] ) ):
 ?>
 
 <hr />
 
 <section id="staff-research" class="section">
     <div class="staff-research-inner section-inner container">
-        <h2>Riset & Inovasi</h2>
+        <div class="staff-work-header-container">
+            <h2>Riset & Inovasi</h2>
+            <a class="accordion-toggle" data-accordion-for-list="research-list"><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
+        </div>
+        <ul id="research-list" class="staff-list">
+            <?php foreach( $cv_meta['research_list'] as $research ): ?>
+            <li>
+                <div class="job-title">
+                    <?= $research['title']; ?>
+                </div>
+                <div class="job-period">
+                    <?= $research['date']; ?>
+                </div>
+                <div class="job-company"><?= $research['desc']; ?></div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
     </div>  
 </section>
 
@@ -152,15 +168,13 @@
                   if( el.getAttribute('data-accordion-for-list') != forList ) {
                     el.removeAttribute('data-accordion-open')
                     el.classList.remove('on')
+                    document.getElementById(el.getAttribute('data-accordion-for-list')).style.display = 'none'
                   }  
                 })
             }
 
             forListNode.style.display = e.hasAttribute('data-accordion-open') ? 'flex' : 'none'
-
-            console.log(e.hasAttribute('data-accordion-open'))
-
-            
+            forListNode.parentElement.scrollIntoView()
 
         })
     })

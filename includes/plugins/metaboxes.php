@@ -194,19 +194,19 @@ function show_staff_cv_metabox() {
               $jobs = $meta[0]['job_list'];
               foreach( $jobs as $key => $job ):
           ?>
-                <li class="job-list-item">
+                <li class="list-item">
 
-                  <div class="job-list-move-container">
+                  <div class="list-item-move-container">
 
                     <a class="meta-move meta-move--up" <?php if( $key == 0 ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
                     <a class="meta-move meta-move--down" <?php if( $key >= (count( $jobs ) - 1) ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>"></a>
 
                   </div>
                   
-                  <input type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][title]" name="staff_cv[job_list][<?= $key; ?>][title]" value="<?= $job['title']; ?>" placeholder="Job title" />
-                  <input type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][company]" name="staff_cv[job_list][<?= $key; ?>][company]" value="<?= $job['company']; ?>" placeholder="Company name" />
-                  <input type="number" inputemode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][start]" name="staff_cv[job_list][<?= $key; ?>][start]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['start']; ?>" placeholder="Start" />
-                  <input type="number" inputemode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][end]" name="staff_cv[job_list][<?= $key; ?>][end]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['end']; ?>" placeholder="End" />
+                  <input data-desc="title" type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][title]" name="staff_cv[job_list][<?= $key; ?>][title]" value="<?= $job['title']; ?>" placeholder="Job title" />
+                  <input data-desc="company" type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][company]" name="staff_cv[job_list][<?= $key; ?>][company]" value="<?= $job['company']; ?>" placeholder="Company name" />
+                  <input data-desc="start" type="number" inputmode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][start]" name="staff_cv[job_list][<?= $key; ?>][start]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['start']; ?>" placeholder="Start" />
+                  <input data-desc="end" type="number" inputmode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][end]" name="staff_cv[job_list][<?= $key; ?>][end]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['end']; ?>" placeholder="End" />
                 </li>
 
           <?php
@@ -225,6 +225,30 @@ function show_staff_cv_metabox() {
         </div>
       </div>
       <ul id="research-list" class="subsection-list">
+          <?php
+            if( is_array( $meta ) && isset( $meta[0]['research_list'] ) ):
+              $researches = $meta[0]['research_list'];
+              foreach( $researches as $key => $research ):
+          ?>
+                <li class="list-item">
+
+                  <div class="list-item-move-container">
+
+                    <a class="meta-move meta-move--up" <?php if( $key == 0 ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
+                    <a class="meta-move meta-move--down" <?php if( $key >= (count( $researches ) - 1) ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>"></a>
+
+                  </div>
+                  
+                  <input data-desc="title" type="text" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][title]" name="staff_cv[research_list][<?= $key; ?>][title]" value="<?= $research['title']; ?>" placeholder="Project name" />
+                  <input data-desc="desc" type="text" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][company]" name="staff_cv[research_list][<?= $key; ?>][desc]" value="<?= $research['desc']; ?>" placeholder="Project description" />
+                  <input data-desc="date" type="date" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][date]" name="staff_cv[research_list][<?= $key; ?>][date]" value="<?= $research['date']; ?>" />
+                </li>
+
+          <?php
+              endforeach;
+            endif;
+          ?>
+        </ul>
       </ul>
     </div>
   </section>
@@ -282,6 +306,11 @@ function skolastika_theme_save_metaboxes( $post_id ) {
     foreach( $new['job_list'] as $key => $job_data ) {
       if( empty( $job_data['title'] ) || empty( $job_data['company'] ) ) {
         array_splice( $new['job_list'], $key );
+      }
+    }
+    foreach( $new['research_list'] as $key => $research_data ) {
+      if( empty( $research_data['title'] ) || empty( $research_data['desc'] ) ) {
+        array_splice( $new['research_list'], $key );
       }
     }
   
