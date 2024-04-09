@@ -106,7 +106,7 @@
                 <div class="job-title">
                     <?= $job['title']; ?>
                 </div>
-                <div class="job-period">
+                <div class="period">
                     <?= $job['start']; ?> – <?= !empty( $job['end'] ) ? $job['end'] : 'Sekarang'; ?>
                 </div>
                 <div class="job-company"><?= $job['company']; ?></div>
@@ -136,7 +136,7 @@
                 <div class="job-title">
                     <?= $research['title']; ?>
                 </div>
-                <div class="job-period">
+                <div class="period">
                     <?= $research['date']; ?>
                 </div>
                 <div class="job-company"><?= $research['desc']; ?></div>
@@ -148,36 +148,5 @@
 
 <?php endif; ?>
 
-<script>
-
-    const accordions = document.querySelectorAll('.accordion-toggle')
-
-    accordions.forEach( (e) => {
-        e.addEventListener("click", () => {
-            const forList = e.getAttribute('data-accordion-for-list')
-            const forListNode = document.getElementById(forList)
-            const listStatusNow = e.hasAttribute('data-accordion-open')
-            
-            if(listStatusNow) {
-                e.removeAttribute('data-accordion-open')
-                e.classList.remove('on')
-            } else {
-                e.setAttribute('data-accordion-open', '')
-                e.classList.add('on')
-                accordions.forEach( (el) => {
-                  if( el.getAttribute('data-accordion-for-list') != forList ) {
-                    el.removeAttribute('data-accordion-open')
-                    el.classList.remove('on')
-                    document.getElementById(el.getAttribute('data-accordion-for-list')).style.display = 'none'
-                  }  
-                })
-            }
-
-            forListNode.style.display = e.hasAttribute('data-accordion-open') ? 'flex' : 'none'
-            forListNode.parentElement.scrollIntoView()
-
-        })
-    })
-</script>
 
 <?php get_footer(); ?>

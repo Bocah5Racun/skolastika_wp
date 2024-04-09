@@ -5,6 +5,10 @@ function skolastika_theme_metabox_styles() {
     if( 'post' === $current_screen->base && 'staff' === $current_screen->id ) {
       wp_enqueue_style( 'metabox_styles', get_template_directory_uri() . '/includes/styles/metabox_styles.css');
       wp_enqueue_script( 'metabox_scripts', get_template_directory_uri() . '/includes/scripts/metabox_scripts.js', array(), false, true, array( 'strategy' => 'defer' ));
+
+      wp_localize_script( 'metabox_scripts', 'GLOBALS', array(
+        'baseURL' => get_template_directory_uri(),
+      ));
     }
 }
 add_action( 'admin_enqueue_scripts', 'skolastika_theme_metabox_styles' );
@@ -188,32 +192,35 @@ function show_staff_cv_metabox() {
           <h3>Work Experience</h3>
           <a class="add_item" id="add_job" title="Add Position"><img src="<?= get_template_directory_uri() . "/includes/images/add.png"; ?>" /></a>
         </div>
-        <ul id="job-list" class="subsection-list">
-          <?php
-            if( is_array( $meta ) && isset( $meta[0]['job_list'] ) ):
-              $jobs = $meta[0]['job_list'];
-              foreach( $jobs as $key => $job ):
-          ?>
-                <li class="list-item">
+        <div class="metabox-subsection-content">
+          <p>To delete an item, erase either Title or Company Name.</p>
+          <ul id="job-list" class="subsection-list">
+            <?php
+              if( is_array( $meta ) && isset( $meta[0]['job_list'] ) ):
+                $jobs = $meta[0]['job_list'];
+                foreach( $jobs as $key => $job ):
+            ?>
+                  <li class="list-item">
 
-                  <div class="list-item-move-container">
+                    <div class="list-item-move-container">
 
-                    <a class="meta-move meta-move--up" <?php if( $key == 0 ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
-                    <a class="meta-move meta-move--down" <?php if( $key >= (count( $jobs ) - 1) ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>"></a>
+                      <a class="meta-move meta-move--up" <?php if( $key == 0 ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
+                      <a class="meta-move meta-move--down" <?php if( $key >= (count( $jobs ) - 1) ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>"></a>
 
-                  </div>
-                  
-                  <input data-desc="title" type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][title]" name="staff_cv[job_list][<?= $key; ?>][title]" value="<?= $job['title']; ?>" placeholder="Job title" />
-                  <input data-desc="company" type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][company]" name="staff_cv[job_list][<?= $key; ?>][company]" value="<?= $job['company']; ?>" placeholder="Company name" />
-                  <input data-desc="start" type="number" inputmode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][start]" name="staff_cv[job_list][<?= $key; ?>][start]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['start']; ?>" placeholder="Start" />
-                  <input data-desc="end" type="number" inputmode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][end]" name="staff_cv[job_list][<?= $key; ?>][end]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['end']; ?>" placeholder="End" />
-                </li>
+                    </div>
+                    
+                    <input data-desc="title" type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][title]" name="staff_cv[job_list][<?= $key; ?>][title]" value="<?= $job['title']; ?>" placeholder="Job title" />
+                    <input data-desc="company" type="text" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][company]" name="staff_cv[job_list][<?= $key; ?>][company]" value="<?= $job['company']; ?>" placeholder="Company name" />
+                    <input data-desc="start" type="number" inputmode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][start]" name="staff_cv[job_list][<?= $key; ?>][start]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['start']; ?>" placeholder="Start" />
+                    <input data-desc="end" type="number" inputmode="numeric" class="job-list-text" id="staff_cv[job_list][<?= $key; ?>][end]" name="staff_cv[job_list][<?= $key; ?>][end]" step="1" size="6" min="1960" max="<?= date("Y"); ?>" value="<?= $job['end']; ?>" placeholder="End" />
+                  </li>
 
-          <?php
-              endforeach;
-            endif;
-          ?>
-        </ul>
+            <?php
+                endforeach;
+              endif;
+            ?>
+          </ul>
+        </div>
       </div>
     </div>
     <input type="hidden" name="staff_cv_nonce" id="staff_cv_nonce" value="<?php echo wp_create_nonce( "staff-cv-nonce" ); ?>">
@@ -224,32 +231,34 @@ function show_staff_cv_metabox() {
           <a class="add_item" id="add_research" title="Add Item"><img src="<?= get_template_directory_uri() . "/includes/images/add.png"; ?>" /></a>
         </div>
       </div>
-      <ul id="research-list" class="subsection-list">
-          <?php
-            if( is_array( $meta ) && isset( $meta[0]['research_list'] ) ):
-              $researches = $meta[0]['research_list'];
-              foreach( $researches as $key => $research ):
-          ?>
-                <li class="list-item">
+      <div class="metabox-subsection-content">
+          <p>To delete an item, erase either Project Name or Description.</p>
+          <ul id="research-list" class="subsection-list">
+              <?php
+                if( is_array( $meta ) && isset( $meta[0]['research_list'] ) ):
+                  $researches = $meta[0]['research_list'];
+                  foreach( $researches as $key => $research ):
+              ?>
+                    <li class="list-item">
 
-                  <div class="list-item-move-container">
+                      <div class="list-item-move-container">
 
-                    <a class="meta-move meta-move--up" <?php if( $key == 0 ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
-                    <a class="meta-move meta-move--down" <?php if( $key >= (count( $researches ) - 1) ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>"></a>
+                        <a class="meta-move meta-move--up" <?php if( $key == 0 ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>" /></a>
+                        <a class="meta-move meta-move--down" <?php if( $key >= (count( $researches ) - 1) ) echo "disabled"; ?>><img src="<?= get_template_directory_uri() . '/includes/images/down.png'; ?>"></a>
 
-                  </div>
-                  
-                  <input data-desc="title" type="text" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][title]" name="staff_cv[research_list][<?= $key; ?>][title]" value="<?= $research['title']; ?>" placeholder="Project name" />
-                  <input data-desc="desc" type="text" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][company]" name="staff_cv[research_list][<?= $key; ?>][desc]" value="<?= $research['desc']; ?>" placeholder="Project description" />
-                  <input data-desc="date" type="date" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][date]" name="staff_cv[research_list][<?= $key; ?>][date]" value="<?= $research['date']; ?>" />
-                </li>
+                      </div>
+                      
+                      <input data-desc="title" type="text" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][title]" name="staff_cv[research_list][<?= $key; ?>][title]" value="<?= $research['title']; ?>" placeholder="Project name" />
+                      <input data-desc="desc" type="text" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][company]" name="staff_cv[research_list][<?= $key; ?>][desc]" value="<?= $research['desc']; ?>" placeholder="Project description" />
+                      <input data-desc="date" type="date" class="job-list-text" id="staff_cv[research_list][<?= $key; ?>][date]" name="staff_cv[research_list][<?= $key; ?>][date]" value="<?= $research['date']; ?>" />
+                    </li>
 
-          <?php
-              endforeach;
-            endif;
-          ?>
-        </ul>
-      </ul>
+              <?php
+                  endforeach;
+                endif;
+              ?>
+          </ul>
+        </div>
     </div>
   </section>
 

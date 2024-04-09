@@ -11,6 +11,10 @@ function skolastika_theme_styles() {
     if( is_singular( 'staff' ) ) wp_enqueue_style( 'single-staff', get_template_directory_uri() . '/includes/styles/single-staff.css', array(), '1.0', 'all' );
 }
 
+function skolastika_theme_scripts() {
+    if( is_singular( 'staff') ) wp_enqueue_script( 'single-staff-script', get_template_directory_uri() . '/includes/scripts/single-staff.js', array(), '1.0', 'all' );
+}
+
 function skolastika_theme_menus() {
     register_nav_menus(
         array(
@@ -245,6 +249,7 @@ add_action( 'init', 'skolastika_theme_taxonomies' );
 
 add_action( 'restrict_manage_posts', 'skolastika_theme_study_programs_filter' );
 add_action( 'wp_enqueue_scripts', 'skolastika_theme_styles' );
+add_action( 'wp_enqueue_scripts', 'skolastika_theme_scripts' );
 
 add_theme_support( 'custom-logo' );
 add_theme_support( 'post-thumbnails' );

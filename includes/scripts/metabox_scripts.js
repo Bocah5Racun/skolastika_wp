@@ -33,35 +33,42 @@ const moveListItem = (list, index, offset) => {
   });
 };
 
-const moveUps = document.querySelectorAll(".meta-move--up");
-const moveDowns = document.querySelectorAll(".meta-move--down");
+const refreshMetaButtonListeners = () => {
+  const moveUps = document.querySelectorAll(".meta-move--up");
+  const moveDowns = document.querySelectorAll(".meta-move--down");
 
-moveUps.forEach((moveUp) => {
-  moveUp.addEventListener("click", () => {
-    const parentList = moveUp.parentNode.parentNode.parentNode;
-    const childIndex = [
-      ...moveUp.parentNode.parentNode.parentNode.children,
-    ].indexOf(moveUp.parentNode.parentNode);
+  moveUps.forEach((moveUp) => {
+    moveUp.addEventListener("click", () => {
+      const parentList = moveUp.parentNode.parentNode.parentNode;
+      const childIndex = [
+        ...moveUp.parentNode.parentNode.parentNode.children,
+      ].indexOf(moveUp.parentNode.parentNode);
 
-    moveListItem(parentList, childIndex, -1);
+      moveListItem(parentList, childIndex, -1);
+    });
   });
-});
-moveDowns.forEach((moveDown) => {
-  moveDown.addEventListener("click", () => {
-    const parentList = moveDown.parentNode.parentNode.parentNode;
-    const childIndex = [
-      ...moveDown.parentNode.parentNode.parentNode.children,
-    ].indexOf(moveDown.parentNode.parentNode);
 
-    moveListItem(parentList, childIndex, 1);
+  moveDowns.forEach((moveDown) => {
+    moveDown.addEventListener("click", () => {
+      const parentList = moveDown.parentNode.parentNode.parentNode;
+      const childIndex = [
+        ...moveDown.parentNode.parentNode.parentNode.children,
+      ].indexOf(moveDown.parentNode.parentNode);
+
+      moveListItem(parentList, childIndex, 1);
+    });
   });
-});
+};
+
+refreshMetaButtonListeners();
 
 addJob.addEventListener("click", () => {
   const children = jobList.children.length - 1;
   jobList.append(
     Object.assign(document.createElement("li"), {
       innerHTML: `
+      <div class="list-item-move-container">
+      </div>
       <div>
         <input id='staff_cv[job_list][${
           children + 1
@@ -93,6 +100,8 @@ addJob.addEventListener("click", () => {
       className: "list-item",
     })
   );
+
+  updateMetaButtons();
 });
 
 addResearch.addEventListener("click", () => {
@@ -100,6 +109,8 @@ addResearch.addEventListener("click", () => {
   researchList.append(
     Object.assign(document.createElement("li"), {
       innerHTML: `
+      <div class="list-item-move-container">
+      </div>
       <div>
         <input id='staff_cv[research_list][${
           children + 1
@@ -123,4 +134,34 @@ addResearch.addEventListener("click", () => {
       className: "list-item",
     })
   );
+
+  updateMetaButtons();
 });
+
+const updateMetaButtons = () => {
+  const listItems = document.querySelectorAll(".list-item");
+
+  listItems.forEach((listItem) => {
+    const childNo = [...listItem.parentNode.children].indexOf(listItem);
+    const parentLength = listItem.parentNode.children.length - 1;
+
+    const moveItemContainer = listItem.querySelector(
+      ".list-item-move-container"
+    );
+
+    /* empty .list-item-move-container, then populate with meta-move buttons, then add disabled class to top and bottom children */
+    moveItemContainer.innerHTML = ""; // empty .list-item-move-container
+    moveItemContainer.innerHTML = `
+      <a class="meta-move meta-move--up" ${!childNo ? "disabled" : ""}>
+        <img src="${GLOBALS.baseURL}/includes/images/down.png"  />
+      </a>
+      <a class="meta-move meta-move--down" ${
+        childNo >= parentLength ? "disabled" : ""
+      }>
+        <img src="${GLOBALS.baseURL}/includes/images/down.png" />
+      </a>
+    `;
+  });
+
+  refreshMetaButtonListeners();
+};
