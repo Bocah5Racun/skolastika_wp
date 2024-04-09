@@ -4,12 +4,18 @@
   }
 }
 #single-hero-container h1 {
-  align-self: self-start;
+  display: inline;
   position: relative;
   background-color: #fff500;
   padding: 0 2rem;
   z-index: 10;
-  max-width: 90vw;
+}
+@media (max-width: 768px) {
+  #single-hero-container h1 {
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0;
+  }
 }
 
 .study-program-info-inner {
