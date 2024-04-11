@@ -152,6 +152,12 @@ body {
   font-weight: 400;
   line-height: 160%;
 }
+@media (max-width: 480px) {
+  html,
+  body {
+    line-height: 125%;
+  }
+}
 
 h1,
 h2,
@@ -209,7 +215,7 @@ button {
   left: 0;
   top: 0;
   background: rgb(10, 10, 10);
-  background: linear-gradient(0deg, rgb(10, 10, 10) 7.5%, rgba(10, 10, 10, 0.5) 33%, rgba(10, 10, 10, 0) 50%);
+  background: linear-gradient(0deg, rgb(10, 10, 10) 7.5%, rgba(10, 10, 10, 0.6) 45%, rgba(10, 10, 10, 0) 66%);
   width: 100%;
   height: 100%;
 }
@@ -286,7 +292,12 @@ button {
 }
 
 .section {
-  padding: clamp(2rem, 5vw, 4rem) 0;
+  padding: clamp(1rem, 5vw, 4rem) 0;
+}
+@media (max-width: 480px) {
+  .section {
+    padding: clamp(1rem, 5vw, 4rem);
+  }
 }
 .section--dark {
   background-color: #0a0a0a;

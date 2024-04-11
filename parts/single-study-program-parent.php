@@ -42,7 +42,7 @@
                         $query->the_post();
             ?>
 
-            <a href="<?= get_the_permalink(); ?>"><?= get_the_title(); ?></a>
+            <a href="<?= get_the_permalink() . "#title"; ?>"><?= get_the_title(); ?></a>
 
             <?php
                 endwhile;
@@ -94,7 +94,11 @@
                     $query->the_post();
             ?>
             <div class="blog-card">
-                <a href="<?= get_the_permalink(); ?>"><?= get_the_title(); ?></a>
+                <a href="<?= get_the_permalink(); ?>">
+                    <img class="blog-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" />
+                    <div class="dark-gradient"></div>
+                    <div class="blog-title"><?= get_the_title(); ?></div>
+                </a>
             </div>
             <?php
                 endwhile;

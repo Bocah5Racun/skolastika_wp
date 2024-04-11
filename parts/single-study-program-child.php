@@ -46,7 +46,7 @@
                         $query->the_post();
             ?>
 
-            <a href="<?= get_the_permalink(); ?>"><?= get_the_title(); ?></a>
+            <a href="<?= get_the_permalink() . "#title"; ?>"><?= get_the_title(); ?></a>
 
             <?php
                 endwhile;
@@ -59,15 +59,15 @@
 
 <section class="section">
     <div class="section-inner container">
-        <article class="centered-box constrained">
-            <h2><?= get_the_title(); ?></h2>
+        <article class="centered-box">
+            <h1 id="title"><?= get_the_title(); ?></h1>
             <hr class="separator--blue" />
-            <div class="article-content">
+            <div class="constrained">
                 <?= the_content(); ?>
             </div>
         </article>
         <div class="section section--upri-yellow study-program-child-cta-container p-4">
-            <div class="section-inner constrained">
+            <div class="section-inner">
                 <h2>Tertarik untuk memulai karier di bidang <?= $study_program; ?>?</h2>
                 <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
                 <?php if( "Kurikulum" !== get_the_title() ): ?>

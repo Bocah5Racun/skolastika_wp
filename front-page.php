@@ -180,9 +180,33 @@
     <div class="experience-fisip-inner section-inner container">
         <h2>Experience FISIP@UPRI</h2>
         <hr class="separator--blue" />
-        <h3>Lingkungan akademik yang aman dan nyaman.</h3>
-        <p class="constrained">UPRI berkomitmen memberi ruang yang nyaman untuk seluruh mahasiswa dan civitas akademika. Sebagai wujud komitmen itu, FISIP UPRI menyediakan sejumlah layanan dan fasilitas.</p>
-        <?php wp_nav_menu( array( 'theme_location' => 'highlights-menu', 'container' => 'ul', 'menu_class' => 'experience-fisip-list')); ?>
+        <h3>Ruang yang nyaman untuk seluruh mahasiswa dan civitas akademika.</h3>
+        <p class="constrained">Baca tentang bagaimana pengalaman berkuliah di Universitas Pejuang Republik Indonesia.</p>
+        <div class="experience-fisip-list">
+            <?php
+                $query = new WP_Query( array(
+                    'post_type'         => 'highlights',
+                    'posts_per_page'    => 7
+                ));
+
+                if( $query->have_posts() ):
+                    while( $query->have_posts() ):
+                        $query->the_post();
+
+            ?>
+            <a href="<?= get_the_permalink(); ?>" class="experience-card">
+                <img class="experience-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), $size = 'large' ); ?>" />
+                <div class="dark-gradient"></div>
+                <div class="experience-title"><?= get_the_title(); ?></div>
+            </a>
+            <?php
+                endwhile;
+                endif;
+            ?>
+        </div>
+        <div>
+            <a class="see-more see-more--blue" href="http://fisip-upri-makassar.local/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
+        </div>
     </div>
 </section>
 

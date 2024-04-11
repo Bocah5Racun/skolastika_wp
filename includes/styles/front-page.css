@@ -248,7 +248,7 @@
 .study-program-card h2 {
   position: relative;
   background-color: #fff500;
-  padding: 0 2rem;
+  display: inline;
   font-size: 1.75rem;
   z-index: 10;
 }
@@ -394,6 +394,31 @@
 }
 .experience-fisip-list > *:nth-child(2) {
   grid-area: b;
+}
+.experience-fisip-list .experience-card {
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+.experience-fisip-list .experience-card:hover {
+  text-decoration: underline;
+}
+.experience-fisip-list .experience-card .experience-thumbnail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 0;
+}
+.experience-fisip-list .experience-card .experience-title {
+  position: absolute;
+  width: calc(100% - 2rem);
+  color: #fff;
+  font-weight: 600;
+  bottom: 1rem;
+  z-index: 100;
 }
 
 .brosur-inner {
