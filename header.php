@@ -27,7 +27,11 @@
     <?php if( !is_front_page() ): ?>
     <section id="header-breadcrumbs-container" class="container--full py-1">
         <div class="header-breadcrumbs-inner container">
-            Breadcrumbs
+        <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+            }
+        ?>
         </div>
     </section>
     <?php endif; ?>
