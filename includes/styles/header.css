@@ -29,10 +29,6 @@
     padding: 1rem;
   }
 }
-#middle-bar-inner img.custom-logo {
-  max-width: clamp(180px, 30vw, 280px);
-  height: auto;
-}
 
 #header-menu-container {
   border-top: 1px solid #cccccc;
