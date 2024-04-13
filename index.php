@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
-<?php the_content(); ?>
+<article class="section">
+    <div class="section-inner container">
+        Testing
+    </div>
+</article>
 
 <?php get_footer(); ?>

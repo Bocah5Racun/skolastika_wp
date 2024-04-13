@@ -181,7 +181,7 @@
         <h2>Experience FISIP@UPRI</h2>
         <hr class="separator--blue" />
         <h3>Ruang yang nyaman untuk seluruh mahasiswa dan civitas akademika.</h3>
-        <p class="constrained">Baca tentang bagaimana pengalaman berkuliah di Universitas Pejuang Republik Indonesia.</p>
+        <p class="constrained">Kami menyediakan berbagai layanan dan fasilitas demi proses perkuliahan yang kondusif untuk belajar.</p>
         <div class="experience-fisip-list">
             <?php
                 $query = new WP_Query( array(
@@ -317,7 +317,7 @@
         <div class="brosur-girl-container unselectable">
             <img class="brosur-girl" src="<?= get_template_directory_uri() . '/includes/images/upri_girl.png;' ?>" />
         </div>
-        <div class="brosur-form-container p-4">
+        <div class="brosur-form-container">
             <h2>Brosur FISIP UPRI</h2>
             <hr class="separator--blue" />
             <p>Dapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>

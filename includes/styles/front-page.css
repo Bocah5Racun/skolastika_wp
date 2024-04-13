@@ -160,12 +160,6 @@
   color: #fff;
   z-index: 10;
 }
-@media (max-width: 480px) {
-  .tagline {
-    font-size: 2rem;
-  }
-}
-
 .hero-bg {
   position: absolute;
   width: 100%;
@@ -520,6 +514,12 @@
 
 .brosur-form-container {
   max-width: 660px;
+  padding: clamp(1rem, 5vw, 2rem);
+}
+@media (max-width: 480px) {
+  .brosur-form-container {
+    padding: 0;
+  }
 }
 .brosur-form-container p {
   margin-bottom: 0;

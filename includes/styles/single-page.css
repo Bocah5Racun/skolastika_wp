@@ -172,6 +172,9 @@ article h3 {
 article h1 {
   font-size: clamp(2rem, 3vw, 3rem);
 }
+article h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
 article p {
   margin-bottom: 2rem;
 }
@@ -217,6 +220,12 @@ article hr {
 article figure {
   margin-bottom: 1.25rem;
 }
+article a {
+  color: #0a26c7;
+}
+article a:hover {
+  text-decoration: underline;
+}
 
 .study-program-child-cta-container {
   display: flex;
@@ -254,5 +263,65 @@ article figure {
   color: #fff;
 }
 .single-cta-button:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  #single-hero-container {
+    padding: 1rem;
+  }
+}
+#single-hero-container h1 {
+  display: inline;
+  position: relative;
+  background-color: #fff500;
+  padding: 0 2rem;
+  z-index: 10;
+}
+@media (max-width: 768px) {
+  #single-hero-container h1 {
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0;
+  }
+}
+
+.study-program-info-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #f5f390;
+  padding: 2rem 1.5rem;
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  .study-program-info-inner {
+    padding: 1rem;
+  }
+}
+
+.program-studi-info-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .program-studi-info-list {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .program-studi-info-list {
+    font-size: 1.5rem;
+    line-height: 150%;
+    flex-direction: column;
+  }
+}
+.program-studi-info-list a {
+  text-decoration: none;
+}
+.program-studi-info-list a:hover {
   text-decoration: underline;
 }/*# sourceMappingURL=single-page.css.map */
