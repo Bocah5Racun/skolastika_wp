@@ -82,11 +82,44 @@
     </div>
 </section>
 
+<?php
+
+    global $post;
+    $args = array(
+        'category__name'    => 'Blog',
+        'tag'               => $post->post_name,
+        'posts_per_page'    => 8,
+    );
+    $query = new WP_Query( $args );
+
+    if( $query->have_posts() ) :
+?>
+
 <section id="staff-articles" class="section">
     <div class="staff-articles-inner section-inner container">
         <h2>Artikel Terkait</h2>
+        <div class="staff-articles-container">
+
+<?php
+        while( $query->have_posts() ) :
+            $query->the_post();
+?>
+
+<a href="<?= get_the_permalink(); ?>" class="staff-article-card">
+    <img src="<?= get_the_post_thumbnail_url(); ?>" />
+    <h3><?= get_the_title(); ?></h3>
+</a>
+
+<?php endwhile; ?>
+
+        </div>
     </div>  
 </section>
+
+<?php
+    endif;
+    wp_reset_postdata();
+?>
 
 <?php
     if( isset( $cv_meta ) && isset( $cv_meta['job_list'] ) && !empty( $cv_meta['job_list'] ) ):
