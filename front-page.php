@@ -84,7 +84,7 @@
 <section id="details" class="section section--dark container--full">
     <div class="section-inner container">
         <div class="details-left-col">
-            <h2>Kurikulum Berorientasi Dampak Sosial</h2>
+            <h2>Dampak Sosial yang Nyata.</h2>
             <hr class="separator--yellow" />
             <h3>FISIP UPRI berkomitmen menghasilkan lulusan dengan kepekaan sosial yang tinggi.</h3>
             <p> Karena itu, kurikulum kami memperkuat pemahaman tentang masalah sosial dan mendorong solusi yang berkelanjutan. Melalui kolaborasi dengan organisasi lokal dan internasional, mahasiswa terlibat dalam proyek yang memiliki dampak langsung pada masyarakat.</p>
