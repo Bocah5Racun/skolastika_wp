@@ -39,7 +39,7 @@
 
 <section class="section">
     <div class="section-inner container">
-        <article class="centered-box">
+        <article class="centered-box constrained">
             <h1 id="title"><?= get_the_title(); ?></h1>
             <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
             <hr class="separator--blue" />
