@@ -14,8 +14,9 @@
             <?php if( has_post_thumbnail() ) : ?>
             <img class="post-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), "full" ); ?>" />
             <?php endif; ?>
+            <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
         </div>
-        <div class="article-content constrained centered-box"> 
+        <div class="article-content constrained centered-box">
             <?= get_the_content(); ?>
         </div>
     </div>

@@ -131,10 +131,15 @@
 
 #hero {
   position: relative;
-  height: 675px;
+  height: 100vh;
   background-color: #0a0a0a;
   background-size: cover;
   background-repeat: no-repeat;
+}
+@media (max-width: 480px) {
+  #hero {
+    height: 100vh;
+  }
 }
 
 .hero-inner {

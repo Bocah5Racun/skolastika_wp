@@ -84,10 +84,10 @@
 <section id="details" class="section section--dark container--full">
     <div class="section-inner container">
         <div class="details-left-col">
-            <h2>Kurikulum Berorientasi Industri</h2>
+            <h2>Kurikulum Berorientasi Dampak Sosial</h2>
             <hr class="separator--yellow" />
-            <h3>FISIP UPRI menyiapkan setiap mahasiswa untuk sukses sejak hari pertama setelah lulus.</h3>
-            <p>Di FISIP UPRI, kami percaya bahwa landasan teori yang kokoh harus dilengkapi dengan keterampilan yang relevan. UPRI bekerja sama dengan sejumlah mitra untuk memberi mahasiswa kurikulum yang sesuai kebutuhan industri.</p>
+            <h3>FISIP UPRI berkomitmen menghasilkan lulusan dengan kepekaan sosial yang tinggi.</h3>
+            <p> Karena itu, kurikulum kami memperkuat pemahaman tentang masalah sosial dan mendorong solusi yang berkelanjutan. Melalui kolaborasi dengan organisasi lokal dan internasional, mahasiswa terlibat dalam proyek yang memiliki dampak langsung pada masyarakat.</p>
         </div>
         <div class="details-right-col">
             <?php
