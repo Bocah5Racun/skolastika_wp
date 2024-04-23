@@ -13,7 +13,11 @@ function skolastika_theme_styles() {
 }
 
 function skolastika_theme_scripts() {
-    if( is_singular( 'staff') ) wp_enqueue_script( 'single-staff-script', get_template_directory_uri() . '/includes/scripts/single-staff.js', array(), '1.0', 'all' );
+    if( is_singular( 'staff') ) wp_enqueue_script( 'single-staff-script', get_template_directory_uri() . '/includes/scripts/single-staff.js', array(), '1.0', false );
+    if( is_page( 'pendaftaran-mahasiswa-baru' ) ) {
+        wp_enqueue_script( 'captcha', 'https://www.google.com/recaptcha/api.js', array(), true );
+        wp_enqueue_script( 'captcha-client', get_template_directory_uri() . '/includes/scripts/captcha-client.js', array(), true, true );
+    }
 }
 
 function skolastika_theme_menus() {
