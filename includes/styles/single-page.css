@@ -186,7 +186,7 @@ article ul {
   list-style-position: outside;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 article ol {
   counter-reset: list-counter;
