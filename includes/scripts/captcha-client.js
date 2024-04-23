@@ -1,3 +1,3 @@
 function onSubmit(token) {
-  document.getElementById("demo-form").submit();
+  document.getElementById("register-form").submit();
 }
