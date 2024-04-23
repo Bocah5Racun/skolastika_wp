@@ -47,6 +47,9 @@
         <hr class="separator--blue align-center" />
         <p class="centered-box constrained">Klik link di bawah untuk belajar bagaimana program-program studi FISIP UPRI dapat membantu Anda meraih keberhasilan dan mewujudkan potensi.</p>
         <p style="font-weight: 200;"><i>Semua Program Studi di FISIP UPRI terakreditasi BAN-PT.</i></p>
+        <div>
+            <a class="see-more see-more--blue" href="https://fisipupri.ac.id/tentang-fisip-upri/akreditasi/">Baca tentang Akreditasi BAN-PT →</a>
+        </div>
         <div class="prodi-list">
         
         <?php
