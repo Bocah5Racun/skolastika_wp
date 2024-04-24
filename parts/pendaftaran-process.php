@@ -22,7 +22,7 @@
 
         // send email to ADMIN_EMAIL
         $to = ADMIN_EMAIL;
-        $subject = "[PMB FISIP] - {$register_program} - {$register_school} - {$register_name}";
+        $subject = "[PMB FISIP] - {$register_program} - {$register_department} - {$register_name}";
         $message = <<<EOD
         Nama Lengkap: $register_name
         Email: $register_email
