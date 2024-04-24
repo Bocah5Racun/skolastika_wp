@@ -385,4 +385,25 @@ article a:hover {
 #register-form button {
   margin: 0 auto;
   font-size: 1.25rem;
+}
+
+#data-review .review-item {
+  display: flex;
+  flex-direction: column;
+}
+#data-review label {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.825rem;
+}
+#data-review .note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #fff;
+}
+#data-review .note a,
+#data-review .note p {
+  font-size: 0.825rem;
 }/*# sourceMappingURL=single-page.css.map */
