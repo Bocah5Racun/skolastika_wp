@@ -140,9 +140,8 @@
 <section id="mid-cta" class="section section--upri-yellow">
     <div class="mid-cta-inner section-inner container constrained">
         <h2>Gabung Bersama Kami Membuat Perubahan yang Berdampak.</h2>
-        <h3>Baca detail tentang proses pendaftaran mahasiswa baru di FISIP UPRI.</h3>
-        <p>Kami menyambut semua pendaftar yang mempunyai semangat pejuang, baik yang baru lulus SMA atau pun yang mau kuliah sambil kerja.</p>
-        <p>Bagi mahasiswa dari keluarga kurang mampu, Anda mungkin berhak mendapatkan beasiswa dan bantuan dana pendidikan.</p>
+        <h3>Kami menyambut semua pendaftar yang mempunyai semangat pejuang.</h3>
+        <p>Baik yang baru lulus SMA maupun yang mau kuliah sambil kerja. Jika Anda berhasrat menuntut ilmu dan ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
         <div class="cta-column text-center">
             <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/#title" class="cta cta--blue">Daftar Sekarang →</a>
             <a class="see-more see-more--small see-more--blue" href="https://fisipupri.ac.id/layanan-mahasiswa/beasiswa-bantuan-dana-pendidikan/">Beasiswa & Bantuan Dana →</a>
