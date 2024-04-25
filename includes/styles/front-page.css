@@ -365,7 +365,7 @@
   }
 }
 .alumni-list a {
-  color: #fff;
+  color: #0a0a0a;
 }
 .alumni-list a:hover {
   text-decoration: underline;
@@ -556,4 +556,49 @@
 .footer-vista {
   position: relative;
   height: clamp(260px, 60vh, 780px);
+}
+
+.news-carousel {
+  display: flex;
+  padding: 0 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.news-carousel .news-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: calc(25% - 1rem);
+}
+@media (max-width: 480px) {
+  .news-carousel .news-card {
+    width: 100%;
+  }
+}
+.news-carousel .news-card a {
+  color: #fff;
+  text-decoration: none;
+}
+.news-carousel .news-card a:hover {
+  text-decoration: underline;
+}
+.news-carousel .news-card .news-thumbnail {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.news-carousel .news-card .news-label {
+  color: #fff500;
+  text-transform: uppercase;
+  font-size: 0.825rem;
+  font-weight: 600;
+}
+.news-carousel .news-card h2 {
+  font-size: 1rem;
+}
+.news-carousel .news-card .news-date {
+  font-style: italic;
 }/*# sourceMappingURL=front-page.css.map */

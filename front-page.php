@@ -148,10 +148,10 @@
         </div>
     </div>
 </section>
-<section id="alumni" class="section section--upri-blue">
+<section id="alumni" class="section">
     <div class="alumni-inner section-inner container text-center">
         <h2>Kisah Alumni</h2>
-        <hr class="separator--yellow align-center" />
+        <hr class="separator--blue align-center" />
         <h3>Keunggulan FISIP UPRI tercermin dalam kisah-kisah inspiratif dari alumni-alumni kami.</h3>
         <div class="alumni-list">
 
@@ -185,12 +185,12 @@
 
         </div>
         <div>
-            <a class="see-more see-more--yellow" href="http://fisip-upri-makassar.local/kisah-alumni/">Lihat semua kisah alumni →</a>
+            <a class="see-more see-more--blue" href="http://fisip-upri-makassar.local/kisah-alumni/">Lihat semua kisah alumni →</a>
         </div>
     </div>
 </section>
 
-<section id="experience-fisip" class="section">
+<section id="experience-fisip" class="section section--upri-blue">
     <div class="experience-fisip-inner section-inner container">
         <h2>Experience FISIP@UPRI</h2>
         <hr class="separator--blue" />
@@ -216,21 +216,55 @@
             <?php
                 endwhile;
                 endif;
+                wp_reset_postdata();
             ?>
         </div>
         <div>
-            <a class="see-more see-more--blue" href="http://fisip-upri-makassar.local/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
+            <a class="see-more see-more--yellow" href="http://fisip-upri-makassar.local/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
         </div>
     </div>
 </section>
 
-<section id="photovoice" class="section section--dark container--full">
-    <div class="photovoice-inner section-inner text-center">
+<section id="news" class="section section--dark container--full">
+    <div class="news-inner section-inner text-center">
         <h2>Seputar FISIP</h2>
         <hr class="separator--yellow align-center" />
         <h3>Berita dan informasi terbaru tentang FISIP UPRI.</h3>
+        <div class="news-carousel container">
+        
+        <?php
+        
+        $query = new WP_Query( array(
+            'post_type'         => 'post',
+            'posts_per_page'    => 4,
+            'category__in'      => array(
+                get_category_by_slug( 'blog' )->term_id,
+                get_category_by_slug( 'news' )->term_id,
+            ),
+        ));
+
+        if( $query->have_posts() ):
+            while( $query->have_posts() ):
+                $query->the_post();
+
+        ?>
+
+        <div class="news-card">
+            <img class="news-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" />
+            <div class="news-label"><?= get_the_category()[0]->name; ?></div>
+            <a href="<?= get_the_permalink(); ?>"><h2><?= get_the_title(); ?></h2></a>
+            <div class="news-date"><?= get_the_date(); ?></div>
+        </div>
+
+        <?php
+            endwhile;
+            endif;
+            wp_reset_postdata();
+        ?>
+
+        </div>
         <div>
-            <a class="see-more see-more--yellow" href="#">Lihat semua berita →</a>
+            <a class="see-more see-more--yellow" href="#">Lihat semua →</a>
         </div>
     </div>
 </div>
