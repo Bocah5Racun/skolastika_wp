@@ -196,6 +196,7 @@ article ol li {
   position: relative;
   counter-increment: list-counter;
   width: calc(100% - 4.25rem);
+  min-height: 3rem;
   left: 4.25rem;
 }
 article ol li::before {
@@ -204,7 +205,7 @@ article ol li::before {
   top: 6px;
   display: flex;
   align-items: center;
-  font-size: 200%;
+  font-size: 125%;
   padding: 1rem;
   margin-right: 1rem;
   font-weight: 800;
