@@ -50,7 +50,7 @@
     </div>
 </section>
 
-<section class="section">
+<section>
     
     <?php
         $disable_submission = false;
