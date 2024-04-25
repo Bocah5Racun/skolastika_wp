@@ -323,6 +323,9 @@ button {
   font-size: 1.5rem;
   text-decoration: none;
 }
+.see-more--small {
+  font-size: 1.25rem !important;
+}
 
 .see-more:hover {
   text-decoration: underline;
@@ -356,4 +359,41 @@ button {
 img.custom-logo {
   max-width: clamp(330px, 30vw, 400px);
   height: auto;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cta-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cta {
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cta:hover {
+  text-decoration: underline;
+}
+.cta--yellow {
+  background-color: #fff500;
+  color: #0a0a0a;
+}
+.cta--blue {
+  background-color: #0a26c7;
+  color: #fff;
+}
+.cta--green {
+  background-color: #01923e;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */
