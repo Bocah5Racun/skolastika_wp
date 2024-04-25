@@ -45,6 +45,7 @@
     <div class="prodi-inner section-inner container text-center">
         <h2>Berjuang Meraih Sukses.</h2>
         <hr class="separator--blue align-center" />
+        <p class="centered-box constrained">Fakultas Ilmu Sosial dan Ilmu Politik Universitas Pejuang Republik Indonesia merupakan salah satu fakultas tertua di Makassar. Sejak 1961, FISIP UPRI telah dengan bangga berkontribusi dalam mendidik generasi-generasi pemuda di kawasan Indonesia Timur.</p>
         <p class="centered-box constrained">Klik link di bawah untuk belajar bagaimana program-program studi FISIP UPRI dapat membantu Anda meraih keberhasilan dan mewujudkan potensi.</p>
         <p style="font-weight: 200;"><i>Semua Program Studi di FISIP UPRI terakreditasi BAN-PT.</i></p>
         <div>
@@ -90,7 +91,7 @@
             <h2>Dampak Sosial yang Nyata.</h2>
             <hr class="separator--yellow" />
             <h3>FISIP UPRI berkomitmen menghasilkan lulusan dengan kepekaan sosial yang tinggi.</h3>
-            <p> Karena itu, kurikulum kami memperkuat pemahaman tentang masalah sosial dan mendorong solusi yang berkelanjutan. Melalui kolaborasi dengan organisasi lokal dan internasional, mahasiswa terlibat dalam proyek yang memiliki dampak langsung pada masyarakat.</p>
+            <p> Kurikulum FISIP UPRI fokus pada isu-isu sosial dan mendorong solusi yang berkelanjutan. Melalui kolaborasi dengan organisasi lokal dan internasional, mahasiswa dibimbing agar dapat membuat perubahan yang berdampak langsung pada masyarakat.</p>
         </div>
         <div class="details-right-col">
             <?php
@@ -140,10 +141,10 @@
 <section id="mid-cta" class="section section--upri-yellow">
     <div class="mid-cta-inner section-inner container constrained">
         <h2>Gabung Bersama Kami Membuat Perubahan yang Berdampak.</h2>
-        <h3>Kami menyambut semua pendaftar yang mempunyai semangat pejuang.</h3>
+        <h3>Kami menyambut siapa pun yang memiliki semangat pejuang.</h3>
         <p>Baik yang baru lulus SMA maupun yang mau kuliah sambil kerja. Jika Anda berhasrat menuntut ilmu dan ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
         <div class="cta-column text-center">
-            <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/#title" class="cta cta--blue">Daftar Sekarang →</a>
+            <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/#title" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
             <a class="see-more see-more--small see-more--blue" href="https://fisipupri.ac.id/layanan-mahasiswa/beasiswa-bantuan-dana-pendidikan/">Beasiswa & Bantuan Dana →</a>
         </div>
     </div>
