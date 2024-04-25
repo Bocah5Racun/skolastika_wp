@@ -72,7 +72,8 @@
 
     <form id="register-form" name="register_form" class="centered-box constrained"  method="post">
         <div>
-            <h2>Formulir Pendaftaran Mahasiswa Baru</h2>
+            <h2>Mulai Proses Registrasi</h2>
+            <p>Isi formulir di bawah ini untuk memulai proses registrasi sebagai calon mahasiswa baru di Fakultas Ilmu Sosial dan Ilmu Politik di Universitas Pejuang Republik Indonesia.</p>
         </div>
         <div class="form-section">
             <h3>Jenis Pendaftaran</h3>
@@ -129,7 +130,7 @@
         <button type="submit" class="g-recaptcha button button--blue" 
         data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" 
         data-callback='onSubmit'
-        data-action='submit'>Mulai Proses Registrasi</button>
+        data-action='submit'>Mulai Proses Registrasi →</button>
     </form>
 <?php endif; ?>
 </section>
