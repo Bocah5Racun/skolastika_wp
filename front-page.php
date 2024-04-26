@@ -138,14 +138,20 @@
     </div>
 </section>
 
-<section id="mid-cta" class="section section--upri-yellow">
-    <div class="mid-cta-inner section-inner container constrained">
-        <h2>Gabung Bersama Kami Membuat Perubahan yang Berdampak.</h2>
-        <h3>Kami menyambut siapa pun yang memiliki semangat pejuang.</h3>
-        <p>Baik yang baru lulus SMA maupun yang mau kuliah sambil kerja. Jika Anda berhasrat menuntut ilmu dan ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
-        <div class="cta-column text-center">
-            <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/#title" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
-            <a class="see-more see-more--small see-more--blue" href="https://fisipupri.ac.id/layanan-mahasiswa/beasiswa-bantuan-dana-pendidikan/">Beasiswa & Bantuan Dana →</a>
+<section id="mid-cta">
+    <div id="mid-cta-inner" class="container">
+        <div class="mid-cta-text">
+            <h2>Daftar Jadi Mahasiswa Sekarang</h2>
+            <hr class="separator--blue" />
+            <h3>Kami menyambut siapa pun yang memiliki semangat pejuang...</h3>
+            <p>...baik yang baru lulus SMA maupun yang ingin kuliah sambil kerja. Jika Anda berhasrat menuntut ilmu dan ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
+            <div class="cta-column text-center">
+                <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/#title" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
+                <a class="see-more see-more--small see-more--blue" href="https://fisipupri.ac.id/layanan-mahasiswa/beasiswa-bantuan-dana-pendidikan/">Beasiswa & Bantuan Dana →</a>
+            </div>
+        </div>
+        <div class="mid-cta-image">
+            <img src="<?= get_template_directory_uri() . "/includes/images/fisip_girl.png"; ?>" />
         </div>
     </div>
 </section>
