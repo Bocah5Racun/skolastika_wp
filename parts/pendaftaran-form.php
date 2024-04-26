@@ -48,10 +48,6 @@
             </div>
         </article>
     </div>
-</section>
-
-<section>
-    
     <?php
         $disable_submission = false;
         
