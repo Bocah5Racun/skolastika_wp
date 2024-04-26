@@ -200,7 +200,7 @@
 <section id="experience-fisip" class="section section--upri-blue">
     <div class="experience-fisip-inner section-inner container">
         <h2>Experience FISIP@UPRI</h2>
-        <hr class="separator--blue" />
+        <hr class="separator--yellow" />
         <h3>Ruang yang nyaman untuk seluruh mahasiswa dan civitas akademika.</h3>
         <p class="constrained">Kami menyediakan berbagai layanan dan fasilitas demi proses perkuliahan yang kondusif untuk belajar.</p>
         <div class="experience-fisip-list">
