@@ -396,4 +396,39 @@ img.custom-logo {
 .cta--green {
   background-color: #01923e;
   color: #fff;
+}
+
+.question {
+  background-color: #01923e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem;
+  padding-top: 1.75rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+@media (max-width: 768px) {
+  .question {
+    display: none;
+  }
+}
+.question h2 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.question #question-close {
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+}
+
+.chat_whatsapp {
+  height: 45px;
 }/*# sourceMappingURL=style.css.map */

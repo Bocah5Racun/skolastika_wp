@@ -365,7 +365,7 @@
   }
 }
 .alumni-list a {
-  color: #0a0a0a;
+  color: #fff;
 }
 .alumni-list a:hover {
   text-decoration: underline;
@@ -421,10 +421,8 @@
 }
 
 .brosur-inner {
-  background-color: #fff500;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-template-areas: "girl form";
+  display: flex;
+  justify-content: center;
 }
 @media (max-width: 768px) {
   .brosur-inner {
@@ -432,18 +430,24 @@
   }
 }
 .brosur-inner > div:first-child {
-  grid-area: girl;
-}
-@media (max-width: 768px) {
-  .brosur-inner > div:first-child {
-    display: none;
-  }
-}
-.brosur-inner > div:nth-child(2) {
+  background-color: #fff500;
   grid-area: form;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+.brosur-inner > div:nth-child(2) {
+  width: 25%;
+}
+@media (max-width: 1024px) {
+  .brosur-inner > div:nth-child(2) {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .brosur-inner > div:nth-child(2) {
+    display: none;
+  }
 }
 
 .brosur-girl-container {
@@ -456,20 +460,10 @@
 }
 .brosur-girl-container .brosur-girl {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   bottom: 0;
-  height: 107%;
-}
-@media (max-width: 1342px) {
-  .brosur-girl-container .brosur-girl {
-    transform: translateX(-60%);
-  }
-}
-@media (max-width: 1000px) {
-  .brosur-girl-container .brosur-girl {
-    transform: translateX(-60%);
-  }
+  height: 105%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .final-cta-box {
@@ -604,12 +598,11 @@
 }
 
 #mid-cta-inner {
-  background-color: #fff500;
   position: relative;
   display: grid;
-  gap: 1rem;
   z-index: 1;
-  grid-template-columns: 6fr 4fr;
+  grid-template-columns: 2fr 4fr;
+  background-color: #fff500;
 }
 @media (max-width: 768px) {
   #mid-cta-inner {
@@ -622,9 +615,11 @@
   justify-content: center;
   padding: 2rem;
   gap: clamp(1rem, 5vw, 2rem);
+  z-index: 10;
 }
 #mid-cta-inner .mid-cta-image {
   position: relative;
+  z-index: 100;
 }
 @media (max-width: 768px) {
   #mid-cta-inner .mid-cta-image {
@@ -640,6 +635,7 @@
 }
 @media (max-width: 1024px) {
   #mid-cta-inner .mid-cta-image img {
-    bottom: -16px;
+    bottom: -1rem;
+    left: 35%;
   }
 }/*# sourceMappingURL=front-page.css.map */

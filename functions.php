@@ -18,6 +18,7 @@ function skolastika_theme_scripts() {
         wp_enqueue_script( 'captcha', 'https://www.google.com/recaptcha/api.js', array(), true );
         wp_enqueue_script( 'captcha-client', get_template_directory_uri() . '/includes/scripts/captcha-client.js', array(), true, true );
     }
+    if( is_front_page() ) wp_enqueue_script( 'whatsapp-popup', get_template_directory_uri() . '/includes/scripts/whatsapp-popup.js', array(), true, true );
 }
 
 function skolastika_theme_menus() {

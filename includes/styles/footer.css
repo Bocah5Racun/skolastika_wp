@@ -31,12 +31,20 @@
 .footer-contact-container {
   border-left: 1px solid #cccccc;
   padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 @media (max-width: 768px) {
   .footer-contact-container {
     border-left: none;
     padding: 0;
   }
+}
+.footer-contact-container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .footer-contact-container h2 {
   font-size: 1.25rem;

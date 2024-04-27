@@ -45,8 +45,7 @@
     <div class="prodi-inner section-inner container text-center">
         <h2>Berjuang Meraih Sukses.</h2>
         <hr class="separator--blue align-center" />
-        <p class="centered-box constrained">Fakultas Ilmu Sosial dan Ilmu Politik Universitas Pejuang Republik Indonesia merupakan salah satu fakultas tertua di Makassar. Sejak 1961, FISIP UPRI telah dengan bangga berkontribusi dalam mendidik generasi-generasi pemuda di kawasan Indonesia Timur.</p>
-        <p class="centered-box constrained">Klik link di bawah untuk belajar bagaimana program-program studi FISIP UPRI dapat membantu Anda meraih keberhasilan dan mewujudkan potensi.</p>
+        <p class="centered-box constrained">Sejak 1961, Fakultas Ilmu Sosial dan Ilmu Politik UPRI telah dengan bangga berkontribusi dalam mendidik generasi-generasi pemuda di Indonesia Timur. Klik link di bawah untuk belajar bagaimana program-program studi FISIP UPRI dapat membantu Anda meraih keberhasilan dan mewujudkan potensi.</p>
         <p style="font-weight: 200;"><i>Semua Program Studi di FISIP UPRI terakreditasi BAN-PT.</i></p>
         <div>
             <a class="see-more see-more--blue" href="https://fisipupri.ac.id/tentang-fisip-upri/akreditasi/">Baca tentang Akreditasi BAN-PT →</a>
@@ -138,27 +137,29 @@
     </div>
 </section>
 
-<section id="mid-cta">
-    <div id="mid-cta-inner" class="container">
-        <div class="mid-cta-text">
-            <h2>Awali Masa Depan yang Cerah. Daftar Sekarang.</h2>
+<section id="brosur" class="section">
+    <section class="brosur-inner container">
+        <div class="brosur-form-container">
+            <h2>Download Brosur FISIP UPRI</h2>
             <hr class="separator--blue" />
-            <h3>Kami menyambut siapa pun yang memiliki semangat pejuang.</h3>
-            <p>Jika Anda berhasrat menuntut ilmu dan ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
-            <div class="cta-column text-center">
-                <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/#title" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
-                <a class="see-more see-more--small see-more--blue" href="https://fisipupri.ac.id/layanan-mahasiswa/beasiswa-bantuan-dana-pendidikan/">Beasiswa & Bantuan Dana →</a>
+            <p>Dapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>
+            <div id="brosur-form">
+                <label for="nama">Nama</label><input type="text" required />
+                <label for="nama">Kota</label><input type="text" placeholder="Kota domisili Anda saat ini." required />
+                <label for="nama">Email</label><input type="text" required />
             </div>
+            <button class="button button--blue ">Download Brosur</button>
         </div>
-        <div class="mid-cta-image">
-            <img src="<?= get_template_directory_uri() . "/includes/images/fisip_girl.png"; ?>" />
+        <div class="brosur-girl-container unselectable">
+            <img class="brosur-girl" src="<?= get_template_directory_uri() . '/includes/images/upri_girl.png;' ?>" />
         </div>
-    </div>
+    </section>
 </section>
-<section id="alumni" class="section">
+
+<section id="alumni" class="section section--upri-blue">
     <div class="alumni-inner section-inner container text-center">
         <h2>Kisah Alumni</h2>
-        <hr class="separator--blue align-center" />
+        <hr class="separator--yellow align-center" />
         <h3>Keunggulan FISIP UPRI tercermin dalam kisah-kisah inspiratif dari alumni-alumni kami.</h3>
         <div class="alumni-list">
 
@@ -192,15 +193,15 @@
 
         </div>
         <div>
-            <a class="see-more see-more--blue" href="http://fisip-upri-makassar.local/kisah-alumni/">Lihat semua kisah alumni →</a>
+            <a class="see-more see-more--yellow" href="http://fisip-upri-makassar.local/kisah-alumni/">Lihat semua kisah alumni →</a>
         </div>
     </div>
 </section>
 
-<section id="experience-fisip" class="section section--upri-blue">
+<section id="experience-fisip" class="section">
     <div class="experience-fisip-inner section-inner container">
         <h2>Experience FISIP@UPRI</h2>
-        <hr class="separator--yellow" />
+        <hr class="separator--blue" />
         <h3>Ruang yang nyaman untuk seluruh mahasiswa dan civitas akademika.</h3>
         <p class="constrained">Kami menyediakan berbagai layanan dan fasilitas demi proses perkuliahan yang kondusif untuk belajar.</p>
         <div class="experience-fisip-list">
@@ -227,7 +228,7 @@
             ?>
         </div>
         <div>
-            <a class="see-more see-more--yellow" href="http://fisip-upri-makassar.local/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
+            <a class="see-more see-more--blue" href="http://fisip-upri-makassar.local/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
         </div>
     </div>
 </section>
@@ -367,24 +368,29 @@
     </div>
 </section>
 
-<section id="brosur" class="section">
-    <section class="brosur-inner container">
-        <div class="brosur-girl-container unselectable">
-            <img class="brosur-girl" src="<?= get_template_directory_uri() . '/includes/images/upri_girl.png;' ?>" />
+<section id="mid-cta" class="section">
+    <div id="mid-cta-inner" class="container">
+        <div class="mid-cta-image">
+            <img src="<?= get_template_directory_uri() . "/includes/images/fisip_girl.png"; ?>" />
         </div>
-        <div class="brosur-form-container">
-            <h2>Brosur FISIP UPRI</h2>
+        <div class="mid-cta-text">
+            <h2>Awali Masa Depan yang Cerah. Daftar Sekarang.</h2>
             <hr class="separator--blue" />
-            <p>Dapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>
-            <div id="brosur-form">
-                <label for="nama">Nama</label><input type="text" required />
-                <label for="nama">Kota</label><input type="text" placeholder="Kota domisili Anda saat ini." required />
-                <label for="nama">Email</label><input type="text" required />
+            <h3>Kami menyambut siapa pun yang memiliki semangat pejuang.</h3>
+            <p>Jika Anda berhasrat menuntut ilmu dan ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
+            <div class="cta-column text-center">
+                <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/#title" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
+                <a class="see-more see-more--small see-more--blue" href="https://fisipupri.ac.id/layanan-mahasiswa/beasiswa-bantuan-dana-pendidikan/">Beasiswa & Bantuan Dana →</a>
             </div>
-            <button class="button button--blue ">Download Brosur</button>
         </div>
-    </section>
+    </div>
 </section>
+
+<div id="question" class="question text-center">
+    <a id="question-close">X</a>
+    <h2>Mau bertanya?</h2>
+    <a href="https://wa.me/6281244375770" target="_blank"><img class="chat_whatsapp" src="<?= get_template_directory_uri() . "/includes/images/chat_on_whatsapp.png"; ?>" /></a>
+</div>
 
 
 <div class="footer-vista" style="background-image: url('<?= get_template_directory_uri() . "/includes/images/vista-background.jpeg"; ?>'); background-size: cover;">
