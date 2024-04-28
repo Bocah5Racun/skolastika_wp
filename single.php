@@ -13,6 +13,9 @@
         <div class="constrained centered-box">
             <?php if( has_post_thumbnail() ) : ?>
             <img class="post-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), "full" ); ?>" />
+            <?php if( get_the_post_thumbnail_caption() ) : ?>
+                <div class="post-caption"><?= get_the_post_thumbnail_caption(); ?></div>
+            <?php endif; ?>
             <?php endif; ?>
             <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
         </div>

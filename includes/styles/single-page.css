@@ -164,6 +164,10 @@ article .post-thumbnail {
      object-fit: cover;
   margin-bottom: 1rem;
 }
+article .post-caption {
+  font-style: italic;
+  color: #444;
+}
 article h1,
 article h2,
 article h3 {

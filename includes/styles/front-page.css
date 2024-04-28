@@ -451,6 +451,7 @@
 }
 
 .brosur-girl-container {
+  background-color: #cccccc;
   position: relative;
 }
 @media (max-width: 1024px) {
