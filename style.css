@@ -401,7 +401,7 @@ img.custom-logo {
 .question {
   background-color: #01923e;
   color: #fff;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 0.5rem;
   justify-content: center;
