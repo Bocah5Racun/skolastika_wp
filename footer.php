@@ -16,7 +16,7 @@
                 <p>Jl. Nipa-Nipa Lama Antang No. 23<br />Makassar, Sulawesi Selatan</p>
             </div>
             <div id="footer-question">
-                <h2>Masih punya pertanyaan?</h2>
+                <h2>Hubungi Kami</h2>
                 <a href="https://wa.me/6281244375770" target="_blank"><img class="chat_whatsapp" src="<?= get_template_directory_uri() . "/includes/images/chat_on_whatsapp.png"; ?>" /></a>
             </div>
         </div>

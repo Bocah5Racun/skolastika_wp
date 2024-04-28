@@ -11,5 +11,5 @@ document.addEventListener("scroll", () => {
     document.body.scrollHeight - window.innerHeight - window.scrollY;
   const fromTop = hero.getBoundingClientRect().top;
 
-  question.style.opacity = fromBottom < 50 || fromTop > 0 ? 0 : 100;
+  question.style.display = fromBottom < 50 || fromTop > 0 ? "none" : "flex";
 });
