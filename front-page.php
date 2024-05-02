@@ -45,7 +45,7 @@
     <div class="prodi-inner section-inner container text-center">
         <h2>Berjuang Meraih Sukses.</h2>
         <hr class="separator--blue align-center" />
-        <p class="centered-box constrained">Di FISIP UPRI, kami membentuk para ahli media sosial, konsultan administrasi, ahli PR, dan jurnalis masa depan. Pelajari keterampilan dan teori yang diperlukan untuk membawa perubahan sosial dengan dampak positif.</p>
+        <p class="centered-box constrained">Di FISIP UPRI, kami membentuk para ahli media sosial, konsultan administrasi, ahli PR, dan jurnalis masa depan.</p>
         <p class="centered-box constrained">Klik link di bawah untuk belajar bagaimana program-program studi FISIP UPRI dapat membantu Anda meraih keberhasilan dan mewujudkan potensi.</p>
         <p style="font-weight: 200;"><i>Semua Program Studi di FISIP UPRI terakreditasi BAN-PT.</i></p>
         <div>
