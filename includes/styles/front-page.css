@@ -131,7 +131,7 @@
 
 #hero {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   background-color: #0a0a0a;
   background-size: cover;
   background-repeat: no-repeat;
@@ -431,7 +431,7 @@
 }
 .brosur-inner > div:first-child {
   padding: 2rem;
-  background-color: #cccccc;
+  background-color: #fff500;
   grid-area: form;
   display: flex;
   flex-direction: column;
@@ -452,7 +452,7 @@
 }
 
 .brosur-girl-container {
-  background-color: #cccccc;
+  background-color: #fff500;
   position: relative;
 }
 @media (max-width: 1024px) {
