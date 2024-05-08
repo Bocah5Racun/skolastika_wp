@@ -357,7 +357,7 @@ button {
 }
 
 img.custom-logo {
-  max-width: clamp(330px, 30vw, 400px);
+  max-width: clamp(200px, 30vw, 330px);
   height: auto;
 }
 
