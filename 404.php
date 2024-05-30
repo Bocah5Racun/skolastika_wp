@@ -1,5 +1,5 @@
 <?php
 
-echo "Error 404!";
+header('Location: https://fisipupri.ac.id');
 
 ?>
