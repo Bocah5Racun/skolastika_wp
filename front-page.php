@@ -133,7 +133,7 @@
         <h3>Konversi pengalaman kerja menjadi SKS.</h3>
         <p class="constrained">Dengan Program RPL, Anda dapat mengkonversi pengetahuan dan pengalaman nyata dari dunia kerja menjadi Satuan Kredit Semester (SKS) untuk gelar Sarjana.</p>
         <div>
-            <a class="see-more see-more--blue" href="http://fisip-upri-makassar.local/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca detail tentang program RPL →</a>
+            <a class="see-more see-more--blue" href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca detail tentang program RPL →</a>
         </div>
     </div>
 </section>
