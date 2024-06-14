@@ -6,9 +6,11 @@
         get_template_part( 'parts/page', 'child' );
 ?>
 <script>
-    document.querySelector("#title").scrollIntoView({
-        behavior: 'smooth',
-    })
+    setTimeout( () => {
+        document.querySelector("#title").scrollIntoView({
+            behavior: 'smooth',
+        })
+    }, 1000)
 </script>
 <?php endif; ?>
 

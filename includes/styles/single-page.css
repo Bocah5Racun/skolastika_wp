@@ -360,7 +360,7 @@ article a:hover {
 #register-form .form-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 #register-form .form-section h3 {
   font-weight: 600;
