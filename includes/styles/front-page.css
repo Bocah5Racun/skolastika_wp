@@ -455,11 +455,6 @@
   background-color: #fff500;
   position: relative;
 }
-@media (max-width: 1024px) {
-  .brosur-girl-container {
-    top: 1rem;
-  }
-}
 .brosur-girl-container .brosur-girl {
   position: absolute;
   bottom: 0;
