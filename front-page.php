@@ -194,7 +194,7 @@
 
         </div>
         <div>
-            <a class="see-more see-more--yellow" href="http://fisip-upri-makassar.local/kisah-alumni/">Lihat semua kisah alumni →</a>
+            <a class="see-more see-more--yellow" href="/kisah-alumni/">Lihat semua kisah alumni →</a>
         </div>
     </div>
 </section>
@@ -229,7 +229,7 @@
             ?>
         </div>
         <div>
-            <a class="see-more see-more--blue" href="http://fisip-upri-makassar.local/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
+            <a class="see-more see-more--blue" href="/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
         </div>
     </div>
 </section>
