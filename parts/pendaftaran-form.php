@@ -38,16 +38,6 @@
 </section>
 
 <section class="section">
-    <div class="section-inner container">
-        <article class="centered-box constrained">
-            <h1 id="title"><?= get_the_title(); ?></h1>
-            <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
-            <hr class="separator--blue" />
-            <div class="constrained">
-                <?= the_content(); ?>
-            </div>
-        </article>
-    </div>
     <?php
         $disable_submission = false;
         
@@ -70,6 +60,7 @@
         <div>
             <h2>Mulai Proses Registrasi</h2>
             <p>Isi formulir di bawah ini untuk memulai proses registrasi sebagai calon mahasiswa baru di Fakultas Ilmu Sosial dan Ilmu Politik di Universitas Pejuang Republik Indonesia.</p>
+            <p><b>Tidak ada pemungutan biaya untuk tahap ini.</b></p>
         </div>
         <div class="form-section">
             <h3>Jenis Pendaftaran</h3>
@@ -128,5 +119,18 @@
         data-callback='onSubmit'
         data-action='submit'>Mulai Proses Registrasi →</button>
     </form>
+
+    
+    <div class="section-inner container">
+        <article class="centered-box constrained">
+            <h1 id="title"><?= get_the_title(); ?></h1>
+            <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
+            <hr class="separator--blue" />
+            <div class="constrained">
+                <?= the_content(); ?>
+            </div>
+        </article>
+    </div>
+    
 <?php endif; ?>
 </section>
