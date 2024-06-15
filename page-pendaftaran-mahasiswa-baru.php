@@ -11,4 +11,12 @@
     }
 ?>
 
+<script>
+    setTimeout( () => {
+        document.querySelector("#title").scrollIntoView({
+            behavior: 'smooth',
+        })
+    }, 1000)
+</script>
+
 <?php get_footer(); ?>
