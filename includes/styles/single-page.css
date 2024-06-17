@@ -436,24 +436,4 @@ article a:hover {
 #data-review .note a,
 #data-review .note p {
   font-size: 0.825rem;
-}
-
-.highlight {
-  background-color: #fff;
-  padding: 1rem;
-  border: 1px solid #cccccc;
-  border-left: 6px solid #fff500;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-  font-weight: 700;
-}
-.highlight input {
-  font-size: inherit;
-  background-color: inherit;
-  outline: none;
-  border: 0;
-}
-.highlight input:focus {
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  border-color: inherit;
 }/*# sourceMappingURL=single-page.css.map */

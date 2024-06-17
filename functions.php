@@ -262,7 +262,3 @@ add_theme_support( 'post-thumbnails' );
 
 include( get_template_directory() . "/includes/plugins/metaboxes.php" ); // metabox plugin
 include( get_template_directory() . "/includes/plugins/skolastika-gutenberg-blocks/plugin.php" ); // custom theme boxes
-
-add_action( 'enqueue_block_editor_assets', function() {
-    wp_enqueue_style( 'single-page', get_template_directory_uri() . '/includes/styles/single-page.css', array(), true, 'all' );
-});

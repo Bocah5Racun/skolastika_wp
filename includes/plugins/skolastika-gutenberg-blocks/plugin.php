@@ -14,4 +14,12 @@ function load_highlight() {
   );
 }
 
-add_action('enqueue_block_editor_assets', 'load_highlight');
+function load_block_styles() {
+  wp_enqueue_style(
+    'custom-block-styles',
+    get_stylesheet_directory_uri() . '/includes/plugins/skolastika-gutenberg-blocks/skolastika-gutenberg-blocks-styles.css',
+);
+}
+
+add_action( 'enqueue_block_editor_assets', 'load_highlight' );
+add_action( 'enqueue_block_assets', 'load_block_styles' );
