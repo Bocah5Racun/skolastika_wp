@@ -245,7 +245,7 @@ article a:hover {
   text-decoration: underline;
 }
 
-.article-content > p:first-child::first-letter {
+.article-content > p:first-of-type::first-letter {
   font-size: 300%;
   padding: 0.5rem 0.25rem;
   margin-right: 0.25rem;
@@ -255,7 +255,7 @@ article a:hover {
   line-height: 1rem;
 }
 @media (max-width: 480px) {
-  .article-content > p:first-child::first-letter {
+  .article-content > p:first-of-type::first-letter {
     padding: 0.25rem;
   }
 }
