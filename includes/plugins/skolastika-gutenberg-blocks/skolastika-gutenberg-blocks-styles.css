@@ -1,19 +1,24 @@
 .highlight {
   background-color: #fff;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   padding: 1rem;
   border: 1px solid #cccccc;
   border-left: 6px solid #fff500;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-  font-weight: 700;
+  margin-bottom: 2rem;
 }
 .highlight input {
   font-size: inherit;
   background-color: inherit;
   outline: none;
   border: 0;
+  padding: 0;
 }
 .highlight input:focus {
   box-shadow: none;
   -webkit-box-shadow: none;
   border-color: inherit;
+}
+.highlight h3 {
+  font-size: inherit;
+  font-weight: 700;
 }/*# sourceMappingURL=skolastika-gutenberg-blocks-styles.css.map */
