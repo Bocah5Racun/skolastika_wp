@@ -1,46 +1,35 @@
-wp.blocks.registerBlockStyle("core/paragraph", {
-  name: "highlight",
-  label: "Highlight",
+const { registerBlockType } = wp.blocks;
+const { RichText } = wp.blockEditor;
+const wpElement = wp.element.createElement;
+const ReactElement = React.createElement;
+
+registerBlockType("skolastika/highlight", {
+  title: "Highlight",
+  icon: "smiley",
+  category: "common",
+  attributes: {
+    content: { type: "string" },
+  },
+  description: "Block for highlighting specific text.",
+  edit: (props) => {
+    const updateContent = (highlightText) =>
+      props.setAttributes({ content: highlightText });
+    return ReactElement(
+      "div",
+      { className: "highlight" },
+      ReactElement(RichText, {
+        value: props.attributes.content,
+        onChange: updateContent,
+      })
+    );
+  },
+  save: (props) => {
+    return wpElement(
+      "p",
+      { className: "highlight" },
+      ReactElement(RichText.Content, {
+        value: props.attributes.content,
+      })
+    );
+  },
 });
-
-// wp.blocks.registerBlockType("skolastika/highlight-block", {
-//   title: "Highlight Block",
-//   icon: "warning",
-//   category: "common",
-//   attributes: {
-//     title: { type: "string" },
-//     content: { type: "string" },
-//   },
-//   edit: function (props) {
-//     function updateContent(event) {
-//       props.setAttributes({ content: event.target.value });
-//     }
-//     return (
-//       <div { ...useBlockProps() }>
-//             <BlockControls>
-//                 <ToolbarGroup>
-//                     <AlignmentToolbar
-//                         value={ attr.alignment }
-//                         onChange={ onChangeAlignment }
-//                     />
-//                 </ToolbarGroup>
-//             </BlockControls>
-
-//             <RichText
-//                 className={ className }
-//                 style={ { textAlign: attr.alignment } }
-//                 tagName="p"
-//                 onChange={ onChangeContent }
-//                 value={ attr.content }
-//             />
-//         </div>
-//     );
-//   },
-//   save: function (props) {
-//     return wp.element.createElement(
-//       "p",
-//       { className: "highlight" },
-//       props.attributes.content
-//     );
-//   },
-// });

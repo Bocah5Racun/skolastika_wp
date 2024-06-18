@@ -1,4 +1,4 @@
-.is-style-highlight {
+.highlight {
   background-color: #fff;
   padding: 1rem;
   border: 1px solid #cccccc;
@@ -6,13 +6,13 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
   font-weight: 700;
 }
-.is-style-highlight input {
+.highlight input {
   font-size: inherit;
   background-color: inherit;
   outline: none;
   border: 0;
 }
-.is-style-highlight input:focus {
+.highlight input:focus {
   box-shadow: none;
   -webkit-box-shadow: none;
   border-color: inherit;
