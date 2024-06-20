@@ -1,13 +1,21 @@
 .highlight {
+  position: relative;
   background-color: #fff;
   font-size: clamp(1rem, 2vw, 1.25rem);
-  padding: 1rem;
+  padding: 2rem 1rem;
   border: 1px solid #cccccc;
-  border-left: 6px solid #fff500;
   margin-bottom: 2rem;
 }
+.highlight .highlight-title {
+  font-weight: 700;
+  position: absolute;
+  left: 0.5rem;
+  top: -1rem;
+  background-color: inherit;
+  padding: 0 0.5rem;
+}
 .highlight input {
-  width: 100%;
+  max-width: calc(100% - 1rem);
   font-size: inherit;
   background-color: inherit;
   outline: none;
@@ -18,4 +26,8 @@
   box-shadow: none;
   -webkit-box-shadow: none;
   border-color: inherit;
+}
+
+.is-style-blue-outline {
+  border-color: #0a26c7;
 }/*# sourceMappingURL=skolastika-gutenberg-blocks-styles.css.map */

@@ -19,4 +19,10 @@
 }
 
 add_action( 'enqueue_block_editor_assets', 'load_highlight_block' );
+add_action( 'init', function() {
+  register_block_style('skolastika/highlight', [
+    'name' => 'blue-outline',
+    'label' => 'Blue Outline',
+  ]);
+});
 add_action( 'enqueue_block_assets', 'load_block_styles' );

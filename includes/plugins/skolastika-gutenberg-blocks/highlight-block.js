@@ -15,16 +15,18 @@ registerBlockType("skolastika/highlight", {
   edit: (props) => {
     const updateContent = (highlightText) =>
       props.setAttributes({ content: highlightText });
-    const updateTitle = (event) =>
+    const updateTitle = (event) => {
+      event.target.style.width = event.target.scrollWidth + "px";
       props.setAttributes({ title: event.target.value });
+    };
     return ReactElement(
       "div",
-      { className: "highlight" },
+      { className: `highlight ${props.className}` },
       ReactElement("input", {
         type: "text",
-        style: {
-          fontWeight: 700,
-        },
+        className: "highlight-title",
+        maxLength: "50",
+        width: "0px",
         value: props.attributes.title,
         placeholder: "The title of the highlight.",
         onChange: updateTitle,
@@ -40,7 +42,12 @@ registerBlockType("skolastika/highlight", {
     return wpElement(
       "div",
       { className: "highlight" },
-      props.attributes.title && wpElement("h3", null, props.attributes.title),
+      props.attributes.title &&
+        wpElement(
+          "h3",
+          { className: "highlight-title" },
+          props.attributes.title
+        ),
       ReactElement(RichText.Content, {
         value: props.attributes.content,
       })
