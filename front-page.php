@@ -35,6 +35,7 @@
     </div>
     <div class="hero-inner container">
         <h1 class="tagline"><?= bloginfo( 'description' ); ?></h1>
+        <p class="subtagline centered-box constrained">Melahirkan para ahli media sosial, konsultan administrasi, ahli PR, dan jurnalis muda yang memiliki kesadaran sosial dan semangat pejuang.</p>
         <div class="hero-cta-menu-container">
             <?php wp_nav_menu( array( 'theme_location' => 'hero-cta-menu', 'container' => 'ul', 'menu_class' => 'hero-cta-menu')); ?>
         </div>
@@ -45,7 +46,6 @@
     <div class="prodi-inner section-inner container text-center">
         <h2>Berjuang Meraih Sukses.</h2>
         <hr class="separator--blue align-center" />
-        <p class="centered-box constrained">Di FISIP UPRI, kami membentuk para ahli media sosial, konsultan administrasi, ahli PR, dan jurnalis masa depan.</p>
         <p class="centered-box constrained">Klik link di bawah untuk belajar bagaimana program-program studi FISIP UPRI dapat membantu Anda meraih keberhasilan dan mewujudkan potensi.</p>
         <p style="font-weight: 200;"><i>Semua Program Studi di FISIP UPRI terakreditasi BAN-PT.</i></p>
         <div>
