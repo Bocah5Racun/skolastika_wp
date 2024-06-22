@@ -200,22 +200,18 @@ article ol li {
   position: relative;
   counter-increment: list-counter;
   width: calc(100% - 4.25rem);
-  min-height: 3rem;
   left: 4.25rem;
 }
 article ol li::before {
   position: absolute;
-  left: -4.25rem;
-  top: 6px;
+  left: -2.5rem;
   display: flex;
   align-items: center;
-  font-size: 125%;
-  padding: 1rem;
+  padding: 0.5rem;
   margin-right: 1rem;
   font-weight: 800;
-  color: #fff;
   background-color: #0a0a0a;
-  float: left;
+  color: #fff;
   line-height: 1rem;
   content: counter(list-counter);
 }
