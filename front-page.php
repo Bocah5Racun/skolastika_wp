@@ -236,7 +236,7 @@
 
 <section id="news" class="section section--dark container--full">
     <div class="news-inner section-inner text-center">
-        <h2>Seputar FISIP</h2>
+        <h2>Info FISIP</h2>
         <hr class="separator--yellow align-center" />
         <h3>Berita dan informasi terbaru tentang FISIP UPRI.</h3>
         <div class="news-carousel container">
@@ -250,6 +250,7 @@
                 get_category_by_slug( 'blog' )->term_id,
                 get_category_by_slug( 'news' )->term_id,
             ),
+            'orderby'           => 'date',
         ));
 
         if( $query->have_posts() ):
