@@ -1,18 +1,5 @@
 <?php
 
-function skolastika_theme_metabox_styles() {
-    $current_screen = get_current_screen();
-    if( 'post' === $current_screen->base && 'staff' === $current_screen->id ) {
-      wp_enqueue_style( 'metabox_styles', get_template_directory_uri() . '/includes/styles/metabox_styles.css');
-      wp_enqueue_script( 'metabox_scripts', get_template_directory_uri() . '/includes/scripts/metabox_scripts.js', array(), false, true, array( 'strategy' => 'defer' ));
-
-      wp_localize_script( 'metabox_scripts', 'GLOBALS', array(
-        'baseURL' => get_template_directory_uri(),
-      ));
-    }
-}
-add_action( 'admin_enqueue_scripts', 'skolastika_theme_metabox_styles' );
-
 function skolastika_theme_metaboxes() {
 
     add_meta_box(
@@ -43,8 +30,6 @@ function skolastika_theme_metaboxes() {
     );
 
 }
-
-add_action( 'add_meta_boxes', 'skolastika_theme_metaboxes' );
 
 function show_staff_profile_metabox() {
     global $post;
@@ -329,4 +314,17 @@ function skolastika_theme_save_metaboxes( $post_id ) {
       delete_post_meta( $post_id, 'staff_cv', $old );
     }
 }
+
+function skolastika_staff_metabox_scripts() {
+
+      wp_enqueue_style( 'metabox_styles', get_template_directory_uri() . '/includes/styles/metabox_styles.css');
+      wp_enqueue_script( 'metabox_scripts', get_template_directory_uri() . '/includes/scripts/metabox_scripts.js', array(), false, true, array( 'strategy' => 'defer' ));
+      wp_localize_script( 'metabox_scripts', 'GLOBALS', array(
+        'baseURL' => get_template_directory_uri(),
+      ));
+      
+    }
+    
+add_action( 'add_meta_boxes', 'skolastika_theme_metaboxes' );
 add_action( 'save_post', 'skolastika_theme_save_metaboxes' );
+add_action( 'admin_enqueue_scripts', 'skolastika_staff_metabox_scripts' );

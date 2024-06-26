@@ -57,6 +57,29 @@ function skolastika_theme_posttypes() {
     );
 
     register_post_type( 
+        'courses',
+        array(
+            'labels'        => array(
+                'name'              => __( 'Courses' ),
+                'singular_name'     => __( 'Course' ),
+                'plural'            => __( 'Courses' ),
+                'add_new'           => __( 'Add New Course' ),
+                'add_new_item'      => __( 'Add New Course' ),
+                'edit_item'         => __( 'Edit Course'),
+                'view_item'         => __( 'View Course Details' ),
+            ),
+            'supports'      => array( 'title', 'thumbnail'),
+            'public'        => true,
+            'has_archive'   => true,
+            'hierarchical'  => false,
+            'rewrite'       => array( 'slug' => 'course'),
+            'menu_icon'     => 'dashicons-nametag',
+            'menu_position' => 5,
+            'show_in_rest'  => true,
+        ),
+    );
+
+    register_post_type( 
         'highlights',
         array(
             'labels'        => array(
@@ -87,7 +110,7 @@ function skolastika_theme_posttypes() {
             'hierarchical'      => true,
             'rewrite'           => array( 'slug' => 'staff'),
             'menu_icon'         => 'dashicons-groups',
-            'menu_position'     => 6,
+            'menu_position'     => 7,
             'show_in_nav_menus' => true,
         ),
     );
@@ -116,7 +139,7 @@ function skolastika_theme_posttypes() {
 function skolastika_theme_taxonomies() {
       
       $labels = array(
-        'name' => _x( 'Study Programs', 'taxonomy general name' ),
+        'name' => _x( 'Study Program', 'taxonomy general name' ),
         'singular_name' => _x( 'Study Program', 'taxonomy singular name' ),
         'search_items' =>  __( 'Study Programs' ),
         'all_items' => __( 'All Study Programs' ),
@@ -124,10 +147,10 @@ function skolastika_theme_taxonomies() {
         'update_item' => __( 'Update Study Program' ),
         'add_new_item' => __( 'Add New Study Program' ),
         'new_item_name' => __( 'New Study Program Name' ),
-        'menu_name' => __( 'Study Programs' ),
-      );    
+        'menu_name' => __( 'Study Program' ),
+      );
 
-      register_taxonomy( 'study_program', array( 'post', 'staff', 'alumni' ), array(
+      register_taxonomy( 'study_program', array( 'post', 'staff', 'alumni', 'courses' ), array(
         'hierarchical' => true,
         'labels' => $labels,
         'show_ui' => true,
@@ -260,5 +283,8 @@ add_action( 'wp_enqueue_scripts', 'skolastika_theme_scripts' );
 add_theme_support( 'custom-logo' );
 add_theme_support( 'post-thumbnails' );
 
-include( get_template_directory() . "/includes/plugins/metaboxes.php" ); // metabox plugin
+include( get_template_directory() . "/includes/plugins/metaboxes/metaboxes.php" ); // metabox plugin
 include( get_template_directory() . "/includes/plugins/skolastika-gutenberg-blocks/plugin.php" ); // custom theme boxes
+add_action( 'post_edit_form_tag' , function() {
+    echo ' enctype="multipart/form-data"';
+} );

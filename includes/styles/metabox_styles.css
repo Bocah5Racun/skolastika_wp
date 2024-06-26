@@ -53,6 +53,14 @@
 .metabox-subsection-content {
   padding: 8px 12px;
 }
+.metabox-subsection-content input[type=file] {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 300px;
+  overflow: auto;
+  padding: 0.75rem;
+  background-color: #cccccc;
+}
 
 .socials-row {
   flex: 1 0 calc(50% - 1rem);

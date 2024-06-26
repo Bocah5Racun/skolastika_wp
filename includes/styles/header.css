@@ -38,6 +38,7 @@
 .header-menu {
   display: flex;
   list-style-type: none;
+  font-size: clamp(12px, 1.25rem, 2.15vw);
 }
 @media (max-width: 768px) {
   .header-menu {
