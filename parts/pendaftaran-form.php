@@ -60,68 +60,57 @@
             <h1 id="title"><?= get_the_title(); ?></h1>
             <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
             <hr class="separator--blue" />
+            <p>Isi formulir di bawah ini untuk memulai proses registrasi mahasiswa baru di Fakultas Ilmu Sosial dan Ilmu Politik Universitas Pejuang Republik Indonesia.</p>
+            <p><u>Anda tidak akan dikenakan biaya pada tahap pendaftaran ini.</u></p>
             <form id="register-form" name="register_form" class="centered-box constrained"  method="post">
-                <div>
-                    <h2>Mulai Proses Registrasi</h2>
-                    <p>Isi formulir di bawah ini untuk memulai proses registrasi sebagai calon mahasiswa baru di Fakultas Ilmu Sosial dan Ilmu Politik di Universitas Pejuang Republik Indonesia.</p>
-                    <p><b>Tidak ada pemungutan biaya untuk tahap ini.</b></p>
-                </div>
                 <div class="form-section">
-                    <h3>Jenis Pendaftaran</h3>
+                    <h3>Data Pribadi</h3>
                     <div class="form-row">
-                        <div class="form-radio-option">
-                            <input type="radio" id="reguler" value="reguler" name="register_program" />
-                            <label for="reguler">Reguler</label>
+                        <div class="form-input">
+                            <label for="full_name">Nama Lengkap (sesuai KTP)</label>
+                            <input required type="text" name="full_name" id="full_name" />
                         </div>
-                        <div class="form-radio-option">
-                            <input type="radio" id="rpl" value="rpl" name="register_program" />
-                            <label for="rpl">
-                            Rekognisi Pembelajaran Lampau (RPL) (<a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Lihat Detail →</a>)
-                            </label>
+                        <div class="form-input">
+                            <label for="city">Kota Domisili</label>
+                            <input required type="text" name="city" id="city" placeholder="Cth: Makassar"/>
                         </div>
                     </div>
-                </div>
-                <div class="form-section">
-                    <h3>Program Studi Pilihan</h3>
                     <div class="form-row">
-                        <div class="form-radio-option">
-                            <input type="radio" id="komunikasi" value="komunikasi" name="register_department" required />
-                            <label for="komunikasi">
-                            Ilmu Komunikasi (<a href="https://fisipupri.ac.id/study-program-about/ilmu-komunikasi/">Lihat Detail →</a>)
-                            </label>
+                        <div class="form-input">
+                            <label for="school">Sekolah Asal (yang mengeluarkan ijazah SMA/sederajat)</label>
+                            <input required type="text" name="school" id="school" placeholder="Cth: SMAN 5 Makassar" />
                         </div>
-                        <div class="form-radio-option">
-                            <input type="radio" id="administrasi" value="komunikasi" name="register_department" />
-                            <label for="administrasi">
-                                Ilmu Administrasi Negara (<a href="https://fisipupri.ac.id/study-program-about/ilmu-administrasi-negara/">Lihat Detail →</a>)
-                            </label>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-input">
+                            <label for="email">Email</label>
+                            <input required type="email" name="email" id="email" placeholder="email@anda.or.id" />
+                        </div>
+                        <div class="form-input">
+                            <label for="phone">No. WhatsApp</label>
+                            <input required type="tel" name="phone" id="phone" placeholder="085555555555" />
                         </div>
                     </div>
                 </div>
                 <div class="form-section">
-                    <h3>Data Personal</h3>
                     <div class="form-row">
-                        <label for="register_name">Nama Lengkap</label>
-                        <input type="text" name="register_name" id="register_name" required />
-                    </div>
-                    <div class="form-row">
-                        <label for="register_email">Email</label>
-                        <input type="email" name="register_email" id="register_email" required />
-                    </div>
-                    <div class="form-row">
-                        <label for="register_school">Sekolah Asal (yang mengeluarkan Ijazah SMA/sederajat)</label>
-                        <input type="text" name="register_school" id="register_school" required />
-                    </div>
-                    <div class="form-row">
-                        <label for="register_phone">Nomor Telepon/WhatsApp*</label>
-                        <input type="tel" name="register_phone" id="register_phone" placeholder="+6285999999999" required />
-                        <small>*nomor WhatsApp yang aktif.</small>
+                        <div class="form-input">
+                            <h3>Program Studi Tujuan</h3>
+                            <select name="department" id="department">
+                                <option value="komunikasi">Ilmu Komunikasi</option>
+                                <option value="adminstrasi">Ilmu Administrasi Negara</option>
+                            </select>
+                        </div>
+                        <div class="form-input">
+                            <h3>Jenis Pendaftaran</h3>
+                            <select name="program" id="program">
+                                <option value="reguler">Kelas Reguler</option>
+                                <option value="rpl">Rekognisi Pembelajaran Lampau</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="g-recaptcha button button--blue" 
-                data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" 
-                data-callback='onSubmit'
-                data-action='submit'>Mulai Proses Registrasi →</button>
+                <button type="submit" class="g-recaptcha button button--blue" data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" data-callback="onSubmit" data-action="submit">Submit →</button>
             </form>
             <div class="constrained">
                 <?= the_content(); ?>

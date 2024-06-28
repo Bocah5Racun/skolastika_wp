@@ -19,7 +19,7 @@ function show_course_details() {
   $post_id = $post->ID;
   $meta = get_post_meta( $post_id, 'course_details' );
   $rps_file = get_post_meta( $post_id, 'rps' );
-
+  
   ?>
 
   <input type="hidden" name="course_details_nonce" id="course_details_nonce" value="<?= wp_create_nonce( 'course_details_nonce' ); ?>">
@@ -46,13 +46,37 @@ function show_course_details() {
           <label for="course_details[dosen]">Dosen Pengampuh</label>
           <input type="text" name="course_details[dosen]" id="course_details[dosen]" value="<?= ( is_array($meta) && isset( $meta[0]['dosen'] ) ) ? $meta[0]['dosen'] : ""; ?>" />
         </div>
-
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; border: 1px solid #ccc;">
-          <label for="rps">Upload RPS File</label>
+    </section>
+    <section class="metabox-subsection-container">
+      <div class="subsection-title"><h3>Upload RPS</h3></div>
+      <section class="metabox-subsection-content">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
           <?php
             if ( is_array($rps_file) && isset( $rps_file[0]['url'] ) ):
           ?>
-            <a href="<?= $rps_file[0]['url']; ?>" target="_blank">View Current RPS</a>
+            <div style="display: flex; gap: 1rem;">
+              <input type="hidden" name="delete_rps" id="delete_rps" value="false" />
+              <a id="view_rps" href="<?= $rps_file[0]['url']; ?>" target="_blank">View Current RPS</a>
+              <a href="" onclick="(function() {
+                event.preventDefault();
+
+                const toggleText = event.target.innerText;
+                const viewRps = document.getElementById('view_rps');
+                const deleteRps = document.getElementById('delete_rps');
+
+                if(toggleText == 'Delete') {
+                  if(confirm('Do you want to delete this file?') == true) {
+                    viewRps.style.display = 'none';
+                    deleteRps.value = true;
+                    event.target.innerText = 'Undo';
+                  }
+                } else  {
+                  viewRps.style.display = 'block';
+                  deleteRps.value = false;
+                  event.target.innerText = 'Delete';
+                }
+              })()">Delete</a>
+            </div>
           <?php
             endif;
           ?>
@@ -63,6 +87,7 @@ function show_course_details() {
             name="rps"
           />
         </div>
+      </section>
     </section>
     <section class="metabox-subsection-container metabox-subsection-container--full">
       <div class="subsection-title">
@@ -78,7 +103,6 @@ function show_course_details() {
 <?php }
 
 function save_course_details( $post_id ) {
-  if( !wp_verify_nonce( $_POST["course_details_nonce"], 'course_details_nonce' ) ) wp_die( 'No nonce found.' );
 
   // check autosave
   if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
@@ -87,29 +111,40 @@ function save_course_details( $post_id ) {
   if ( !current_user_can( 'edit_post', $post_id ) ) wp_die( 'Can\'t edit page' );
 
   // check course meta
-  $old_meta = get_post_meta( $post_id, 'course_details' );
-  $new_meta = $_POST['course_details'];
+  if( isset( $_POST["course_details_nonce"] ) && wp_verify_nonce( $_POST["course_details_nonce"], 'course_details_nonce' ) ){
+    $old_meta = get_post_meta( $post_id, 'course_details' );
+    $new_meta = $_POST['course_details'];
 
-  if ( $new_meta && $new_meta !== $old_meta ) {
-    update_post_meta( $post_id, 'course_details', $new_meta );
-  } elseif ( '' === $new_meta && $old_meta ) {
-    delete_post_meta( $post_id, 'course_details', $old_meta );
+    if ( $new_meta && $new_meta !== $old_meta ) {
+      update_post_meta( $post_id, 'course_details', $new_meta );
+    } elseif ( '' === $new_meta && $old_meta ) {
+      delete_post_meta( $post_id, 'course_details', $old_meta );
+    }
   }
 
   // check rps file
 
-  if ( empty($_FILES['rps']['name'] ) ) return;
+  if ( !isset( $_POST['delete_rps'] ) ) { // if they want to delete
 
-  if ( get_post_meta( $post_id, 'rps' ) ) unlink( get_post_meta( $post_id, 'rps', true )['file'] );
+    if( !empty($_FILES['rps']['name']) ) {
 
-  $name = $_FILES['rps']['name'];
-  $tmp = $_FILES['rps']['tmp_name'];
-  $bits = file_get_contents( $tmp );
-  $upload = wp_upload_bits( $name, null, $bits );
+      if ( get_post_meta( $post_id, 'rps' ) ) unlink( get_post_meta( $post_id, 'rps', true ) );
+  
+      $name = $_FILES['rps']['name'];
+      $tmp = $_FILES['rps']['tmp_name'];
+      $bits = file_get_contents( $tmp );
+      $upload = wp_upload_bits( $name, null, $bits );
+  
+      if ( isset( $upload['error']) && $upload['error'] !== false ) wp_die( 'Upload error: ' . $upload['error'] );
+  
+      update_post_meta( $post_id, 'rps', $upload );
+    }
 
-  if ( isset( $upload['error']) && $upload['error'] !== false ) wp_die( 'Upload error: ' . $upload['error'] );
-
-  update_post_meta( $post_id, 'rps', $upload );
+  } else {
+    unlink( get_post_meta( $post_id, 'rps', true )['file'] );
+    update_post_meta( $post_id, 'rps', ""); 
+  }
+    
 
 }
 

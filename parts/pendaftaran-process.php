@@ -2,12 +2,13 @@
     const ADMIN_EMAIL = "janisalande@komkom.id";
 
     if( 
-        isset( $_POST['register_department'] )
-        && isset( $_POST['register_program'] )
-        && isset( $_POST['register_name'] )
-        && isset( $_POST['register_email'] )
-        && isset( $_POST['register_school'] )
-        && isset( $_POST['register_phone'] )
+        isset( $_POST['department'] )
+        && isset( $_POST['program'] )
+        && isset( $_POST['full_name'] )
+        && isset( $_POST['city'] )
+        && isset( $_POST['email'] )
+        && isset( $_POST['school'] )
+        && isset( $_POST['phone'] )
     ) :
 
         foreach( $_POST as $key => $value ) {
@@ -22,14 +23,15 @@
 
         // send email to ADMIN_EMAIL
         $to = ADMIN_EMAIL;
-        $subject = "[PMB FISIP] - {$register_program} - {$register_department} - {$register_name}";
+        $subject = "[PMB FISIP] - {$program} - {$department} - {$full_name}";
         $message = <<<EOD
-        Nama Lengkap: $register_name
-        Email: $register_email
-        WhatsApp: $register_phone
-        Asal Sekolah: $register_school
-        Jenis Pendaftaran: $register_program
-        Program Studi Pilihan: $register_department
+        Nama Lengkap: $full_name
+        Kota: $city
+        Email: $email
+        WhatsApp: $phone
+        Asal Sekolah: $school
+        Jenis Pendaftaran: $program
+        Program Studi Pilihan: $department
         EOD;
 
         mail( $to, $subject, $message );
@@ -54,33 +56,37 @@
         </div>
         <div class="review-item">
             <label>Nama Lengkap</label>
-            <div><?= $register_name; ?></div>
+            <div><?= $full_name; ?></div>
+        </div>
+        <div class="review-item">
+            <label>Kota Domisili</label>
+            <div><?= $city; ?></div>
         </div>
         <div class="review-item">
             <label>Email</label>
-            <div><?= $register_email; ?></div>
+            <div><?= $email; ?></div>
         </div>
         <div class="review-item">
             <label>Asal Sekolah</label>
-            <div><?= $register_school; ?></div>
+            <div><?= $school; ?></div>
         </div>
         <div class="review-item">
             <label>Nomor WhatsApp</label>
-            <div><?= $register_phone; ?></div>
+            <div><?= $phone; ?></div>
         </div>
         <div class="review-item">
             <label>Jenis Pendaftaran yang Dipilih</label>
             <div>
                 Kelas 
-                <?php if( $register_program == 'rpl' ) echo "RPL"; ?>
-                <?php if( $register_program == 'reguler' ) echo "Reguler"; ?>
+                <?php if( $program == 'rpl' ) echo "RPL"; ?>
+                <?php if( $program == 'reguler' ) echo "Reguler"; ?>
             </div>
         </div>
         <div class="review-item">
             <label>Program Studi yang Dipilih</label>
             <div>
-                <?php if( $register_department == 'administrasi' ) echo "Ilmu Administrasi Negara"; ?>
-                <?php if( $register_department == 'komunikasi' ) echo "Ilmu Komunikasi"; ?>
+                <?php if( $department == 'administrasi' ) echo "Ilmu Administrasi Negara"; ?>
+                <?php if( $department == 'komunikasi' ) echo "Ilmu Komunikasi"; ?>
             </div>
         </div>
     </div>
