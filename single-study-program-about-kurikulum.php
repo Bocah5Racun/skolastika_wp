@@ -69,6 +69,7 @@
 
                         $courses_query = new WP_Query( array(
                             'post_type'     => 'courses',
+                            'posts_per_page'=> -1,
                             'tax_query'     => array(
                                 'taxonomy'  => 'study_program',
                                 'field'     => 'name',
