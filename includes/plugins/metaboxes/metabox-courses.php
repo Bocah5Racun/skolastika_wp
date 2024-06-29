@@ -18,6 +18,7 @@ function show_course_details() {
   global $post;
   $post_id = $post->ID;
   $meta = get_post_meta( $post_id, 'course_details' );
+  $semester = get_post_meta( $post_id, 'semester', true );
   $rps_file = get_post_meta( $post_id, 'rps' );
   
   ?>
@@ -31,8 +32,8 @@ function show_course_details() {
       </div>
       <div class="metabox-subsection-content" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
         <div>
-          <label for="course_details[semester]">Semester</label>
-          <input type="number" min="1" max="8" name="course_details[semester]" id="course_details[semester]" value="<?= ( is_array($meta) && isset( $meta[0]['semester'] ) ) ? $meta[0]['semester'] : ""; ?>" />
+          <label for="semester">Semester</label>
+          <input type="number" min="1" max="8" name="semester" id="semester" value="<?= isset( $semester ) ? $semester : ""; ?>" />
         </div>
         <div>
           <label for="course_details[sks]">Jumlah SKS</label>
@@ -120,6 +121,14 @@ function save_course_details( $post_id ) {
     } elseif ( '' === $new_meta && $old_meta ) {
       delete_post_meta( $post_id, 'course_details', $old_meta );
     }
+
+    $old_semester = get_post_meta( $post_id, 'semester', true );
+    $new_semester = $_POST['semester'];
+
+    if ( $new_semester && $new_semester !== $old_semester ) {
+      update_post_meta( $post_id, 'semester', $new_semester );
+    }
+
   }
 
   // check rps file

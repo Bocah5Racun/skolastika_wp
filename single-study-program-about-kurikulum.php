@@ -64,12 +64,76 @@
             <h1 id="title">Kurikulum</h1>
             <hr class="separator--blue" />
             <div class="constrained">
+                <div class="curriculum-container">
+                    <?php
+
+                        $courses_query = new WP_Query( array(
+                            'post_type'     => 'courses',
+                            'tax_query'     => array(
+                                'taxonomy'  => 'study_program',
+                                'field'     => 'name',
+                                'terms'     => $study_program,
+                                ),
+                            'meta_key'      => 'semester',
+                            'orderby'       => 'meta_value_num',
+                            'order'         => 'ASC',
+                            ),
+                        );
+
+                        if( $courses_query->have_posts() ) :
+
+                            ?>
+
+                        <figure class="wp-block-table">
+                            <table class="has-fixed-layout">
+                                <thead>
+                                    <tr>
+                                        <th>Semester</th>
+                                        <th>Kode</th>
+                                        <th>Mata Kuliah</th>
+                                        <th>SKS</th>
+                                        <th>Lihat Detail</th>
+                                        <th>Lihat RPS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        
+                        <?php
+                            while ( $courses_query->have_posts() ) :
+                                $courses_query->the_post();
+
+                                $course_details = get_post_meta( get_the_ID(), 'course_details', true );
+                                $rps_file = get_post_meta( get_the_ID(), 'rps', true );
+                                $semester = get_post_meta( get_the_ID(), 'semester', true );
+
+                        ?>
+
+                                <tr>
+                                    <td><?= $semester; ?></td>
+                                    <td><?= $course_details['kode'] ?></td>
+                                    <td><?= get_the_title(); ?></td>
+                                    <td><?= $course_details['sks'] ?></td>
+                                    <td><a href="<?= get_the_permalink(); ?>" target="_blank">Lihat Detail</a></td>
+                                    <td><?= is_array($rps_file) && isset( $rps_file['url'] ) ? '<a href="' . $rps_file['url'] . '" target="_blank">Lihat RPS</a>' : "--";?>
+                                </tr>
+
+                        <?php
+                            endwhile;
+                        ?>
+                                </tbody>
+                            </table>
+                        </figure>
+
+                        <?php
+                        endif;
+                    ?>
+                </div>
                 <?= the_content(); ?>
             </div>
         </article>
         <div class="section section--upri-yellow study-program-child-cta-container p-4">
             <div class="section-inner">
-                <h2>Tertarik untuk memulai karier di bidang <?= $study_program; ?>?</h2>
+                <h2>Tertarik untuk berkarier di bidang <?= $study_program; ?>?</h2>
                 <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
             </div>
         </div>
