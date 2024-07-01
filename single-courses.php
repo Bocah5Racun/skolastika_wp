@@ -29,10 +29,14 @@
                     <h3 class="curriculum-box-label">Dosen Pengampuh</h3>
                     <div><?= $course_details['dosen']; ?></div>
                 </div>
+                <?php
+                    if ( isset( $rps_file['url'] ) ) :
+                ?>
                 <div>
                     <h3 class="curriculum-box-label">RPS</h3>
-                    <div><?= isset( $rps_file['url'] ) ? '<a href="' . $rps_file['url'] . '" target="_blank">Lihat RPS</a>' : "" ?></div>
+                    <div><a href="<?= $rps_file['url']; ?>" target="_blank">Lihat RPS</a></div>
                 </div>
+                <?php endif; ?>
             </div>
             <p><?= $course_details['description']; ?></p>
             <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
