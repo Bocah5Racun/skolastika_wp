@@ -128,7 +128,7 @@
                                     <td><?= $course_details['kode']; ?></td>
                                     <td><?= get_the_title(); ?></td>
                                     <td><?= $course_details['sks']; ?></td>
-                                    <td><a href="<?= get_the_permalink(); ?>">Lihat Detail</a></td>
+                                    <td><a href="<?= get_the_permalink(); ?>" target="_blank">Lihat Detail</a></td>
                                     <td><?= is_array( $rps_file ) &&  isset( $rps_file['url'] ) ? '<a href="' . $rps_file['url'] . '" target="_blank">Lihat RPS</a>' : "--"; ?></td>
                                 </tr>
 
