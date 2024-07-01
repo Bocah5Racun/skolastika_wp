@@ -47,7 +47,7 @@
                         $query->the_post();
             ?>
 
-            <a href="<?= get_the_permalink() . "#title"; ?>"><?= get_the_title(); ?></a>
+            <a href="<?= get_the_permalink(); ?>"><?= get_the_title(); ?></a>
 
             <?php
                 endwhile;

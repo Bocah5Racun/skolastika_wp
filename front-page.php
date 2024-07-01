@@ -382,7 +382,7 @@
             <hr class="separator--blue" />
             <p>Jika Anda ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
             <div class="cta-column text-center">
-                <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/#title" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
+                <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
                 <a class="see-more see-more--small see-more--blue" href="https://wa.me/6281244375770">Mau bertanya? →</a>
             </div>
         </div>
