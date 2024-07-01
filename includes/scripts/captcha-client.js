@@ -1,5 +1,5 @@
 function onSubmit(token) {
-  document.getElementById("register-form").submit();
+  const form = document.getElementById("register-form");
   if (form.checkValidity()) {
     form.submit();
   } else {
