@@ -90,7 +90,6 @@
                                 $courses_query->the_post();
 
                                 $course_details = get_post_meta( get_the_ID(), 'course_details', true );
-                                $rps_file = get_post_meta( get_the_ID(), 'rps', true );
                                 $semester = get_post_meta( get_the_ID(), 'semester', true );
 
                                 if ( $semester !== $current_semester || $current_semester === 0 ) :
@@ -115,9 +114,7 @@
                                 <tr class="kurikulum-sub-header">
                                     <td>Kode</td>
                                     <td>Mata Kuliah</td>
-                                    <td>SKS</td>
                                     <td>Detail MK</td>
-                                    <td>RPS</td>
                                 </tr>
 
                     <?php
@@ -127,9 +124,7 @@
                                 <tr>
                                     <td><?= $course_details['kode']; ?></td>
                                     <td><?= get_the_title(); ?></td>
-                                    <td><?= $course_details['sks']; ?></td>
                                     <td><a href="<?= get_the_permalink(); ?>" target="_blank">Lihat Detail</a></td>
-                                    <td><?= is_array( $rps_file ) &&  isset( $rps_file['url'] ) ? '<a href="' . $rps_file['url'] . '" target="_blank">Lihat RPS</a>' : "--"; ?></td>
                                 </tr>
 
                     <?php
