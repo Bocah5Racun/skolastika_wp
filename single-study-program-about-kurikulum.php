@@ -64,6 +64,7 @@
             <h1 id="title">Kurikulum</h1>
             <hr class="separator--blue" />
             <div class="constrained">
+                <?= the_content(); ?>
                 <div class="curriculum-container">
                     <?php
 
@@ -83,23 +84,7 @@
 
                         if( $courses_query->have_posts() ) :
 
-                            ?>
-
-                        <figure class="wp-block-table">
-                            <table class="has-fixed-layout">
-                                <thead>
-                                    <tr>
-                                        <th>Semester</th>
-                                        <th>Kode</th>
-                                        <th>Mata Kuliah</th>
-                                        <th>SKS</th>
-                                        <th>Lihat Detail</th>
-                                        <th>Lihat RPS</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                        
-                        <?php
+                            $current_semester = 0;
                             while ( $courses_query->have_posts() ) :
                                 $courses_query->the_post();
 
@@ -107,29 +92,56 @@
                                 $rps_file = get_post_meta( get_the_ID(), 'rps', true );
                                 $semester = get_post_meta( get_the_ID(), 'semester', true );
 
+                                if ( $semester !== $current_semester || $current_semester === 0 ) :
+                                    if ( $current_semester > 0 ) :
+                                ?>
+
+                                    </table>
+                                </figure>
+                        
+                        <?php
+                                    endif;
+                                
+                                    $current_semester = $semester;
+
                         ?>
 
-                                <tr>
-                                    <td><?= $semester; ?></td>
-                                    <td><?= $course_details['kode'] ?></td>
-                                    <td><?= get_the_title(); ?></td>
-                                    <td><?= $course_details['sks'] ?></td>
-                                    <td><a href="<?= get_the_permalink(); ?>" target="_blank">Lihat Detail</a></td>
-                                    <td><?= is_array($rps_file) && isset( $rps_file['url'] ) ? '<a href="' . $rps_file['url'] . '" target="_blank">Lihat RPS</a>' : "--";?>
+                        <figure class="wp-block-table">
+                            <table class="has-fixed-layout">
+                                <tr class="kurikulum-header">
+                                    <th colspan="5">Semester <?= $semester; ?></th>
+                                </tr>
+                                <tr class="kurikulum-sub-header">
+                                    <td>Kode</td>
+                                    <td>Mata Kuliah</td>
+                                    <td>SKS</td>
+                                    <td>Detail MK</td>
+                                    <td>RPS</td>
                                 </tr>
 
-                        <?php
+                    <?php
+                                endif;
+                    ?>
+
+                                <tr>
+                                    <td><?= $course_details['kode']; ?></td>
+                                    <td><?= get_the_title(); ?></td>
+                                    <td><?= $course_details['sks']; ?></td>
+                                    <td><a href="<?= get_the_permalink(); ?>">Lihat Detail</a></td>
+                                    <td><?= is_array( $rps_file ) &&  isset( $rps_file['url'] ) ? '<a href="' . $rps_file['url'] . '" target="_blank">Lihat RPS</a>' : "--"; ?></td>
+                                </tr>
+
+                    <?php
                             endwhile;
-                        ?>
-                                </tbody>
+                    ?>
+                    
                             </table>
                         </figure>
 
-                        <?php
+                    <?php
                         endif;
                     ?>
                 </div>
-                <?= the_content(); ?>
             </div>
         </article>
         <div class="section section--upri-yellow study-program-child-cta-container p-4">

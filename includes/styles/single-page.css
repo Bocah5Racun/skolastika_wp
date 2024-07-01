@@ -435,4 +435,13 @@ article a:hover {
 #data-review .note a,
 #data-review .note p {
   font-size: 0.825rem;
+}
+
+.kurikulum-header {
+  font-size: 1.3rem;
+}
+
+.kurikulum-sub-header {
+  font-weight: 600;
+  background-color: #dedede;
 }/*# sourceMappingURL=single-page.css.map */
