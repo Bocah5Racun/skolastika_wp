@@ -444,4 +444,18 @@ article a:hover {
 .kurikulum-sub-header {
   font-weight: 600;
   background-color: #dedede;
+}
+
+.curriculum-box {
+  background-color: #cccccc;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  text-align: center;
+}
+.curriculum-box h3.curriculum-box-label {
+  font-size: 1rem;
+  text-decoration: underline;
 }/*# sourceMappingURL=single-page.css.map */
