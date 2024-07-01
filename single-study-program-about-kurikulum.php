@@ -64,6 +64,7 @@
             <h1 id="title">Kurikulum</h1>
             <hr class="separator--blue" />
             <div class="constrained">
+                <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
                 <?= the_content(); ?>
                 <div class="curriculum-container">
                     <?php
