@@ -109,7 +109,7 @@
                         <figure class="wp-block-table">
                             <table class="has-fixed-layout">
                                 <tr class="kurikulum-header">
-                                    <th colspan="5">Semester <?= $semester; ?></th>
+                                    <th colspan="3">Semester <?= $semester; ?></th>
                                 </tr>
                                 <tr class="kurikulum-sub-header">
                                     <td>Kode</td>
