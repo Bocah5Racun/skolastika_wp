@@ -641,4 +641,8 @@
     bottom: -1rem;
     left: 35%;
   }
+}
+
+#btn-download-brosur:active {
+  background-color: #000;
 }/*# sourceMappingURL=front-page.css.map */

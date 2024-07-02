@@ -149,7 +149,7 @@
                 <label for="nama">Kota</label><input type="text" placeholder="Kota domisili Anda saat ini." required />
                 <label for="nama">Email</label><input type="text" required />
             </div>
-            <button id="btn-download-brosur" class="button button--blue ">Download Brosur</button>
+            <button id="btn-download-brosur" class="button button--blue">Download Brosur</button>
         </div>
         <div class="brosur-girl-container unselectable">
             <img class="brosur-girl" src="<?= get_template_directory_uri() . '/includes/images/upri_girl.png;' ?>" />
