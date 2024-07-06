@@ -485,7 +485,7 @@ tr.active .curriculum-description-wrapper {
 .curriculum-box {
   margin-bottom: 1rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 0.25rem;
   text-align: center;
@@ -497,6 +497,7 @@ tr.active .curriculum-description-wrapper {
 @media (max-width: 480px) {
   .curriculum-box .curriculum-cell {
     flex: 1 0 calc(50% - 0.5rem);
+    flex-wrap: wrap;
     box-sizing: border-box;
     font-size: 0.85rem;
     padding: 0.5rem;
