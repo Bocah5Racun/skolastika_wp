@@ -197,6 +197,12 @@
 </section>
 
 <script>
+    setTimeout( () => {
+        document.querySelector("#title").scrollIntoView({
+            behavior: 'smooth',
+        })
+    }, 1000)
+    
     function toggleRow(rowID, el) {
         const allRows = document.querySelectorAll('.collapse');
         const targetRow = document.getElementById(rowID);
