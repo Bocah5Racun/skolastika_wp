@@ -203,6 +203,7 @@
         allRows.forEach( row => {
             if(row.id == targetRow.id ) return;
             row.classList.remove('active');
+            el.innerText = "Lihat Detail"
         });
         if(targetRow.classList.contains('active')) {
             targetRow.classList.remove('active');
