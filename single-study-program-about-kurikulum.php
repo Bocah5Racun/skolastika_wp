@@ -211,7 +211,10 @@
         } else {
             targetRow.classList.add('active');
             el.innerText = "Sembunyikan";
-            el.scrollIntoView({behavior: 'smooth',});
+
+            setTimeout( () => {
+                el.scrollIntoView({behavior: 'smooth',});
+            }, 500)
         }
     }
 </script>
