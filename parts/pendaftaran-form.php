@@ -4,7 +4,7 @@
 
 <div id="single-hero-container">
     <div class="single-hero-title-container container">
-        <a href=".."><h1><?= $study_program ?></h1></a>
+        <a class="single-hero-container-title" href=".."><?= $study_program ?></a>
     </div>
     <img src="<?= get_the_post_thumbnail_url( wp_get_post_parent_id( get_the_ID() )); ?>" />
     <div class="gradient--radial"></div>

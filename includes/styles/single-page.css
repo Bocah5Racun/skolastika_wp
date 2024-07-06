@@ -148,12 +148,14 @@
   z-index: 0;
 }
 #single-hero-container .single-hero-title-container {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  font-size: clamp(2.75rem, 4vw, 3.5rem);
+  font-weight: 700;
   height: 100%;
+  justify-content: flex-end;
   padding: 2rem 0;
+  position: relative;
   z-index: 10;
 }
 
@@ -272,7 +274,7 @@ article a:hover {
     padding: 1rem;
   }
 }
-#single-hero-container h1 {
+#single-hero-container .single-hero-container-title {
   display: inline;
   position: relative;
   background-color: #fff500;
@@ -280,7 +282,7 @@ article a:hover {
   z-index: 10;
 }
 @media (max-width: 768px) {
-  #single-hero-container h1 {
+  #single-hero-container .single-hero-container-title {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     padding: 0;
