@@ -202,7 +202,7 @@
         const targetRow = document.getElementById(rowID);
         allRows.forEach( row => {
             if(row.id == targetRow.id ) return;
-            row.previousSibling.querySelector('.toggle-link').innerText = "Lihat Detail";
+            row.previousElementSibling.querySelector('.toggle-link').innerText = "Lihat Detail";
             row.classList.remove('active');
             el.innerText = "Lihat Detail"
         });
