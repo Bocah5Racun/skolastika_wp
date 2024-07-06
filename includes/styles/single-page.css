@@ -478,6 +478,9 @@ tr.active .details-wrapper {
   max-height: 400px;
   padding: 1rem;
 }
+tr.active .curriculum-description-wrapper {
+  padding: 1rem;
+}
 
 .curriculum-box {
   margin-bottom: 1rem;
@@ -499,7 +502,13 @@ tr.active .details-wrapper {
     padding: 0.5rem;
   }
 }
+.curriculum-box .curriculum-cell .rps-link {
+  font-size: 2em;
+}
 .curriculum-box h3.curriculum-box-label {
   font-size: 1em;
   text-decoration: underline;
+}
+.curriculum-box .curriculum-description-wrapper {
+  padding: 4rem;
 }/*# sourceMappingURL=single-page.css.map */

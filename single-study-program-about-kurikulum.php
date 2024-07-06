@@ -130,7 +130,7 @@
                                         <a
                                             target="_blank"
                                             class="toggle-link"
-                                            onclick="toggleRow('<?= get_the_ID() . '-details-row'; ?>', this)">Lihat Detail</a>
+                                            onclick="toggleRow('<?= get_the_ID() . '-details-row'; ?>', this)">Show</a>
                                     <?php else : ?>
                                         --
                                     <?php endif;?>
@@ -162,7 +162,7 @@
                                                     ?>
                                                     <div class="curriculum-cell">
                                                         <h3 class="curriculum-box-label">RPS</h3>
-                                                        <div><a href="<?= $rps_file['url']; ?>" target="_blank">Lihat RPS</a></div>
+                                                        <div><a class="rps-link" href="<?= $rps_file['url']; ?>" target="_blank">🗎</a></div>
                                                     </div>
                                                     <?php endif; ?>
                                                 </div>
@@ -204,14 +204,14 @@
             if(row.id == targetRow.id ) return;
             row.previousElementSibling.querySelector('.toggle-link').innerText = "Lihat Detail";
             row.classList.remove('active');
-            el.innerText = "Lihat Detail"
+            el.innerText = "Show"
         });
         if(targetRow.classList.contains('active')) {
             targetRow.classList.remove('active');
-            el.innerText = "Lihat Detail";
+            el.innerText = "Show";
         } else {
             targetRow.classList.add('active');
-            el.innerText = "Sembunyikan";
+            el.innerText = "Hide";
 
             setTimeout( () => {
                 el.scrollIntoView({behavior: 'smooth',});
