@@ -202,13 +202,13 @@
             behavior: 'smooth',
         })
     }, 1000)
-    
+
     function toggleRow(rowID, el) {
         const allRows = document.querySelectorAll('.collapse');
         const targetRow = document.getElementById(rowID);
         allRows.forEach( row => {
             if(row.id == targetRow.id ) return;
-            row.previousElementSibling.querySelector('.toggle-link').innerText = "Lihat Detail";
+            row.previousElementSibling.querySelector('.toggle-link').innerText = "Show";
             row.classList.remove('active');
             el.innerText = "Show"
         });
