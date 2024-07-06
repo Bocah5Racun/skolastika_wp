@@ -209,7 +209,7 @@
             el.innerText = "Lihat Detail";
         } else {
             targetRow.classList.add('active');
-            el.innerText = "Sembunyikan Detail";
+            el.innerText = "Sembunyikan";
             el.scrollIntoView({behavior: 'smooth',});
         }
     }
