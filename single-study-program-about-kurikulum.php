@@ -91,6 +91,7 @@
 
                                 $course_details = get_post_meta( get_the_ID(), 'course_details', true );
                                 $semester = get_post_meta( get_the_ID(), 'semester', true );
+                                $rps_file = get_post_meta( get_the_ID(), 'rps', true );
 
                                 if ( $semester !== $current_semester || $current_semester === 0 ) :
                                     if ( $current_semester > 0 ) :
@@ -124,8 +125,54 @@
                                 <tr>
                                     <td><?= $course_details['kode']; ?></td>
                                     <td><?= get_the_title(); ?></td>
-                                    <td><a href="<?= get_the_permalink(); ?>" target="_blank">Lihat Detail</a></td>
+                                    <td>
+                                    <?php if( $course_details['description'] ) : ?>
+                                        <a
+                                            target="_blank"
+                                            class="toggle-link"
+                                            onclick="toggleRow('<?= get_the_ID() . '-details-row'; ?>', this)">Lihat Detail</a>
+                                    <?php else : ?>
+                                        --
+                                    <?php endif;?>
+                                    </td>
                                 </tr>
+                                <?php if( $course_details['description'] ) : ?>
+                                    <tr id="<?= get_the_ID(); ?>-details-row" class="collapse">
+                                        <td colspan="3">
+                                            <div class="details-wrapper">
+                                                <div class="curriculum-box">
+                                                    <div class="curriculum-cell">
+                                                        <h3 class="curriculum-box-label">Nama Mata Kuliah</h3>
+                                                        <div><?= get_the_title(); ?></div>
+                                                    </div>
+                                                    <div class="curriculum-cell">
+                                                        <h3 class="curriculum-box-label">Jumlah SKS</h3>
+                                                        <div><?= $course_details['sks']; ?></div>
+                                                    </div>
+                                                    <div class="curriculum-cell">
+                                                        <h3 class="curriculum-box-label">Semester</h3>
+                                                        <div><?= $semester; ?></div>
+                                                    </div>
+                                                    <div class="curriculum-cell">
+                                                        <h3 class="curriculum-box-label">Dosen Pengampuh</h3>
+                                                        <div><?= $course_details['dosen']; ?></div>
+                                                    </div>
+                                                    <?php
+                                                        if ( isset( $rps_file['url'] ) ) :
+                                                    ?>
+                                                    <div class="curriculum-cell">
+                                                        <h3 class="curriculum-box-label">RPS</h3>
+                                                        <div><a href="<?= $rps_file['url']; ?>" target="_blank">Lihat RPS</a></div>
+                                                    </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <p class="curriculum-description-wrapper">
+                                                    <?= $course_details['description']; ?>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
 
                     <?php
                             endwhile;
@@ -149,7 +196,24 @@
     </div>
 </section>
 
-
+<script>
+    function toggleRow(rowID, el) {
+        const allRows = document.querySelectorAll('.collapse');
+        const targetRow = document.getElementById(rowID);
+        allRows.forEach( row => {
+            if(row.id == targetRow.id ) return;
+            row.classList.remove('active');
+        });
+        if(targetRow.classList.contains('active')) {
+            targetRow.classList.remove('active');
+            el.innerText = "Lihat Detail";
+        } else {
+            targetRow.classList.add('active');
+            el.innerText = "Sembunyikan Detail";
+            el.scrollIntoView({behavior: 'smooth',});
+        }
+    }
+</script>
 <?php
     get_footer();
 ?>

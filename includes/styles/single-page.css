@@ -446,16 +446,60 @@ article a:hover {
   background-color: #dedede;
 }
 
-.curriculum-box {
-  background-color: #cccccc;
+.toggle-link {
+  cursor: pointer;
+}
+
+tr.collapse td:has(.details-wrapper) {
+  border: 0;
+  padding: 0;
+}
+tr.collapse .details-wrapper {
+  background-color: #ededed;
+  border: 0;
+  margin: 0 auto;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: all 0.5s;
+  width: 98%;
+}
+tr.collapse .details-wrapper p {
+  font-size: 1rem;
+  margin: 0;
+}
+@media (max-width: 480px) {
+  tr.collapse .details-wrapper p {
+    font-size: 0.9rem;
+  }
+}
+
+tr.active .details-wrapper {
+  max-height: 400px;
   padding: 1rem;
-  margin-bottom: 2rem;
-  display: inline-flex;
+}
+
+.curriculum-box {
+  margin-bottom: 1rem;
+  display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: center;
+  gap: 0.25rem;
   text-align: center;
 }
+.curriculum-box .curriculum-cell {
+  background-color: #cccccc;
+  padding: 1rem;
+}
+@media (max-width: 480px) {
+  .curriculum-box .curriculum-cell {
+    flex: 1 0 calc(50% - 0.5rem);
+    box-sizing: border-box;
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}
 .curriculum-box h3.curriculum-box-label {
-  font-size: 1rem;
+  font-size: 1em;
   text-decoration: underline;
 }/*# sourceMappingURL=single-page.css.map */
