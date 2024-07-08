@@ -218,10 +218,6 @@
         } else {
             targetRow.classList.add('active');
             el.innerText = "Hide";
-
-            setTimeout( () => {
-                el.scrollIntoView({behavior: 'smooth',});
-            }, 500)
         }
     }
 </script>
