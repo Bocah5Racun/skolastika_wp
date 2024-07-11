@@ -60,6 +60,9 @@
             <h1 id="title"><?= get_the_title(); ?></h1>
             <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
             <hr class="separator--blue" />
+            <div class="constrained">
+                <?= the_content(); ?>
+            </div>
             <p>Isi formulir di bawah ini untuk memulai proses registrasi mahasiswa baru di Fakultas Ilmu Sosial dan Ilmu Politik Universitas Pejuang Republik Indonesia.</p>
             <p><u>Anda tidak akan dikenakan biaya pada tahap pendaftaran ini.</u></p>
             <form id="register-form" name="register_form" class="centered-box constrained"  method="post">
@@ -112,9 +115,6 @@
                 </div>
                 <button type="submit" class="g-recaptcha button button--blue" data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" data-callback="onSubmit" data-action="submit">Submit →</button>
             </form>
-            <div class="constrained">
-                <?= the_content(); ?>
-            </div>
         </article>
     </div>
 
