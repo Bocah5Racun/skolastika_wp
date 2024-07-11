@@ -63,7 +63,6 @@
             <div class="constrained">
                 <?= the_content(); ?>
             </div>
-            <p>Isi formulir di bawah ini untuk memulai proses registrasi mahasiswa baru di Fakultas Ilmu Sosial dan Ilmu Politik Universitas Pejuang Republik Indonesia.</p>
             <p><u>Anda tidak akan dikenakan biaya pada tahap pendaftaran ini.</u></p>
             <form id="register-form" name="register_form" class="centered-box constrained"  method="post">
                 <div class="form-section">
