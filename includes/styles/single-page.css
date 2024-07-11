@@ -143,7 +143,7 @@
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   background-color: #cccccc;
   z-index: 0;
 }
@@ -163,7 +163,7 @@ article .post-thumbnail {
   width: 100%;
   aspect-ratio: 16/9;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   margin-bottom: 1rem;
 }
 article .post-caption {
@@ -329,19 +329,13 @@ article a:hover {
   text-decoration: underline;
 }
 
-.wp-block-table {
-  th {
-    background-color: #0a0a0a;
-    color: #fff;
-  }
-  td {
-    border-style: none solid solid solid;
-    border-width: 1px;
-  }
-  .wp-element-caption {
-    font-size: 0.825rem;
-    line-height: 150%;
-  }
+.wp-block-table th {
+  background-color: #0a0a0a;
+  color: #fff;
+}
+.wp-block-table .wp-element-caption {
+  font-size: 0.825rem;
+  line-height: 150%;
 }
 
 #register-form {
@@ -349,10 +343,11 @@ article a:hover {
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 2rem;
+  padding: 1rem;
 }
 @media (max-width: 480px) {
   #register-form {
-    padding: 1rem;
+    padding: 0;
   }
 }
 #register-form h2 {
@@ -406,9 +401,7 @@ article a:hover {
   padding: 1rem;
   font-family: "IBM Plex Sans", sans-serif;
 }
-#register-form input[type="text"],
-#register-form input[type="email"],
-#register-form input[type="tel"] {
+#register-form input[type=text], #register-form input[type=email], #register-form input[type=tel] {
   border: 1px solid #0a26c7;
   border-radius: 6px;
 }
@@ -522,4 +515,4 @@ tr.active .curriculum-description-wrapper {
 }
 .curriculum-box .curriculum-description-wrapper {
   padding: 4rem;
-} /*# sourceMappingURL=single-page.css.map */
+}/*# sourceMappingURL=single-page.css.map */
