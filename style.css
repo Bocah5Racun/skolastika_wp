@@ -164,8 +164,13 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-size: 2.5em;
   font-weight: 600;
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2em;
+  }
 }
 
 h3 {
@@ -239,23 +244,23 @@ button {
 }
 
 .separator--yellow {
-  width: 60px;
+  width: 120px;
   border: none;
-  border-top-width: 6px;
+  border-top-width: 3px;
   border-top-style: solid;
   border-top-color: #fff500;
 }
 .separator--blue {
-  width: 60px;
+  width: 120px;
   border: none;
-  border-top-width: 6px;
+  border-top-width: 3px;
   border-top-style: solid;
   border-top-color: #0a26c7;
 }
 .separator--green {
-  width: 60px;
+  width: 120px;
   border: none;
-  border-top-width: 6px;
+  border-top-width: 3px;
   border-top-style: solid;
   border-top-color: #01923e;
 }
@@ -320,11 +325,11 @@ button {
 }
 
 .see-more {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   text-decoration: none;
 }
 .see-more--small {
-  font-size: 1.25rem !important;
+  font-size: 1.25em !important;
 }
 
 .see-more:hover {
@@ -379,9 +384,14 @@ img.custom-logo {
 
 .cta {
   padding: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.25em;
   font-weight: 600;
   text-decoration: none;
+}
+@media (max-width: 768px) {
+  .cta {
+    font-size: 1em;
+  }
 }
 .cta:hover {
   text-decoration: underline;
