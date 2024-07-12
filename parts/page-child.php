@@ -47,11 +47,11 @@
                 <?= the_content(); ?>
             </div>
         </article>
-        <div class="section section--upri-yellow study-program-child-cta-container p-4">
-            <div class="section-inner">
-                <h2>Gabung bersama kami membuat perubahan yang berdampak.</h2>
-                <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
-            </div>
-        </div>
+    </div>
+</section>
+<section class="section section--upri-yellow study-program-child-cta-container">
+    <div class="section-inner constrained">
+        <h2>Gabung bersama kami membuat perubahan yang berdampak.</h2>
+        <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
     </div>
 </section>

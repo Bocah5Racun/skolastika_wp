@@ -66,14 +66,14 @@
                 <?= the_content(); ?>
             </div>
         </article>
-        <div class="section section--upri-yellow study-program-child-cta-container p-4">
-            <div class="section-inner">
-                <h2>Tertarik untuk memulai karier di bidang <?= $study_program; ?>?</h2>
-                <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
-                <?php if( "Kurikulum" !== get_the_title() ): ?>
-                    <a href="<?= "../kurikulum"; ?>">Lihat kurikulum →</a>
-                <?php endif;?>
-            </div>
+    </div>
+    <div class="section section--upri-yellow study-program-child-cta-container">
+        <div class="section-inner">
+            <h2>Tertarik untuk memulai karier di bidang <?= $study_program; ?>?</h2>
+            <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
+            <?php if( "Kurikulum" !== get_the_title() ): ?>
+                <a href="<?= "../kurikulum"; ?>">Lihat kurikulum →</a>
+            <?php endif;?>
         </div>
     </div>
 </section>
