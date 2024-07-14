@@ -163,15 +163,11 @@
 }
 
 .tagline {
-  position: relative;
+  color: #fff;
   font-size: 4em;
   font-weight: 700;
-  color: #fff;
-}
-@media (max-width: 768px) {
-  .tagline {
-    font-size: 2em;
-  }
+  line-height: 100%;
+  position: relative;
 }
 
 .subtagline {
@@ -488,6 +484,11 @@
   background-color: #cccccc;
   padding: 2rem 1rem;
 }
+@media (max-width: 768px) {
+  .final-cta-box {
+    font-size: 0.95rem;
+  }
+}
 .final-cta-box hr {
   margin: 2rem 0;
 }
@@ -522,7 +523,7 @@
 }
 @media (max-width: 480px) {
   .final-cta-list a {
-    font-size: 1.25rem;
+    font-size: 1.25em;
   }
 }
 .final-cta-list a:hover {
