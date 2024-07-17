@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+
+
+    get_header(); ?>
 
 <section id="hero" class="container--full">
     <?php
@@ -144,12 +147,7 @@
             <h2>Download Brosur FISIP UPRI</h2>
             <hr class="separator--blue" />
             <p>Dapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>
-            <div id="brosur-form">
-                <label for="nama">Nama</label><input type="text" required />
-                <label for="nama">Kota</label><input type="text" placeholder="Kota domisili Anda saat ini." required />
-                <label for="nama">Email</label><input type="text" required />
-            </div>
-            <button id="btn-download-brosur" class="button button--blue">Download Brosur</button>
+            <a href="https://fisipupri.ac.id/wp-content/uploads/2024/07/brosur_fisip_upri_2024.pdf" id="btn-download-brosur" class="button button--blue">Download Brosur</a>
         </div>
         <div class="brosur-girl-container unselectable">
             <img class="brosur-girl" src="<?= get_template_directory_uri() . '/includes/images/upri_girl.png;' ?>" />
