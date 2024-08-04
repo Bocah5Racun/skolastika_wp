@@ -9,7 +9,6 @@
 
 <article class="container section">
     <div class="section-inner">
-        <h1><?= get_the_title(); ?></h1>
         <div class="constrained centered-box">
             <?php if( has_post_thumbnail() ) : ?>
             <img class="post-thumbnail popup_thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), "full" ); ?>" />
@@ -17,6 +16,7 @@
                 <div class="post-caption"><?= get_the_post_thumbnail_caption(); ?></div>
             <?php endif; ?>
             <?php endif; ?>
+            <h1><?= get_the_title(); ?></h1>
             <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
         </div>
         <div class="article-content constrained centered-box">
