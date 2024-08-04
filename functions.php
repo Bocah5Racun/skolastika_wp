@@ -18,7 +18,18 @@ function skolastika_theme_scripts() {
         wp_enqueue_script( 'captcha', 'https://www.google.com/recaptcha/api.js', array(), true );
         wp_enqueue_script( 'captcha-client', get_template_directory_uri() . '/includes/scripts/captcha-client.js', array(), true, true );
     }
-    if( is_front_page() ) wp_enqueue_script( 'whatsapp-popup', get_template_directory_uri() . '/includes/scripts/whatsapp-popup.js', array(), true, true );
+    if( is_front_page() ) {
+        wp_enqueue_script( 'jquery' );
+        wp_enqueue_script( 'whatsapp-popup', get_template_directory_uri() . '/includes/scripts/whatsapp-popup.js', array(), true, true );
+        if( array_key_exists( 'popup_timer', $_SESSION ) ) {
+            $popup_timeleft = time() - $_SESSION['popup_timer'];
+            if( $popup_timeleft > 90 || $popup_timeleft < 5 ) {
+                wp_enqueue_script( 'popup-ad', get_template_directory_uri() . '/includes/scripts/popup-ad.js', array( 'jquery' ), true, true );
+                $_SESSION['popup_timer'] = time();
+            }
+        }
+        wp_localize_script( 'popup-ad', 'ajaxObject', array( 'url' => get_site_url() ) );
+    };
 }
 
 function skolastika_theme_menus() {
@@ -37,6 +48,25 @@ function skolastika_theme_menus() {
 }
 
 function skolastika_theme_posttypes() {
+    register_post_type( 
+        'popup',
+        array(
+            'labels'        => array(
+                'name'          => __( 'Popups' ),
+                'singular_name' => __( 'Popup' ),
+                'plural'        => __( 'Popups' ),
+            ),
+            'supports'      => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+            'public'        => true,
+            'has_archive'   => true,
+            'hierarchical'  => true,
+            'rewrite'       => array( 'slug' => 'popups'),
+            'menu_icon'     => 'dashicons-slides',
+            'menu_position' => 5,
+            'show_in_rest'  => true,
+        ),
+    );
+
     register_post_type( 
         'study-program-about',
         array(
@@ -272,6 +302,11 @@ function skolastika_theme_study_programs_filter() {
     }
 }
 
+function skolastika_theme_session() {
+    if( !session_id() ) session_start();
+}
+
+add_action( 'init', 'skolastika_theme_session' );
 add_action( 'init', 'skolastika_theme_menus' );
 add_action( 'init', 'skolastika_theme_posttypes' );
 add_action( 'init', 'skolastika_theme_taxonomies' );

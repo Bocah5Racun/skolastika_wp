@@ -1,5 +1,6 @@
 <?php
 
+    if( !isset( $_SESSION['popup_timer'] ) ) $_SESSION['popup_timer'] = time();
 
     get_header(); ?>
 

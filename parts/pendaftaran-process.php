@@ -1,5 +1,14 @@
 <?php
     const ADMIN_EMAIL = "janisalande@komkom.id";
+    const VALID_KEYS = [
+        'department',
+        'program',
+        'full_name',
+        'city',
+        'email',
+        'school',
+        'phone'
+    ];
 
     if( 
         isset( $_POST['department'] )
@@ -12,6 +21,7 @@
     ) :
 
         foreach( $_POST as $key => $value ) {
+            if( in_array( $key, VALID_KEYS ))
             $_POST[$key] == trim( $value );
             $_POST[$key] == stripslashes( $value );
             $_POST[$key] == htmlspecialchars( $value );
@@ -103,6 +113,7 @@
 <section class="section section--upri-blue">
     <div class="section-inner container">
         <h2>Galat Mengirimkan Data</h2>
+        <p>Data yang Anda kirimkan salah atau tidak dapat diunggah. Silakan coba kembali.</p>
         <a href="<?= get_site_url(); ?>">Kembali ke halaman utama →</a>
     </div>
 </section>

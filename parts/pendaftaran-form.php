@@ -79,12 +79,6 @@
                     </div>
                     <div class="form-row">
                         <div class="form-input">
-                            <label for="school">Sekolah Asal (yang mengeluarkan ijazah SMA/sederajat)</label>
-                            <input required type="text" name="school" id="school" placeholder="Cth: SMAN 5 Makassar" />
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-input">
                             <label for="email">Email</label>
                             <input required type="email" name="email" id="email" placeholder="email@anda.or.id" />
                         </div>
@@ -95,26 +89,60 @@
                     </div>
                 </div>
                 <div class="form-section">
+                    <h3>Pendidikan Terakhir</h3>
                     <div class="form-row">
                         <div class="form-input">
-                            <h3>Program Studi Tujuan</h3>
-                            <select name="department" id="department">
+                            <label for="school">Asal Sekolah/Institusi Pendidikan</label>
+                            <small>(yang mengeluarkan ijazah terakhir)</small>
+                            <input required type="text" name="school" id="school" placeholder="Cth: SMAN 5 Makassar/Politeknik Kreatif Makassar" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Program Studi Tujuan</h3>
+                    <div class="form-row">
+                        <div class="form-input">
+                            <label for="department-satu">Program Studi</label>
+                            <select name="department" id="department-satu">
                                 <option value="komunikasi">Ilmu Komunikasi</option>
-                                <option value="adminstrasi">Ilmu Administrasi Negara</option>
+                                <option value="administrasi">Ilmu Administrasi Negara</option>
                             </select>
                         </div>
+                        <!-- <div class="form-input">
+                            <label for="department-dua">Pilihan Kedua</label>
+                            <select name="department[1]" id="department-dua">
+                                <option value="--">--</option>
+                                <option value="komunikasi">Ilmu Komunikasi</option>
+                                <option value="administrasi">Ilmu Administrasi Negara</option>
+                            </select>
+                        </div> -->
                         <div class="form-input">
-                            <h3>Jenis Pendaftaran</h3>
+                            <label for="program">Tipe Kelas</label>
                             <select name="program" id="program">
                                 <option value="reguler">Kelas Reguler</option>
-                                <option value="rpl">Rekognisi Pembelajaran Lampau</option>
+                                <option value="rpl">Rekognisi Pembelajaran Lampau (Karyawan)</option>
                             </select>
                         </div>
                     </div>
                 </div>
+                <!-- <div class="form-section">
+                    <h3>Dokumen Pendukung</h3>
+                    <div class="form-row">
+                        <div class="form-input">
+                            <label for="school">Ijazah Terakhir</label>
+                            <small>(.pdf, .doc, .docx, .jpg, atau .png)</small>
+                            <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="ijazah" id="ijazah" />
+                        </div>
+                        <div class="form-input">
+                            <label for="school">Unggah Transkrip Nilai Terakhir</label>
+                            <small>(.pdf, .doc, .docx, .jpg, atau .png)</small>
+                            <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="transkrip_nilai" id="transkrip_nilai" />
+                        </div>
+                    </div>
+                </div> -->
                 <button type="submit" class="g-recaptcha button button--blue" data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" data-callback="onSubmit" data-action="submit">Submit →</button>
             </form>
-        </article>
+.        </article>
     </div>
 
 <?php endif; ?>
