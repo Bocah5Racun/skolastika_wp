@@ -156,7 +156,7 @@
     </section>
 </section>
 
-<section id="alumni" class="section section--upri-blue">
+<!-- <section id="alumni" class="section section--upri-blue">
     <div class="alumni-inner section-inner container text-center">
         <h2>Kisah Alumni</h2>
         <hr class="separator--yellow align-center" />
@@ -196,7 +196,7 @@
             <a class="see-more see-more--yellow" href="/kisah-alumni/">Lihat semua kisah alumni →</a>
         </div>
     </div>
-</section>
+</section> -->
 
 <section id="experience-fisip" class="section">
     <div class="experience-fisip-inner section-inner container">
