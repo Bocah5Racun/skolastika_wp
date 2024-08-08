@@ -1,10 +1,9 @@
 <?php
-    session_start();
-    get_header();
+    session_start();    
 ?>
 
 <?php
-    if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
+    if( !empty($_POST) && $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         get_template_part( 'parts/pendaftaran', 'process');
     } else {
         get_template_part( 'parts/pendaftaran', 'form');

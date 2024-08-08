@@ -7,115 +7,77 @@
         'city',
         'email',
         'school',
-        'phone'
+        'phone',
+        'ijazah',
+        'transkrip',
+        'resume'
     ];
 
-    if( 
-        isset( $_POST['department'] )
-        && isset( $_POST['program'] )
-        && isset( $_POST['full_name'] )
-        && isset( $_POST['city'] )
-        && isset( $_POST['email'] )
-        && isset( $_POST['school'] )
-        && isset( $_POST['phone'] )
-    ) :
+    if( isset( $_SESSION["submission_time"] ) ) {
+        if( time() - $_SESSION["submission_time"] <= 30 ) header( get_permalink() );
+    }
 
-        foreach( $_POST as $key => $value ) {
-            if( in_array( $key, VALID_KEYS ))
-            $_POST[$key] == trim( $value );
-            $_POST[$key] == stripslashes( $value );
-            $_POST[$key] == htmlspecialchars( $value );
+    $_SESSION["submission_time"] = time();
+
+    // check that files and post keys are set
+    if( !isset( $_POST ) ) die("You didn't send anything!");
+    if( !isset( $_FILES ) || count( $_FILES ) !== 3 ) die("You didn't send anything or the right number of files!");
+
+    // validate $_POST keys
+    foreach( $_POST as $key => $value ) {
+        if( !in_array( $key, VALID_KEYS ) ) die( "$key is not a valid key.");
+        if( strlen( $value ) < 5 ) die("$key value is too short!");
+        if( is_string( $value ) ) { // clean strings
+            $value = preg_replace('/[^\w]+/', ' ', $value);
+            $value = trim( $value );
+            $_POST[$key] = $value;
         }
+    }
 
-        extract( $_POST );
+    extract( $_POST );
 
-        if( !isset( $_SESSION["submission_time"] ) ) $_SESSION["submission_time"] = time();
+    $supporting_documents = array();
+    
+    // validate files
+    foreach( $_FILES as $key => $file ) {
+        $file_path = $file['tmp_name'];
+        $file_size = filesize( $file_path );
+        $file_info = finfo_open( FILEINFO_MIME_TYPE );
+        $file_type = finfo_file( $file_info, $file_path );
+        $allowed_ext = array(
+            'application/msword' => 'doc',
+            'application/pdf' => 'pdf',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 'docx',
+            'image/png' => 'png',
+            'image/jpeg' => 'jpg',
+        );
+        
+        if( $file_size === 0 ) die( "The file is empty." );
+        if( $file_size > 10485760 ) die( "The file size is too large." );
+        if( !in_array( $file_type, array_keys( $allowed_ext ) ) ) die( "{$key} {$file_type} File format not supported." );
 
-        // send email to ADMIN_EMAIL
-        $to = ADMIN_EMAIL;
-        $subject = "[PMB FISIP] - {$program} - {$department} - {$full_name}";
-        $message = <<<EOD
-        Nama Lengkap: $full_name
-        Kota: $city
-        Email: $email
-        WhatsApp: $phone
-        Asal Sekolah: $school
-        Jenis Pendaftaran: $program
-        Program Studi Pilihan: $department
-        EOD;
+        // you passed! store the file
+        $file_name = "{$full_name}_{$key}_" . time();
+        $ext = $allowed_ext[ $file_type ];
+        $upload_dir = wp_upload_dir();
+        $target_dir = $upload_dir['basedir'] . "/pmb/";
+        $target_full_path = $target_dir . "{$file_name}.{$ext}";
+        $target_file_url = $upload_dir['baseurl'] . "/pmb/{$file_name}.{$ext}";
 
-        mail( $to, $subject, $message );
+        if( !file_exists( $target_dir ) ) wp_mkdir_p( $target_dir );
+
+        $uploaded = move_uploaded_file( $file_path, $target_full_path );
+
+        if( !$uploaded ) die( "Error storing file." );
+
+        $supporting_documents[] = array(
+            'url' => $target_file_url,
+            'filename' => $file_name,
+        );
+
+    }
+
+    $return_url = get_the_permalink();
+    header( "Location: {$return_url}?success" );
 
 ?>
-
-<section class="section section--upri-blue">
-    <div class="section-inner container constrained">
-        <h2>Terima kasih!</h2>
-        <p>Anda berhasil memulai proses pendaftaran diri sebagai mahasiswa baru di FISIP UPRI Makassar!</p>
-        <h2>Apa Langkah Selanjutnya?</h2>
-        <p>Tim Admisi akan segera menghubungi Anda melalui WhatsApp untuk memandu Anda dalam melanjutkan proses pendaftaran. Pastikan nomor WhatsApp Anda aktif dan dapat dihubungi.</p>
-    </div>
-</section>
-
-<section id="data-review" class="section container">
-    <div class="section-inner section--light-gray p-4 container constrained">
-        <h2>Data Diri Anda</h2>
-        <div class="note">
-            <p>Harap periksa kembali data personal Anda di bawah ini. Apabila terdapat kesalahan, silakan daftar kembali.</p>
-            <a class="see-more see-more--blue" href="<?= get_site_url() . "/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/" ?>">Kembali ke Formulir Pendaftaran Mahasiswa Baru →</a>
-        </div>
-        <div class="review-item">
-            <label>Nama Lengkap</label>
-            <div><?= $full_name; ?></div>
-        </div>
-        <div class="review-item">
-            <label>Kota Domisili</label>
-            <div><?= $city; ?></div>
-        </div>
-        <div class="review-item">
-            <label>Email</label>
-            <div><?= $email; ?></div>
-        </div>
-        <div class="review-item">
-            <label>Asal Sekolah</label>
-            <div><?= $school; ?></div>
-        </div>
-        <div class="review-item">
-            <label>Nomor WhatsApp</label>
-            <div><?= $phone; ?></div>
-        </div>
-        <div class="review-item">
-            <label>Jenis Pendaftaran yang Dipilih</label>
-            <div>
-                Kelas 
-                <?php if( $program == 'rpl' ) echo "RPL"; ?>
-                <?php if( $program == 'reguler' ) echo "Reguler"; ?>
-            </div>
-        </div>
-        <div class="review-item">
-            <label>Program Studi yang Dipilih</label>
-            <div>
-                <?php if( $department == 'administrasi' ) echo "Ilmu Administrasi Negara"; ?>
-                <?php if( $department == 'komunikasi' ) echo "Ilmu Komunikasi"; ?>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-inner container constrained">
-        <a class="see-more see-more--blue" href="<?= get_site_url(); ?>">Kembali ke Halaman Utama →</a>    
-    </div>
-</section>
-
-<?php else : ?>
-
-<section class="section section--upri-blue">
-    <div class="section-inner container">
-        <h2>Galat Mengirimkan Data</h2>
-        <p>Data yang Anda kirimkan salah atau tidak dapat diunggah. Silakan coba kembali.</p>
-        <a href="<?= get_site_url(); ?>">Kembali ke halaman utama →</a>
-    </div>
-</section>
-    
-<?php endif; ?>

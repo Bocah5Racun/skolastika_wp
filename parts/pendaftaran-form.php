@@ -1,4 +1,5 @@
 <?php 
+    get_header();
     $study_program = get_the_title( wp_get_post_parent_id() );
 ?>
 
@@ -37,6 +38,19 @@
     </div>
 </section>
 
+<?php if( isset($_GET["success"] ) ) : ?>
+
+    <section class="section">
+        <section class="section-inner container constrained">
+            <h2>Terima Kasih!</h2>
+            <p>Anda berhasil melakukan pendaftaran mahasiswa baru di FISIP UPRI.</p>
+            <p>Tim Admisi kami akan segera memroses data Anda.</p>
+            <p>Pengumuman kelulusan akan diumumkan di situs FISIP UPRI pada tanggal <b>7 Oktober 2024</b>.</p>
+        </section>
+    </section>
+
+<?php else: ?>
+
 <section class="section">
     <?php
         $disable_submission = false;
@@ -64,17 +78,17 @@
                 <?= the_content(); ?>
             </div>
             <p><u>Anda tidak akan dikenakan biaya pada tahap pendaftaran ini.</u></p>
-            <form id="register-form" name="register_form" class="centered-box constrained"  method="post">
+            <form id="register-form" name="register_form" class="centered-box constrained" enctype="multipart/form-data" method="post">
                 <div class="form-section">
                     <h3>Data Pribadi</h3>
                     <div class="form-row">
                         <div class="form-input">
                             <label for="full_name">Nama Lengkap (sesuai KTP)</label>
-                            <input required type="text" name="full_name" id="full_name" />
+                            <input required type="text" minlength="5" name="full_name" id="full_name" />
                         </div>
                         <div class="form-input">
                             <label for="city">Kota Domisili</label>
-                            <input required type="text" name="city" id="city" placeholder="Cth: Makassar"/>
+                            <input required type="text" minlength="5" name="city" id="city" placeholder="Cth: Makassar"/>
                         </div>
                     </div>
                     <div class="form-row">
@@ -103,6 +117,7 @@
                     <div class="form-row">
                         <div class="form-input">
                             <label for="department-satu">Program Studi</label>
+                            <small>Pilih satu program studi tujuan.</small>
                             <select name="department" id="department-satu">
                                 <option value="komunikasi">Ilmu Komunikasi</option>
                                 <option value="administrasi">Ilmu Administrasi Negara</option>
@@ -118,28 +133,33 @@
                         </div> -->
                         <div class="form-input">
                             <label for="program">Tipe Kelas</label>
+                            <small><a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/" target="_blank">Apa itu Kelas Karyawan (Rekognisi Pembelajaran Lampau)?</a></small>
                             <select name="program" id="program">
                                 <option value="reguler">Kelas Reguler</option>
-                                <option value="rpl">Rekognisi Pembelajaran Lampau (Karyawan)</option>
+                                <option value="rpl">Kelas Karyawan (RPL)</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="form-section">
+                <div class="form-section">
                     <h3>Dokumen Pendukung</h3>
+                    <label>Unggah dokumen pendukung dalam format PDF, JPG, PNG, DOC, DOCX. Maksimum 10MB.</label>
                     <div class="form-row">
-                        <div class="form-input">
+                        <div class="form-input form-border">
                             <label for="school">Ijazah Terakhir</label>
-                            <small>(.pdf, .doc, .docx, .jpg, atau .png)</small>
                             <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="ijazah" id="ijazah" />
                         </div>
-                        <div class="form-input">
-                            <label for="school">Unggah Transkrip Nilai Terakhir</label>
-                            <small>(.pdf, .doc, .docx, .jpg, atau .png)</small>
-                            <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="transkrip_nilai" id="transkrip_nilai" />
+                        <div class="form-input form-border">
+                            <label for="school">Transkrip Nilai Terakhir</label>
+                            <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="transkrip" id="transkrip" />
+                        </div>
+                        <div class="form-input form-border">
+                            <label for="school">Curriculum Vitae (CV)</label>
+                            <small>CV dengan riwayat pendidikan, riwayat kerja, serta prestasi akademik maupun non-akademik.</small>
+                            <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="resume" id="resume" />
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <button type="submit" class="g-recaptcha button button--blue" data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" data-callback="onSubmit" data-action="submit">Submit →</button>
             </form>
 .        </article>
@@ -147,3 +167,5 @@
 
 <?php endif; ?>
 </section>
+
+<?php endif; ?>
