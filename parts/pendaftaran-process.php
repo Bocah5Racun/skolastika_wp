@@ -11,7 +11,7 @@
         'ijazah',
         'transkrip',
         'resume',
-        'g-captcha-response'
+        'g-recaptcha-response'
     ];
 
     if( isset( $_SESSION["submission_time"] ) ) {
