@@ -13,9 +13,10 @@
         'resume',
         'g-recaptcha-response'
     ];
+    $return_url = get_the_permalink();
 
     if( isset( $_SESSION["submission_time"] ) ) {
-        if( time() - $_SESSION["submission_time"] <= 30 ) header( get_permalink() );
+        if( time() - $_SESSION["submission_time"] <= 30 ) header( "Location: $return_url" );
     }
 
     $_SESSION["submission_time"] = time();
@@ -104,8 +105,6 @@
     $result = curl_exec( $ch );
     
     curl_close( $ch );
-
-    $return_url = get_the_permalink();
 
     header( "Location: {$return_url}?success" );
 
