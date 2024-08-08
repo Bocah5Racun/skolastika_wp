@@ -10,7 +10,8 @@
         'phone',
         'ijazah',
         'transkrip',
-        'resume'
+        'resume',
+        'g-captcha-response'
     ];
 
     if( isset( $_SESSION["submission_time"] ) ) {
