@@ -42,7 +42,7 @@
 
     <section class="section">
         <section class="section-inner container constrained">
-            <h2>Terima Kasih!</h2>
+            <h2 id="title">Terima Kasih!</h2>
             <p>Anda berhasil melakukan pendaftaran mahasiswa baru di FISIP UPRI.</p>
             <p>Tim Admisi kami akan segera memroses data Anda.</p>
             <p>Pengumuman kelulusan akan diumumkan di situs FISIP UPRI pada tanggal <b>7 Oktober 2024</b>.</p>
@@ -146,15 +146,15 @@
                     <label>Unggah dokumen pendukung dalam format PDF, JPG, PNG, DOC, DOCX. Maksimum 10MB.</label>
                     <div class="form-row">
                         <div class="form-input form-border">
-                            <label for="school">Ijazah Terakhir</label>
+                            <label for="ijazah">Ijazah Terakhir</label>
                             <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="ijazah" id="ijazah" />
                         </div>
                         <div class="form-input form-border">
-                            <label for="school">Transkrip Nilai Terakhir</label>
+                            <label for="tranksrip">Transkrip Nilai Terakhir</label>
                             <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="transkrip" id="transkrip" />
                         </div>
                         <div class="form-input form-border">
-                            <label for="school">Curriculum Vitae (CV)</label>
+                            <label for="resume">Curriculum Vitae (CV)</label>
                             <small>CV dengan riwayat pendidikan, riwayat kerja, serta prestasi akademik maupun non-akademik.</small>
                             <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="resume" id="resume" />
                         </div>

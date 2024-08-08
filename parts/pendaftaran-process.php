@@ -70,14 +70,42 @@
 
         if( !$uploaded ) die( "Error storing file." );
 
-        $supporting_documents[] = array(
+        $supporting_documents[$key] = array(
             'url' => $target_file_url,
             'filename' => $file_name,
         );
 
     }
 
+    // update the sheet
+    $url = "https://script.google.com/macros/s/AKfycbzqCamAnaRmcIvIZ-O009YTg32nuJdLx_47fKcVuvhIzMheUM_3ycPyn_BuW1bRj0xv/exec";
+    $key = "K3VBLVZ3QV38LRUQ6N1G181R8KVJJNOH";
+    $post_data = array(
+        'nama'          => $full_name,
+        'kota'          => $city,
+        'email'         => $email,
+        'whatsapp'      => $phone,
+        'asal_sekolah'  => $school,
+        'program_studi' => $department,
+        'tipe'          => $program,
+        'ijazah_url'    => $supporting_documents['ijazah']['url'],
+        'transkrip_url' => $supporting_documents['transkrip']['url'],
+        'cv_url'        => $supporting_documents['resume']['url'],
+        'key'           => $key,
+    );
+
+    $ch = curl_init();
+
+    curl_setopt( $ch, CURLOPT_URL, $url );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $post_data) );
+
+    $result = curl_exec( $ch );
+    
+    curl_close( $ch );
+
     $return_url = get_the_permalink();
+
     header( "Location: {$return_url}?success" );
 
 ?>
