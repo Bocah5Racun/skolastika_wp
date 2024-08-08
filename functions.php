@@ -22,8 +22,8 @@ function skolastika_theme_scripts() {
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'whatsapp-popup', get_template_directory_uri() . '/includes/scripts/whatsapp-popup.js', array(), true, true );
         if( array_key_exists( 'popup_timer', $_SESSION ) ) {
-            $popup_timeleft = time() - $_SESSION['popup_timer'];
-            if( $popup_timeleft > 90 || $popup_timeleft < 5 ) {
+            $popup_timer = time() - $_SESSION['popup_timer'];
+            if( $popup_timer > 120 || $popup_timer < 5 ) {
                 wp_enqueue_script( 'popup-ad', get_template_directory_uri() . '/includes/scripts/popup-ad.js', array( 'jquery' ), true, true );
                 $_SESSION['popup_timer'] = time();
             }
