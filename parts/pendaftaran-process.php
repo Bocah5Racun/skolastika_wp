@@ -28,8 +28,9 @@
     // validate $_POST keys
     foreach( $_POST as $key => $value ) {
         if( !in_array( $key, VALID_KEYS ) ) die( "$key is not a valid key.");
-        if( strlen( $value ) < 5 ) die("$key value is too short!");
-        if( is_string( $value ) ) { // clean strings
+        if( strlen( $value ) < 5 ) die( "$key value is too short!" );
+        if( $key = 'email' ) filter_var( $value, FILTER_VALIDATE_EMAIL );
+        if( is_string( $value ) && $key != 'email' ) { // clean strings
             $value = preg_replace('/[^\w]+/', ' ', $value);
             $value = trim( $value );
             $_POST[$key] = $value;
