@@ -45,7 +45,7 @@
             <h2 id="title">Terima Kasih!</h2>
             <p>Anda berhasil melakukan pendaftaran mahasiswa baru di FISIP UPRI.</p>
             <p>Tim Admisi kami akan segera memroses data Anda.</p>
-            <p>Pengumuman kelulusan akan diumumkan di situs FISIP UPRI pada tanggal <b>7 Oktober 2024</b>.</p>
+            <p>Informasi kelulusan akan diumumkan di situs FISIP UPRI pada tanggal <b>7 Oktober 2024</b>.</p>
         </section>
     </section>
 
