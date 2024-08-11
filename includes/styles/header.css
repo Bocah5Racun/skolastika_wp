@@ -38,7 +38,6 @@
 .header-menu {
   display: flex;
   list-style-type: none;
-  font-size: clamp(12px, 1.25rem, 2.15vw);
 }
 @media (max-width: 768px) {
   .header-menu {
@@ -84,4 +83,45 @@
   #search-container {
     display: none;
   }
+}
+
+#burger-menu {
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 768px) {
+  #burger-menu {
+    display: block;
+  }
+}
+#burger-menu img {
+  aspect-ratio: 1;
+  max-height: 2.5rem;
+}
+
+#mobile-menu {
+  background-color: #fff;
+  height: 100vh;
+  left: -100%;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10000;
+}
+#mobile-menu #mobile-menu-closer {
+  aspect-ratio: 1;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 1.5rem;
+}
+#mobile-menu #mobile-menu-closer::before {
+  content: "";
+  background-image: url("../images/cancel.png");
+  background-size: 100% 100%;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
 }/*# sourceMappingURL=header.css.map */

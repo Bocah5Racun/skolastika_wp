@@ -238,6 +238,11 @@ button {
     padding: 1rem;
   }
 }
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+}
 
 .container--full {
   width: 100%;

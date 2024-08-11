@@ -20,6 +20,11 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<div id="mobile-menu">
+    <div id="mobile-menu-closer"></div>
+    <?php wp_nav_menu( array( 'theme_location' => 'top-bar-menu', 'container' => 'ul',)); ?>
+</div>
+
 <header>
     <section id="top-bar" class="container--full">
         <?php wp_nav_menu( array( 'theme_location' => 'top-bar-menu', 'container' => 'ul', 'menu_class' => 'top-bar-menu container')); ?>
@@ -29,6 +34,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <?php the_custom_logo(); ?>
             <div id="search-container">
                 Search
+            </div>
+            <div id="burger-menu">
+                <img src="<?= get_template_directory_uri() . '/includes/images/sort.png'; ?>" alt="">
             </div>
         </div>
     </section>

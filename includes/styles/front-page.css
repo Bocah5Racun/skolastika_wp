@@ -164,7 +164,7 @@
 
 .tagline {
   color: #fff;
-  font-size: 4em;
+  font-size: 2.75rem;
   font-weight: 700;
   line-height: 100%;
   position: relative;
@@ -476,7 +476,7 @@
 .brosur-girl-container .brosur-girl {
   position: absolute;
   bottom: 0;
-  height: 105%;
+  height: 125%;
   -o-object-fit: contain;
      object-fit: contain;
 }
