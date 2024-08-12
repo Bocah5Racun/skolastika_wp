@@ -22,7 +22,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="mobile-menu">
     <div id="mobile-menu-closer"></div>
-    <?php wp_nav_menu( array( 'theme_location' => 'top-bar-menu', 'container' => 'ul',)); ?>
+    <?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container' => 'ul' )); ?>
 </div>
 
 <header>

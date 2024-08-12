@@ -101,13 +101,43 @@
 
 #mobile-menu {
   background-color: #fff;
+  display: none;
+  font-size: 1.5rem;
   height: 100vh;
   left: -100%;
-  padding: 1rem;
+  padding: 4rem 0;
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 10000;
+}
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: block;
+  }
+}
+#mobile-menu #menu-header-menu {
+  display: flex;
+  flex-direction: column;
+}
+#mobile-menu #menu-header-menu > li {
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+#mobile-menu #menu-header-menu > li:not(:last-child) {
+  border-bottom: 1px solid #cccccc;
+}
+#mobile-menu #menu-header-menu .expander {
+  aspect-ratio: 1;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 0.325em;
+}
+#mobile-menu #menu-header-menu .sub-menu {
+  max-height: 0;
+  overflow: hidden;
+  position: relative;
 }
 #mobile-menu #mobile-menu-closer {
   aspect-ratio: 1;

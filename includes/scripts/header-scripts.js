@@ -26,3 +26,43 @@ function toggleBurger(burgerOn) {
     });
   }
 }
+
+// mobile menu animations
+const menuItems = document.querySelectorAll(
+  "#mobile-menu #menu-header-menu > li"
+);
+
+let subMenuTogglers = [];
+
+menuItems.forEach((menuItem, index) => {
+  const subMenuItems = menuItem.querySelector(".sub-menu");
+  if (subMenuItems) {
+    const expander = document.createElement("div");
+    expander.classList.add("expander");
+    expander.innerHTML = "+";
+    menuItem.appendChild(expander);
+
+    subMenuTogglers[index] = false;
+
+    expander.addEventListener("click", () => {
+      subMenuTogglers[index] = !subMenuTogglers[index];
+
+      if (subMenuTogglers[index]) {
+        expander.innerHTML = "-";
+        gsap.to(subMenuItems, {
+          duration: 0.2,
+          maxHeight: "none",
+          padding: "0.75rem",
+        });
+      } else {
+        expander.innerHTML = "+";
+        gsap.to(subMenuItems, {
+          duration: 0.2,
+          ease: "circ.out",
+          maxHeight: 0,
+          padding: 0,
+        });
+      }
+    });
+  }
+});
