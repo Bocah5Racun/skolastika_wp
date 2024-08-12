@@ -153,11 +153,11 @@
                             <label for="tranksrip">Transkrip Nilai Terakhir</label>
                             <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="transkrip" id="transkrip" />
                         </div>
-                        <div class="form-input form-border">
+                        <!-- <div class="form-input form-border">
                             <label for="resume">Curriculum Vitae (CV)</label>
                             <small>CV dengan riwayat pendidikan, riwayat kerja, serta prestasi akademik maupun non-akademik.</small>
                             <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="resume" id="resume" />
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <button type="submit" class="g-recaptcha button button--blue" data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" data-callback="onSubmit" data-action="submit">Submit →</button>

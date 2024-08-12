@@ -23,7 +23,7 @@
 
     // check that files and post keys are set
     if( !isset( $_POST ) ) die("You didn't send anything!");
-    if( !isset( $_FILES ) || count( $_FILES ) !== 3 ) die("You didn't send anything or the right number of files!");
+    if( !isset( $_FILES ) || count( $_FILES ) !== 2 ) die("You didn't send anything or the right number of files!");
 
     // validate $_POST keys
     foreach( $_POST as $key => $value ) {
