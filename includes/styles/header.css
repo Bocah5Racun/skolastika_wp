@@ -135,8 +135,14 @@
   top: 6px;
   width: 1rem;
   transform-origin: center center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 #mobile-menu #menu-header-menu .sub-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   max-height: 0;
   overflow: hidden;
   position: relative;
