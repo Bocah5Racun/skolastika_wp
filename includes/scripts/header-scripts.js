@@ -48,7 +48,12 @@ menuItems.forEach((menuItem, index) => {
       subMenuTogglers[index] = !subMenuTogglers[index];
 
       if (subMenuTogglers[index]) {
-        expander.innerHTML = "-";
+        gsap.to(expander, {
+          ease: "circ.out",
+          duration: 0.2,
+          rotate: 135,
+          translateY: 4,
+        });
         gsap.to(subMenuItems, {
           duration: 0.2,
           maxHeight: "none",
@@ -56,6 +61,12 @@ menuItems.forEach((menuItem, index) => {
         });
       } else {
         expander.innerHTML = "+";
+        gsap.to(expander, {
+          ease: "circ.out",
+          duration: 0.2,
+          rotate: 0,
+          translateY: 0,
+        });
         gsap.to(subMenuItems, {
           duration: 0.2,
           ease: "circ.out",
