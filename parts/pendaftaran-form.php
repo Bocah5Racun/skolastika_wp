@@ -78,7 +78,7 @@
                 <?= the_content(); ?>
             </div>
             <p><u>Anda tidak akan dikenakan biaya pada tahap pendaftaran ini.</u></p>
-            <form id="register-form" name="register_form" class="centered-box constrained" enctype="multipart/form-data" method="post">
+            <form id="register-form" name="register_form" class="centered-box constrained" enctype="multipart/form-data" method="post" autocomplete="on">
                 <div class="form-section">
                     <h3>Data Pribadi</h3>
                     <div class="form-row">
