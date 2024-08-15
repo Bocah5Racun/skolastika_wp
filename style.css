@@ -8,6 +8,7 @@ Tags: education, academic, responsive design, accessibility ready, university, s
 Version: 1.0
 */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&display=swap");
 .m-1 {
   margin: 0.5rem;
 }
@@ -155,6 +156,7 @@ body {
 h1,
 h2,
 h3 {
+  font-family: "Frank Ruhl Libre", Garamond, serif;
   line-height: 125%;
 }
 
@@ -169,7 +171,7 @@ h2 {
 }
 @media (max-width: 768px) {
   h2 {
-    font-size: 1.75em;
+    font-size: 2em;
   }
 }
 
@@ -295,11 +297,11 @@ button {
 }
 
 .section {
-  padding: clamp(1rem, 5vw, 4rem) 0;
+  padding: clamp(3rem, 5vw, 4rem) 0;
 }
 @media (max-width: 480px) {
   .section {
-    padding: clamp(1rem, 5vw, 4rem);
+    padding: clamp(3rem, 5vw, 4rem);
   }
 }
 .section--dark {

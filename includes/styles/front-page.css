@@ -164,7 +164,7 @@
 
 .tagline {
   color: #fff;
-  font-size: 2.75rem;
+  font-size: clamp(3rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 100%;
   position: relative;
