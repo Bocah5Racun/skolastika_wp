@@ -14,7 +14,7 @@ const questionTl = gsap
     yoyo: true,
   })
   .to(question, {
-    duration: 0.2,
+    duration: 0.5,
     right: "-100%",
   });
 
