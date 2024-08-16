@@ -221,10 +221,10 @@ article ol li::before {
   content: counter(list-counter);
 }
 article hr {
-  margin-bottom: 1.25rem;
+  margin: 1.25rem 0;
 }
 article figure {
-  margin-bottom: 1.25rem;
+  margin: 1.25rem auto;
 }
 article a {
   color: #0a26c7;
