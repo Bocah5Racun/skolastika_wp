@@ -123,14 +123,6 @@
                                 <option value="administrasi">Ilmu Administrasi Negara</option>
                             </select>
                         </div>
-                        <!-- <div class="form-input">
-                            <label for="department-dua">Pilihan Kedua</label>
-                            <select name="department[1]" id="department-dua">
-                                <option value="--">--</option>
-                                <option value="komunikasi">Ilmu Komunikasi</option>
-                                <option value="administrasi">Ilmu Administrasi Negara</option>
-                            </select>
-                        </div> -->
                         <div class="form-input">
                             <label for="program">Tipe Kelas</label>
                             <small><a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/" target="_blank">Apa itu Kelas Karyawan (Rekognisi Pembelajaran Lampau)?</a></small>
@@ -139,25 +131,6 @@
                                 <option value="rpl">Kelas Karyawan (RPL)</option>
                             </select>
                         </div>
-                    </div>
-                </div>
-                <div class="form-section">
-                    <h3>Dokumen Pendukung</h3>
-                    <label>Unggah dokumen pendukung dalam format PDF, JPG, PNG, DOC, DOCX. Maksimum 10MB.</label>
-                    <div class="form-row">
-                        <div class="form-input form-border">
-                            <label for="ijazah">Ijazah Terakhir</label>
-                            <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="ijazah" id="ijazah" />
-                        </div>
-                        <div class="form-input form-border">
-                            <label for="tranksrip">Transkrip Nilai Terakhir</label>
-                            <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="transkrip" id="transkrip" />
-                        </div>
-                        <!-- <div class="form-input form-border">
-                            <label for="resume">Curriculum Vitae (CV)</label>
-                            <small>CV dengan riwayat pendidikan, riwayat kerja, serta prestasi akademik maupun non-akademik.</small>
-                            <input required type="file" accept=".pdf, .doc, .docx, .jpg, .png" name="resume" id="resume" />
-                        </div> -->
                     </div>
                 </div>
                 <button type="submit" class="g-recaptcha button button--blue" data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" data-callback="onSubmit" data-action="submit">Submit →</button>
