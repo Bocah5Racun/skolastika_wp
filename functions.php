@@ -20,7 +20,6 @@ function skolastika_theme_scripts() {
     }
     if( is_front_page() ) {
         wp_enqueue_script( 'jquery' );
-        wp_enqueue_script( 'whatsapp-popup', get_template_directory_uri() . '/includes/scripts/whatsapp-popup.js', array(), true, true );
         if( array_key_exists( 'popup_timer', $_SESSION ) ) {
 
             $popup_timer = time() - $_SESSION['popup_timer'];
@@ -312,7 +311,9 @@ function skolastika_gsap_scripts() {
     // The core GSAP library
     wp_enqueue_script( 'gsap-js', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), false, true );
     // Your animation code file - with gsap.js passed as a dependency
-    wp_enqueue_script( 'gsap-js2', get_template_directory_uri() . '/includes/scripts/header-scripts.js', array('gsap-js'), false, true );
+    wp_enqueue_script( 'header-scripts', get_template_directory_uri() . '/includes/scripts/header-scripts.js', array('gsap-js'), false, true );
+
+    if( is_front_page() ) wp_enqueue_script( 'whatsapp-popup', get_template_directory_uri() . '/includes/scripts/whatsapp-popup.js', array(), true, true );
 }
 
 add_action( 'init', 'skolastika_theme_session' );

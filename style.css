@@ -419,7 +419,6 @@ img.custom-logo {
 .question {
   background-color: #01923e;
   color: #fff;
-  display: none;
   flex-direction: column;
   gap: 0.5rem;
   justify-content: center;
@@ -430,12 +429,8 @@ img.custom-logo {
   right: 1rem;
   z-index: 1000;
 }
-@media (max-width: 768px) {
-  .question {
-    display: none;
-  }
-}
 .question h2 {
+  font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 700;
 }
