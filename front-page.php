@@ -32,6 +32,9 @@
     <?php
     endwhile;
     endif;
+
+    wp_reset_postdata();
+
     ?>
 
 
@@ -395,7 +398,37 @@
 </div>
 
 
-<div class="footer-vista" style="background-image: url('<?= get_template_directory_uri() . "/includes/images/vista-background.jpeg"; ?>'); background-size: cover;">
+<?php
+
+$args = array(
+    'post_type'         => 'attachment',
+    'posts_per_page'    => 1,
+    'post_status'       => 'any',
+    'tax_query'         => array(
+        array(
+            'taxonomy'  => 'image_locations',
+            'field'     => 'name',
+            'terms'     => 'footer',
+        )
+    )
+);
+
+$query = new WP_query( $args );
+$the_footer_image_url = get_template_directory_uri() . "/includes/images/vista-background.jpeg";
+
+if( $query->have_posts() ) {
+    while( $query->have_posts() ) {
+        $query->the_post();
+
+        $the_footer_image_url = wp_get_attachment_image_url( get_the_ID(), 'full' );
+    }
+}
+
+wp_reset_postdata();
+
+?>
+
+<div class="footer-vista" style="background-image: url('<?= $the_footer_image_url; ?>'); background-size: cover;">
     <div class="dark-gradient"></div>
 </div>
 
