@@ -126,7 +126,7 @@
 
 <section id="study-program-staff" class="section container">
     <div class="study-program-staff-inner section-inner section--dark container text-center py-4">
-        <h2>Staf Pengajar <?= get_the_title(); ?></h2>
+        <h2>Tim Dosen <?= get_the_title(); ?></h2>
         <hr class="separator--yellow align-center" />
         <h3>Berkenalan dengan tim pengajar program studi <?= get_the_title(); ?> di FISIP UPRI.</h3>
         <div class="staff-list">
