@@ -295,11 +295,11 @@ button {
 }
 
 .section {
-  padding: clamp(3rem, 5vw, 4rem) 0;
+  padding: clamp(1rem, 5vw, 4rem) 0;
 }
 @media (max-width: 480px) {
   .section {
-    padding: clamp(3rem, 5vw, 4rem);
+    padding: clamp(1rem, 5vw, 4rem);
   }
 }
 .section--dark {
