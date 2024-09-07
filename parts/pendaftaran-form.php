@@ -128,7 +128,7 @@
                             <small><a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/" target="_blank">Apa itu Kelas Karyawan (Rekognisi Pembelajaran Lampau)?</a></small>
                             <select name="program" id="program">
                                 <option value="reguler">Kelas Reguler</option>
-                                <option value="rpl">Kelas Karyawan (RPL)</option>
+                                <option value="karyawan">Kelas Karyawan (RPL)</option>
                             </select>
                         </div>
                     </div>

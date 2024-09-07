@@ -251,6 +251,7 @@
             'category__in'      => array(
                 get_category_by_slug( 'blog' )->term_id,
                 get_category_by_slug( 'news' )->term_id,
+                get_category_by_slug( 'penelitian' )->term_id,
             ),
             'orderby'           => 'date',
         ));
