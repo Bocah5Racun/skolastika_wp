@@ -11,6 +11,8 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KTPSBQJH');</script>
     <!-- End Google Tag Manager -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4861861095469626"
+    crossorigin="anonymous"></script>
     <?php wp_head(); ?>
 </head>
 

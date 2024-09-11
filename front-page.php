@@ -49,6 +49,21 @@
     </div>
 </section>
 
+<section class="lp-ad">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4861861095469626"
+        crossorigin="anonymous"></script>
+    <!-- Landing Page Top -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4861861095469626"
+        data-ad-slot="4609265865"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</section>
+
 <section id="prodi" class="section">
     <div class="prodi-inner section-inner container text-center">
         <h2>Berjuang Meraih Sukses.</h2>
@@ -390,6 +405,21 @@
             </div>
         </div>
     </div>
+</section>
+
+<section class="lp-ad">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4861861095469626"
+        crossorigin="anonymous"></script>
+    <!-- Landing Page Btm -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4861861095469626"
+        data-ad-slot="3296184191"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </section>
 
 <div id="question" class="question text-center">
