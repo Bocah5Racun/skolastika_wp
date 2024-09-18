@@ -49,7 +49,7 @@
     </div>
 </section>
 
-<section class="lp-ad">
+<section class="lp-ad section">
     <div class="section-inner container">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4861861095469626"
             crossorigin="anonymous"></script>
@@ -409,7 +409,7 @@
     </div>
 </section>
 
-<section class="lp-ad">
+<section class="lp-ad section">
     <div class="section-inner container">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4861861095469626"
             crossorigin="anonymous"></script>
