@@ -43,9 +43,9 @@
     <div class="hero-inner container">
         <h1 class="tagline"><?= bloginfo( 'description' ); ?></h1>
         <p class="subtagline centered-box constrained">Melahirkan pemikir muda terampil yang memiliki kesadaran sosial dan semangat pejuang.</p>
-        <div class="hero-cta-menu-container">
+        <!-- <div class="hero-cta-menu-container">
             <?php wp_nav_menu( array( 'theme_location' => 'hero-cta-menu', 'container' => 'ul', 'menu_class' => 'hero-cta-menu')); ?>
-        </div>
+        </div> -->
     </div>
 </section>
 

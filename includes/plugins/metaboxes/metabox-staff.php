@@ -323,7 +323,7 @@ function skolastika_staff_metabox_scripts() {
         'baseURL' => get_template_directory_uri(),
       ));
       
-    }
+}
     
 add_action( 'add_meta_boxes', 'skolastika_theme_metaboxes' );
 add_action( 'save_post', 'skolastika_theme_save_metaboxes' );
