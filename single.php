@@ -5,6 +5,42 @@
     foreach( get_the_category() as $category_object ) {
         $the_categories[] = $category_object->slug;
     }
+
+    $the_content = get_the_content();
+
+    $dom = new DOMDocument();
+    $dom->loadHTML( $the_content );
+
+    $h2Elements = $dom->getElementsByTagName( 'h2' );
+    $count = 0;
+
+    $ad_code = <<<ADCODE
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4861861095469626" crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-4861861095469626"
+        data-ad-slot="7043857511"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    ADCODE;
+
+    $adDom = new DOMDocument();
+    $adDom->loadHTML( $ad_code );
+    $adDomElement = $adDom->documentElement;
+
+    foreach( $h2Elements as $h2 ) {
+        $count++;
+
+        if( $count % 3 === 0 ) {
+            $adContainer = $dom->importNode( $adDomElement, true );
+            $h2->parentNode->insertBefore( $adContainer, $h2 );
+        }
+    }
+
+    $the_content = $dom->saveHTML();
 ?>
 
 <article class="container section">
@@ -21,7 +57,7 @@
         </div>
         <div class="article-content constrained centered-box">
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4861861095469626"
-                crossorigin="anonymous"></script>
+                    crossorigin="anonymous"></script>
             <ins class="adsbygoogle"
                 style="display:block; text-align:center;"
                 data-ad-layout="in-article"
@@ -31,7 +67,7 @@
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-            <?= get_the_content(); ?>
+            <?= $the_content; ?>
         </div>
     </div>
 </article>
