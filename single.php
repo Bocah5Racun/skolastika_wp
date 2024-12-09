@@ -8,8 +8,8 @@
 
     $the_content = get_the_content();
 
-    $dom = new DOMDocument();
-    $dom->loadHTML( $the_content );
+    $dom = new DOMDocument( '1.0', 'UTF-8' );
+    $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $the_content );
 
     $h2Elements = $dom->getElementsByTagName( 'h2' );
     $count = 0;
@@ -27,9 +27,10 @@
     </script>
     ADCODE;
 
-    $adDom = new DOMDocument();
-    $adDom->loadHTML( $ad_code );
+    $adDom = new DOMDocument( '1.0', 'UTF-8' );
+    $adDom->loadHTML( '<?xml encoding="utf-8" ?>' . $ad_code );
     $adDomElement = $adDom->documentElement;
+    
 
     foreach( $h2Elements as $h2 ) {
         $count++;
