@@ -77,7 +77,7 @@
         <h2>Gabung bersama kami membuat perubahan positif bagi masyarakat.</h2>
         <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
         <?php if( "Kurikulum" !== get_the_title() ): ?>
-            <a href="<?= "../brosur"; ?>">Download brosur FISIP UPRI →</a>
+            <a href="<?= BROSUR_URL; ?>">Download brosur FISIP UPRI →</a>
         <?php endif;?>
     </div>
 </section>

@@ -1,5 +1,7 @@
 <?php
 
+define( "BROSUR_URL", 'https://fisipupri.ac.id/wp-content/uploads/2024/07/brosur_fisip_upri_2024.pdf' );
+
 function skolastika_theme_styles() {
     wp_enqueue_style( 'main', get_stylesheet_uri(), array(), true, 'all' );
     wp_enqueue_style( 'header', get_template_directory_uri() . '/includes/styles/header.css', array(), true, 'all' );
