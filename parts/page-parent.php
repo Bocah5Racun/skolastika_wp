@@ -1,8 +1,8 @@
 
 <div id="single-hero-container">
-    <div class="single-hero-title-container container">
-    <a href=".."><h1><?= get_the_title(); ?></h1></a>
-    </div>
+    <h1 class="single-hero-title-container container">
+        <a href=".."><h1><?= get_the_title(); ?></h1></a>
+    </h1>
     <img src="<?= get_the_post_thumbnail_url(); ?>" />
     <div class="gradient--radial"></div>
 </div>

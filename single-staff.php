@@ -72,7 +72,7 @@
                 <?php endif; ?>
         </div>
         <div class="staff-name-info">
-            <h2><?= get_the_title(); ?></h2>
+            <h1><?= get_the_title(); ?></h1>
             <h3><?= isset( $profile_meta['job'] ) ? $profile_meta['job'] : "Dosen"; ?> di <?= wp_get_post_terms( get_the_ID(), 'study_program' )[0]->name; ?></h3>
             <h4><?= isset( $profile_meta['position'] ) ? $profile_meta['position'] : ""; ?></h4>
             <hr class="separator--blue" style="margin-bottom: 1rem;" />
