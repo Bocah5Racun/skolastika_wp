@@ -297,7 +297,7 @@ button {
 .section {
   padding: clamp(1rem, 5vw, 4rem) 0;
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .section {
     padding: clamp(1rem, 5vw, 4rem);
   }
