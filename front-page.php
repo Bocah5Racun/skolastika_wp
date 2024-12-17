@@ -36,10 +36,6 @@
     wp_reset_postdata();
 
     ?>
-
-
-    <div class="dark-gradient">
-    </div>
     <div class="hero-inner container">
         <h1 class="tagline"><?= bloginfo( 'description' ); ?></h1>
         <p class="subtagline centered-box constrained">Melahirkan pemikir muda terampil yang memiliki kesadaran sosial dan semangat pejuang.</p>
