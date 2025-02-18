@@ -366,7 +366,7 @@ button {
   font-size: 1rem;
 }
 #breadcrumbs .breadcrumb_last {
-  display: block;
+  display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
