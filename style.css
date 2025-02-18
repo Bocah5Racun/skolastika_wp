@@ -366,10 +366,12 @@ button {
   font-size: 1rem;
 }
 #breadcrumbs .breadcrumb_last {
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 250px;
+  max-width: 330px;
+  max-height: 1.15rem;
 }
 
 img.custom-logo {
