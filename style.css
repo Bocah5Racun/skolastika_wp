@@ -185,7 +185,7 @@ a {
 
 p {
   font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 166%;
+  line-height: 158%;
 }
 
 ul {
@@ -280,7 +280,7 @@ button {
 }
 
 .constrained {
-  width: clamp(330px, 75vw, 900px);
+  width: clamp(330px, 66vw, 700px);
 }
 @media (max-width: 768px) {
   .constrained {

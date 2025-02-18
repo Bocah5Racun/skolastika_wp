@@ -176,13 +176,13 @@ article .post-caption {
 article h1,
 article h2,
 article h3 {
-  margin: 2rem 0 1.5rem 0;
+  margin: 2rem 0 0.325rem 0;
 }
 article h1 {
   font-size: clamp(2rem, 3vw, 3rem);
 }
 article h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: 1.5em;
 }
 article p {
   margin-bottom: 1.5em;
@@ -204,17 +204,18 @@ article ol {
 article ol li {
   position: relative;
   counter-increment: list-counter;
-  width: calc(100% - 4.25rem);
-  left: 4.25rem;
+  width: calc(100% - 4rem);
+  left: 4rem;
 }
 article ol li::before {
   position: absolute;
-  left: -2.5rem;
+  left: -2.2rem;
+  top: 3px;
   display: flex;
   align-items: center;
-  padding: 0.5rem;
-  margin-right: 1rem;
-  font-weight: 800;
+  padding: 0.325rem;
+  margin-right: 0.825rem;
+  font-weight: 700;
   background-color: #0a0a0a;
   color: #fff;
   line-height: 1rem;
