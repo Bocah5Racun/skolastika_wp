@@ -365,6 +365,12 @@ button {
 #breadcrumbs {
   font-size: 1rem;
 }
+#breadcrumbs .breadcrumb_last {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
 
 img.custom-logo {
   max-width: clamp(200px, 30vw, 330px);
