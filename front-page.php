@@ -260,9 +260,12 @@
 
         <div class="news-card">
             <a href="<?= get_the_permalink(); ?>">
-            <img class="news-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" />
+                <img class="news-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" />
+            </a>
             <div class="news-label"><?= get_the_category()[0]->name; ?></div>
-            <h2><?= get_the_title(); ?></h2>
+            <a href="<?= get_the_permalink(); ?>">
+                <h2><?= get_the_title(); ?></h2>
+            </a>
             <div class="news-date"><?= get_the_date(); ?></div>
             </a>
         </div>
