@@ -7,11 +7,15 @@
 ?>
 
 <script>
-    setTimeout( () => {
-        document.querySelector("#title").scrollIntoView({
-            behavior: 'smooth',
-        })
-    }, 1000)
+    const nojump = window.location.href.includes("nojump")
+
+    if( nojump === false ) {
+        setTimeout( () => {
+            document.querySelector("#title").scrollIntoView({
+                behavior: 'smooth',
+            })
+        }, 1000)
+    }
 </script>
 
 <?php endif; ?>
