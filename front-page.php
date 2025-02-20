@@ -4,44 +4,71 @@
 
     get_header(); ?>
 
-<section id="hero" class="container--full">
-    <?php
+<section id="new-hero" class="container--full">
+    <div class="new-hero-inner container">
+        <img class="new-hero-model" src="<?= get_template_directory_uri() . "/includes/images/hero-model.png"; ?>" />
+        <div class="new-hero-text-container">
+            <div class="new-hero-title">Pendidikan Berkualitas Sesuai dengan Jadwalmu</div>
+            <div class="new-hero-desc">Setiap mahasiswa memiliki kebutuhan dan kesibukan yang berbeda. Pilih jalur studi sesuai dengan keluangan waktu belajar.</div>
+            <div class="new-hero-menu-container">
+                <div class="new-hero-menu-card">
+                    <div class="new-hero-menu-card-title">Kuliah Reguler</div>
+                    <div class="new-hero-menu-card-desc">Tingkatkan potensi dan raih peluang kerja dengan kuliah full-time.</div>
+                    <ul class="new-hero-menu-card-checklist">
+                        <li>5 hari seminggu</li>
+                        <li>Studi lapangan & kunjungan industri</li>
+                        <li>Kuliah hybrid (online dan offline)</li>
+                    </ul>
+                    <div class="new-hero-menu-card-button">Baca Info</div>
+                </div>
+                <div class="new-hero-menu-card">
+                    <div class="new-hero-menu-card-title">Kuliah Sambil Kerja</div>
+                    <div class="new-hero-menu-card-desc">Beban belajar yang dapat disesuaikan dengan jadwal pekerjaan.</div>
+                    <ul class="new-hero-menu-card-checklist">
+                        <li><b>2 hari</b> seminggu</li>
+                        <li>Potensi konversi pengalaman kerja jadi SKS</li>
+                        <li>Kuliah hybrid (online dan offline)</li>
+                    </ul>
+                    <div class="new-hero-menu-card-button">Baca Info</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="new-hero-social-proof container">
+        <div class="new-hero-social-proof-label">Gabung di komunitas FISIP UPRI bersama ribuan alumni yang <b>bekerja di industri dinamis</b> seperti</div>
+        <div class="new-hero-social-proof__company-list">
+            <?php
 
-    $args = array(
-        'post_type'         => 'attachment',
-        'posts_per_page'    => 1,
-        'post_status'       => 'any',
-        'tax_query'         => array(
-            array(
-                'taxonomy'  => 'image_locations',
-                'field'     => 'name',
-                'terms'     => 'hero',
-            )
-        )
-    );
+                $args = array(
+                    'post_type'         => 'attachment',
+                    'posts_per_page'    => 16,
+                    'post_status'       => 'any',
+                    'tax_query'         => array(
+                        array(
+                            'taxonomy'  => 'image_locations',
+                            'field'     => 'name',
+                            'terms'     => 'workplace',
+                        )
+                    )
+                );
 
-    $query = new WP_query( $args );
+                $query = new WP_query( $args );
 
-    if( $query->have_posts() ):
-        while( $query->have_posts() ):
-            $query->the_post();
-    ?>
+                if( $query->have_posts() ):
+                    while( $query->have_posts() ):
+                        $query->the_post();
+                ?>
 
-    <img class="hero-bg" src="<?= wp_get_attachment_image_url( get_the_ID(), 'full' ); ?>" title="<?= wp_get_attachment_caption( get_the_ID() ); ?>" />
+                <img class="new-hero-social-proof__company-list-card" src="<?= wp_get_attachment_image_url( get_the_ID(), 'full' ); ?>" title="<?= wp_get_attachment_caption( get_the_ID() ); ?>" />
 
-    <?php
-    endwhile;
-    endif;
+                <?php
+                endwhile;
+                endif;
 
-    wp_reset_postdata();
+                wp_reset_postdata();
 
-    ?>
-    <div class="hero-inner container">
-        <h1 class="tagline"><?= bloginfo( 'description' ); ?></h1>
-        <p class="subtagline centered-box constrained">Melahirkan pemikir muda terampil yang memiliki kesadaran sosial dan semangat pejuang.</p>
-        <!-- <div class="hero-cta-menu-container">
-            <?php wp_nav_menu( array( 'theme_location' => 'hero-cta-menu', 'container' => 'ul', 'menu_class' => 'hero-cta-menu')); ?>
-        </div> -->
+                ?>
+        </div>
     </div>
 </section>
 

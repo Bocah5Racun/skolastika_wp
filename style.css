@@ -7,7 +7,7 @@ Description: Skolastika is a responsive, accessibility-ready WordPress theme des
 Tags: education, academic, responsive design, accessibility ready, university, staff management, curriculum integration, customizable front page, higher education, faculty profiles
 Version: 1.0
 */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Unbounded:wght@200..900&display=swap");
 .m-1 {
   margin: 0.5rem;
 }
@@ -147,9 +147,7 @@ Version: 1.0
 
 html,
 body {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
+  font-family: "Instrument Sans", sans-serif;
 }
 
 h1,
