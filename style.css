@@ -182,8 +182,7 @@ a {
 }
 
 p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 158%;
+  line-height: 1.65;
 }
 
 ul {

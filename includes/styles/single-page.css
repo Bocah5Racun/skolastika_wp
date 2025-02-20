@@ -176,20 +176,23 @@ article .post-caption {
 article h1,
 article h2,
 article h3 {
-  margin: 2rem 0 0.325rem 0;
+  margin: 0;
+  margin-bottom: 0.5rem;
 }
 article h1 {
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: 3.125em;
 }
 article h2 {
   font-size: 1.5em;
 }
+article h3 {
+  font-size: 1.25em;
+}
 article p {
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
 }
 article ol,
 article ul {
-  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 150%;
   margin: 2rem 0;
   list-style-position: outside;
