@@ -19,7 +19,7 @@
                         <li>Studi lapangan & kunjungan industri</li>
                         <li>Kuliah hybrid (online dan offline)</li>
                     </ul>
-                    <div class="new-hero-menu-card-button">Baca Info</div>
+                    <a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/jalur-studi-di-fisip-upri#kelas-reguler" class="new-hero-menu-card-button">Baca Info</a>
                 </div>
                 <div class="new-hero-menu-card">
                     <div class="new-hero-menu-card-title">Kuliah Sambil Kerja</div>
@@ -29,7 +29,7 @@
                         <li>Potensi konversi pengalaman kerja jadi SKS</li>
                         <li>Kuliah hybrid (online dan offline)</li>
                     </ul>
-                    <div class="new-hero-menu-card-button">Baca Info</div>
+                    <a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/jalur-studi-di-fisip-upri#kelas-rpl" class="new-hero-menu-card-button">Baca Info</a>
                 </div>
             </div>
         </div>
