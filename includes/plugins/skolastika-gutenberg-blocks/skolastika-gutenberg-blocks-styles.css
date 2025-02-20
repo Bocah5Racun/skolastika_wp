@@ -1,7 +1,6 @@
 .highlight {
   position: relative;
   background-color: #fff;
-  font-size: clamp(1rem, 2vw, 1.25rem);
   padding: 2rem 1rem;
   border: 1px solid #cccccc;
   margin: 3rem 0;
