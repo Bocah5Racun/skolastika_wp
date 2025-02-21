@@ -69,6 +69,40 @@
         </div>
     </div>
 </article>
+
+<section class="more-articles">
+    <h2 class="more-articles-title">Artikel Terkait</h2>
+    <div class="more-articles-container">
+    <?php
+        $query = new WP_Query( array(
+            'post_type'         => 'post',
+            'post__not_in'      => array( get_the_ID() ),
+            'posts_per_page'    => 8,
+            'category__in'      => wp_get_post_categories(),
+            'orderby'          => 'rand',
+        ));
+
+        if( $query->have_posts() ):
+            while( $query->have_posts() ):
+                $query->the_post();
+    ?>
+    
+    <div class="more-articles-card">
+        <a href="<?= get_the_permalink(); ?>">
+            <img class="more-articles-card-img" src="<?= get_the_post_thumbnail_url( get_the_ID(), "medium" );?> " alt="" />
+        </a>
+        <div class="more-articles-card-cat"><?= get_the_category()[0]->name; ?></div>
+        <a href="<?= get_the_permalink(); ?>" class="more-articles-card-title"><?= get_the_title(); ?></a>
+        <div class="more-articles-card-date"><?= get_the_date(); ?></div>
+    </div>
+    
+    <?php 
+        endwhile;
+        endif;
+    ?>
+    </div>
+</section>
+
 <section class="section section--upri-yellow study-program-child-cta-container">
     <div class="section-inner centered-box constrained text-center">
         <h2>Gabung bersama kami membuat perubahan positif bagi masyarakat.</h2>
