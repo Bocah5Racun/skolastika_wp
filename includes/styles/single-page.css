@@ -161,16 +161,21 @@
 
 .article-meta {
   text-align: center;
+  margin: 2rem 0;
 }
 
 .article-author {
   font-size: 0.775em;
-  margin: 1rem 0;
+  margin-top: 1rem;
   text-transform: uppercase;
 }
 
 .article-author-separator {
   margin: 0 0.5rem;
+}
+
+.wp-block-image :where(figcaption) {
+  font-size: 0.9em;
 }
 
 article .post-thumbnail {
@@ -182,11 +187,11 @@ article .post-thumbnail {
 article .popup_thumbnail {
   aspect-ratio: auto !important;
 }
-article .post-caption {
+article .post-caption,
+article .wp-block-image :where(figcaption) {
   color: #777;
   font-style: italic;
   margin-top: 0.125rem;
-  margin-bottom: 1.5rem;
   text-align: center;
 }
 article h1,
@@ -199,6 +204,7 @@ article h1 {
   font-family: "Unbounded", sans-serif;
   font-size: 3em;
   line-height: 1.25;
+  margin: 0;
 }
 article h2 {
   font-size: 1.5em;
@@ -269,6 +275,10 @@ article a:hover {
 }
 .study-program-child-cta-container a:hover {
   text-decoration: underline;
+}
+
+.article-container {
+  padding-top: 0;
 }
 
 .article-content > p:first-of-type::first-letter {

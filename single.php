@@ -8,8 +8,14 @@
 
     $the_content = get_the_content();
 
-    $dom = new DOMDocument( '1.0', 'UTF-8' );
-    $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $the_content );
+    libxml_use_internal_errors(true);
+
+    $dom = new DOMDocument();
+    // $dom = new DOMDocument( '1.0', 'UTF-8' );
+    $dom->loadHTML( $the_content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+    /*$dom->loadHTML( '<?xml encoding="utf-8" ?>' . $the_content );*/
+
+    libxml_clear_errors();
 
     $h2Elements = $dom->getElementsByTagName( 'h2' );
     $count = 0;
@@ -44,7 +50,7 @@
     $the_content = $dom->saveHTML();
 ?>
 
-<article class="container section">
+<article class="article-container container section">
     <div class="section-inner">
         <div class="centered-box">
             <?php if( has_post_thumbnail() ) : ?>
