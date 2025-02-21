@@ -362,15 +362,15 @@ button {
 #breadcrumbs {
   font-size: 1rem;
 }
+#breadcrumbs > span {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+}
 #breadcrumbs .breadcrumb_last {
-  display: inline-block;
-  margin-top: -0.5em;
-  max-height: 1.15rem;
   max-width: 270px, 50%, 600px;
   overflow: hidden;
-  position: relative;
   text-overflow: ellipsis;
-  top: 0.4em;
   white-space: nowrap;
 }
 
