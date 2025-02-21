@@ -267,6 +267,9 @@ article a {
 article a:hover {
   text-decoration: underline;
 }
+article .section-inner {
+  gap: 0;
+}
 
 .study-program-child-cta-container {
   display: flex;
@@ -382,10 +385,6 @@ article a:hover {
 .wp-block-table .wp-element-caption {
   font-size: 0.825rem;
   line-height: 150%;
-}
-
-.section-inner {
-  gap: 0;
 }
 
 #register-form {
