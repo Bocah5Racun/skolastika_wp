@@ -10,10 +10,8 @@
 
     libxml_use_internal_errors(true);
 
-    $dom = new DOMDocument();
-    // $dom = new DOMDocument( '1.0', 'UTF-8' );
-    $dom->loadHTML( $the_content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
-    /*$dom->loadHTML( '<?xml encoding="utf-8" ?>' . $the_content );*/
+    $dom = new DOMDocument( '1.0', 'UTF-8' );
+    $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $the_content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
 
     libxml_clear_errors();
 
