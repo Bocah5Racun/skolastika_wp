@@ -150,7 +150,7 @@
 #single-hero-container .single-hero-title-container {
   display: flex;
   flex-direction: column;
-  font-size: clamp(2.75rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 4vw, 3rem);
   font-weight: 700;
   height: 100%;
   justify-content: flex-end;
@@ -347,8 +347,8 @@ article .section-inner {
   flex-direction: column;
   gap: 2rem;
   background-color: #f5f390;
-  padding: 2rem 1.5rem;
-  font-size: 1.5rem;
+  padding: 1rem;
+  font-size: 1.25rem;
 }
 @media (max-width: 768px) {
   .study-program-info-inner {
