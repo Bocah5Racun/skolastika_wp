@@ -859,7 +859,7 @@
      object-fit: contain;
   width: clamp(180px, 40vw, 400px);
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .new-hero-model {
     display: none;
   }
@@ -889,10 +889,16 @@
 
 .new-hero-menu-container {
   align-items: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   justify-content: center;
   width: 100%;
+}
+@media (max-width: 1024px) {
+  .new-hero-menu-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .new-hero-menu-card {
@@ -902,9 +908,8 @@
   box-shadow: 0 0 16px rgba(255, 253, 155, 0.5);
   color: #000;
   display: flex;
-  flex-basis: 50%;
-  flex-direction: column;
   height: 100%;
+  flex-direction: column;
   justify-content: space-between;
   padding: 1.5rem 2rem;
 }
