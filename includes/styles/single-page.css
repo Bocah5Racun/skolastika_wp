@@ -587,17 +587,19 @@ tr.active .curriculum-description-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
   margin: 0 auto;
   max-width: clamp(600px, 75vw, 1024px);
 }
 
 .more-articles-card {
+  display: flex;
   flex-basis: calc(25% - 1rem);
+  flex-direction: column;
+  gap: 0.25rem;
 }
 @media (max-width: 1024px) {
   .more-articles-card {
-    flex-basis: calc(33% - 1rem);
+    flex-basis: calc(33.3333333333% - 1rem);
   }
 }
 @media (max-width: 768px) {
@@ -620,6 +622,7 @@ tr.active .curriculum-description-wrapper {
 }
 
 .more-articles-card-cat {
+  color: #0a26c7;
   font-size: 0.825rem;
   font-weight: 600;
   text-transform: uppercase;
