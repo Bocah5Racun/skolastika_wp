@@ -48,15 +48,16 @@
     $the_content = $dom->saveHTML();
 ?>
 
+<?php if( has_post_thumbnail() ) : ?>
+<img class="post-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), "full" ); ?>" />
+<?php if( get_the_post_thumbnail_caption() ) : ?>
+    <div class="post-caption"><?= get_the_post_thumbnail_caption(); ?></div>
+<?php endif; ?>
+<?php endif; ?>
+
 <article class="article-container container section">
     <div class="section-inner">
         <div class="centered-box">
-            <?php if( has_post_thumbnail() ) : ?>
-            <img class="post-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), "full" ); ?>" />
-            <?php if( get_the_post_thumbnail_caption() ) : ?>
-                <div class="post-caption"><?= get_the_post_thumbnail_caption(); ?></div>
-            <?php endif; ?>
-            <?php endif; ?>
             <div class="article-meta">
                 <h1><?= get_the_title(); ?></h1>
                 <div class="article-author">Oleh <?= get_the_author_meta( 'display_name', get_post_field( 'post_author' ) ); ?> <span class="article-author-separator">|</span> <?= get_the_date(); ?></div>

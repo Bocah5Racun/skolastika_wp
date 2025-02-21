@@ -363,11 +363,15 @@ button {
   font-size: 1rem;
 }
 #breadcrumbs .breadcrumb_last {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 330px;
+  display: inline-block;
+  margin-top: -0.5em;
   max-height: 1.15rem;
+  max-width: 270px, 50%, 600px;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  top: 0.4em;
+  white-space: nowrap;
 }
 
 img.custom-logo {

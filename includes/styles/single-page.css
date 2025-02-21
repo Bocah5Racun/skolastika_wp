@@ -179,22 +179,25 @@
   margin-bottom: 0;
 }
 
-article .post-thumbnail {
+.post-thumbnail {
   width: 100%;
   aspect-ratio: 16/9;
   -o-object-fit: cover;
      object-fit: cover;
 }
-article .popup_thumbnail {
+
+.popup_thumbnail {
   aspect-ratio: auto !important;
 }
-article .post-caption,
-article .wp-block-image :where(figcaption) {
+
+.post-caption,
+.wp-block-image :where(figcaption) {
   color: #777;
   font-style: italic;
   margin-top: 0.125rem;
   text-align: center;
 }
+
 article h1,
 article h2,
 article h3 {
@@ -203,7 +206,7 @@ article h3 {
 }
 article h1 {
   font-family: "Unbounded", sans-serif;
-  font-size: 3em;
+  font-size: clamp(20px, 8vw, 48px);
   line-height: 1.25;
   margin: 0;
 }
@@ -379,6 +382,10 @@ article a:hover {
 .wp-block-table .wp-element-caption {
   font-size: 0.825rem;
   line-height: 150%;
+}
+
+.section-inner {
+  gap: 0;
 }
 
 #register-form {
