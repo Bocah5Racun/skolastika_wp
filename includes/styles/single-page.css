@@ -176,6 +176,7 @@
 
 .wp-block-image :where(figcaption) {
   font-size: 0.9em;
+  margin-bottom: 0;
 }
 
 article .post-thumbnail {
