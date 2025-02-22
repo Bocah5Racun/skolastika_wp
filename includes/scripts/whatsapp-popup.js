@@ -1,6 +1,6 @@
 const question = document.getElementById("question");
 const questionClose = document.getElementById("question-close");
-const hero = document.getElementById("hero");
+const hero = document.getElementById("new-hero");
 
 const questionTl = gsap
   .timeline({
