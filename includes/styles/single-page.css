@@ -593,23 +593,24 @@ tr.active .curriculum-description-wrapper {
 
 .more-articles-card {
   display: flex;
-  flex-basis: calc(25% - 1rem);
+  flex-basis: 25%;
   flex-direction: column;
   gap: 0.25rem;
 }
 @media (max-width: 1024px) {
   .more-articles-card {
-    flex-basis: calc(33.3333333333% - 1rem);
+    flex-basis: calc(33.3333333333% - 0.5rem);
   }
 }
 @media (max-width: 768px) {
   .more-articles-card {
-    flex-basis: calc(50% - 1rem);
+    flex-basis: calc(50% - 0.5rem);
   }
 }
 @media (max-width: 480px) {
   .more-articles-card {
-    flex-basis: calc(100% - 1rem);
+    flex-basis: 100%;
+    padding: 0 1rem;
   }
 }
 
@@ -619,6 +620,11 @@ tr.active .curriculum-description-wrapper {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
+}
+@media (max-width: 480px) {
+  .more-articles-card-img {
+    height: 180px;
+  }
 }
 
 .more-articles-card-cat {
@@ -631,6 +637,9 @@ tr.active .curriculum-description-wrapper {
 .more-articles-card-title {
   font-size: 1.25em;
   font-weight: 600;
+}
+.more-articles-card-title:hover {
+  text-decoration: underline;
 }
 
 .more-articles-card-date {
