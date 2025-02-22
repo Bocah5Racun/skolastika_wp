@@ -78,7 +78,7 @@
             'post_type'         => 'post',
             'post__not_in'      => array( get_the_ID() ),
             'posts_per_page'    => 8,
-            'category__in'      => wp_get_post_categories(),
+            'category__in'      => wp_get_post_categories( get_the_ID() ),
             'orderby'          => 'rand',
         ));
 
