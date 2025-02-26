@@ -61,6 +61,8 @@
     
     curl_close( $ch );
 
+    session_write_close();
+
     header( "Location: {$return_url}?success" );
 
 ?>

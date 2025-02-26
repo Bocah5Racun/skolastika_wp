@@ -1,8 +1,4 @@
 <?php
-    session_start();    
-?>
-
-<?php
     if( !empty($_POST) && $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         get_template_part( 'parts/pendaftaran', 'process');
     } else {
