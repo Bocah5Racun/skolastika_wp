@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="footer-made-by">
-        © 2024<?= date("Y") > 2024 ? date("Y") : ''; ?> Fakultas Ilmu Sosial dan Ilmu Politik, Universitas Pejuang Republik Indonesia.<br />
+        © 2024<?= date("Y") > 2024 ? '–'.date("Y") : ''; ?> Fakultas Ilmu Sosial dan Ilmu Politik, Universitas Pejuang Republik Indonesia.<br />
         Design by <a href="https://komkom.id" target="_new">KOMKOM.id</a>.
     </div>
 </footer>
