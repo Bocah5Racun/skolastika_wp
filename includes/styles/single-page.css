@@ -593,7 +593,7 @@ tr.active .curriculum-description-wrapper {
 
 .more-articles-card {
   display: flex;
-  flex-basis: 25%;
+  flex-basis: calc(25% - 0.75rem);
   flex-direction: column;
   gap: 0.25rem;
 }
