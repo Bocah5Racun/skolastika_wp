@@ -8,8 +8,8 @@
     <div class="new-hero-inner container">
         <img class="new-hero-model" src="<?= get_template_directory_uri() . "/includes/images/hero-model.png"; ?>" />
         <div class="new-hero-text-container">
-            <div class="new-hero-title">Pendidikan Berkualitas Sesuai dengan Jadwalmu</div>
-            <div class="new-hero-desc">Setiap mahasiswa memiliki kebutuhan dan kesibukan yang berbeda. Pilih jalur studi sesuai dengan keluangan waktu belajar.</div>
+            <div class="new-hero-title">Sarjana Administrasi atau Komunikasi dalam <span class="cta--yellow">2 Tahun!</span>*</div>
+            <div class="new-hero-conditions">* Khusus untuk Kelas Karyawan</div>
             <div class="new-hero-menu-container">
                 <div class="new-hero-menu-card">
                     <div class="new-hero-menu-card-title">Kuliah Reguler</div>
@@ -22,10 +22,11 @@
                     <a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/jalur-studi-di-fisip-upri?nojump#kelas-reguler" class="new-hero-menu-card-button">Baca Info</a>
                 </div>
                 <div class="new-hero-menu-card">
-                    <div class="new-hero-menu-card-title">Kuliah Sambil Kerja</div>
+                    <div class="new-hero-menu-card-title">Kelas Karyawan</div>
                     <div class="new-hero-menu-card-desc">Beban belajar yang dapat disesuaikan dengan jadwal pekerjaan.</div>
                     <ul class="new-hero-menu-card-checklist">
-                        <li><b>2 hari</b> seminggu</li>
+                        <li><b>2 hari seminggu</b></li>
+                        <li><b>Bisa sarjana dalam 2 tahun</b></li>
                         <li>Potensi konversi pengalaman kerja jadi SKS</li>
                         <li>Kuliah hybrid (online dan offline)</li>
                     </ul>

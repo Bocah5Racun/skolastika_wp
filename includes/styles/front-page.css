@@ -881,6 +881,10 @@
   text-align: center;
 }
 
+.new-hero-conditions {
+  font-size: 0.85rem;
+}
+
 .new-hero-desc {
   font-size: 1.25rem;
   font-weight: 300;
