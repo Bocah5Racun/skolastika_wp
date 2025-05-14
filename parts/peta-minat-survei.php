@@ -52,7 +52,7 @@
                 <p>Caranya gampang! Tinggal pilih apakah kamu suka atau tidak suka jenis-jenis aktivitas yang diberikan di bawah.</p>
                 <p><b>Survei ini hanya butuh waktu 3–5 menit</b>.</p>
             </div>
-            <div class="icon pointdown" style="margin-top: auto;">👇</div>
+            <div class="icon pointdown" style="margin-top: auto;" onclick="scrollToNextPage()">👇</div>
         </div>
     </div>
     <div class="job-card-wrapper">
@@ -65,7 +65,7 @@
                 <p>Ketika menjawab, jangan pikirkan potensi gaji, apakah orang tuamu akan mendukung, atau faktor sosial lainnya dari jenis aktivitas. Pilih jawabanmu sesuai dengan perasaanmu—apakah itu jenis aktivitas yang kamu suka?</p>
             </div>
             <p style="font-size: 1.2em; margin-top: auto; text-align: center;"><b>Siap? Geser layar untuk mulai!</b></p>
-            <div class="icon pointdown">👇</div>
+            <div class="icon pointdown" onclick="scrollToNextPage()">👇</div>
         </div>
     </div>
 </div>
@@ -394,13 +394,17 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
         summaryCardIcon.innerHTML = (value || value === 0) ? "🟢" : "⚫"
 
         // scroll to the next page
-        jobCardWrapper.scrollBy({
-            top: window.innerHeight,
-            behavior: 'smooth',
-        })
+        scrollToNextPage()
     })
 });
 
+// scroll to next page function
+function scrollToNextPage() {
+    jobCardWrapper.scrollBy({
+        top: window.innerHeight,
+        behavior: 'smooth',
+    })
+}
 // jump to the very bottom
 const summaryJump = document.getElementById("jump-to-summary")
 
