@@ -350,9 +350,6 @@ const summaryCard = document.createElement('div')
 summaryCard.className = 'job-card-wrapper'
 summaryCard.innerHTML = `
     <div id="summary-card" class="job-card">
-        <div class="job-card-logo">
-            <?php the_custom_logo(); ?>
-        </div>
         <a class="return-to-top" href="#the-explainer">Baca Instruksi ⤴️</a>
         <div id="explainer-summary-wrapper">
         </div>
@@ -360,7 +357,7 @@ summaryCard.innerHTML = `
             <div class="submission-icon">⚠</div>
             <div class="submission-text">Beberapa pertanyaan belum dijawab!</div>
         </div>
-        <button id="submit" class="peta-minat-btn" onclick="checkPopup()">Rekomendasikan Program Studi!</button>
+        <button id="submit" class="peta-minat-btn" onclick="checkPopup()">Lihat Profil Minat</button>
     </div>
 `
 

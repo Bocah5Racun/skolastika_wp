@@ -106,7 +106,7 @@ h4 {
 }
 
 .icon {
-  font-size: 48px;
+  font-size: clamp(24px, 5vh, 48px);
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -127,8 +127,10 @@ h4 {
 
 .job-card-wrapper {
   scroll-snap-align: center;
+  font-size: clamp(16px, 2vh, 20px) !important;
   flex: 0 0 100%;
   position: relative;
+  padding: 2rem 0;
 }
 
 .job-card {
@@ -142,7 +144,7 @@ h4 {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   padding: 2rem 1rem;
   text-align: center;
@@ -155,7 +157,6 @@ h4 {
 }
 
 .explainer {
-  font-size: 20px;
   gap: 0.5rem;
 }
 
@@ -169,13 +170,12 @@ h4 {
   background-color: gray;
   border-radius: 12px;
   width: 100%;
-  max-height: 50%;
+  max-height: 25vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .job-card-description {
-  font-size: 20px;
   text-align: center;
 }
 
@@ -194,7 +194,7 @@ h4 {
 
 .job-card-rating-hearts-wrapper {
   display: flex;
-  font-size: clamp(36px, 20vw, 3rem);
+  font-size: clamp(24px, 10vw, 3rem);
   gap: 1rem;
 }
 
@@ -226,7 +226,6 @@ button.peta-minat-btn {
   border-radius: 8px;
   padding: 1rem 1.5rem;
   font-family: inherit;
-  font-size: 1.125em;
   transition: 100ms linear;
 }
 button.peta-minat-btn:disabled {
@@ -286,11 +285,11 @@ button.peta-minat-btn:active {
 }
 
 .summary-card-no {
-  font-size: 0.825em;
+  font-size: 0.725em;
 }
 
 .summary-card-icon {
-  font-size: 1.5em;
+  font-size: 18px;
 }
 
 #popup {
@@ -309,9 +308,11 @@ button.peta-minat-btn:active {
   justify-content: center;
   align-items: center;
   transform: 200ms ease;
+  opacity: 0;
 }
 #popup.popup--show {
   bottom: 0;
+  opacity: 1;
 }
 
 .popup-inner-wrapper {
