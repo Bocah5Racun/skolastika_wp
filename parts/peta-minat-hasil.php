@@ -84,8 +84,11 @@ $combo_desc = [
     'ACR' => [
         'desc' => '<p>Individu dengan kombinasi ini cocok di pekerjaan yang terstruktur dan praktis tetapi juga memerlukan daya kreatif yang tinggi.</p>',
         'bidang' => 'Desain dan Seni, Pemasaran dan Periklanan, Manajemen Proyek, Produksi dan Media',
-        'karir_komunikasi' => 'Manajer Pemasaran Kreatif'
-    ]
+        'karir' => [
+            ['Manajer Pemasaran Kreatif', 
+            ''],
+        ],
+        ]
 ]
 ?>
 

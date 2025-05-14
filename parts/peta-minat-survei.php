@@ -1,4 +1,8 @@
-<?php $img_dir = get_template_directory_uri() . '/includes/images/peta-minat'; ?>
+<?php
+    $img_dir = get_template_directory_uri() . '/includes/images/peta-minat';
+    $custom_logo_id = get_theme_mod('custom_logo');
+    $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+?>
 
 <a href="#explainer-summary-wrapper" id="jump-to-summary">
     Review Semua Jawabanmu
@@ -8,7 +12,7 @@
     <form id="popup-survei" method="POST" class="popup-inner-wrapper">
         <div class="job-card">
             <div class="job-card-logo">
-                <?php the_custom_logo(); ?>
+                <img src="<?= esc_url( $logo[0] ); ?>" class="custom-logo">
             </div>
             <h2>Tinggal Satu Langkah Lagi!</h2>
             <div class="popup-desc-text">
@@ -39,7 +43,7 @@
     <div class="job-card-wrapper">
         <div id="the-explainer" class="job-card explainer">
             <div class="job-card-logo">
-                <?php the_custom_logo(); ?>
+                <img src="<?= esc_url( $logo[0] ); ?>" class="custom-logo">
             </div>
             <h1>Peta Minat</h1>
             <div class="explainer-desc-wrapper">
@@ -54,7 +58,7 @@
     <div class="job-card-wrapper">
         <div class="job-card explainer">
             <div class="job-card-logo">
-                <?php the_custom_logo(); ?>
+                <img src="<?= esc_url( $logo[0] ); ?>" class="custom-logo">
             </div>
             <h1>Peta Minat</h1>
             <div class="explainer-desc-wrapper">
@@ -388,6 +392,11 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
         const summaryCardIcon = summaryCard.querySelector('.summary-card-icon')
 
         summaryCardIcon.innerHTML = (value || value === 0) ? "🟢" : "⚫"
+
+        jobCardWrapper.scrollBy({
+            top: window.innerHeight,
+            behavior: 'smooth',
+        })
     })
 });
 

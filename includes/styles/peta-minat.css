@@ -241,7 +241,7 @@ button.peta-minat-btn:active {
   border-radius: 4px;
   text-transform: capitalize;
   color: white;
-  font-size: 0.9em;
+  font-size: 0.825em;
   width: -moz-fit-content;
   width: fit-content;
   height: 0;
@@ -256,12 +256,12 @@ button.peta-minat-btn:active {
 #submission-warning.submission--show {
   height: 80px;
   opacity: 1;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .submission-icon {
-  line-height: 3rem;
-  font-size: 3rem;
+  line-height: 100%;
+  font-size: 2rem;
 }
 
 .submission-text {
@@ -272,14 +272,14 @@ button.peta-minat-btn:active {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  row-gap: 0.5rem;
 }
 
 .summary-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 0 0 calc(16.6666666667% - 1rem);
+  flex: 0 0 16.6666666667%;
   text-decoration: none;
   color: inherit;
 }

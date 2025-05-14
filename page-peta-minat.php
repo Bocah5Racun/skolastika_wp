@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/includes/styles/peta-minat.css">
+    <title>Peta Minat | Cari Karier yang Tepat!</title>
 </head>
 <body>
     <div class="mobile-overlay"></div>
