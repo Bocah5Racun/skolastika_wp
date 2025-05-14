@@ -354,7 +354,7 @@ const summaryCard = document.createElement('div')
 summaryCard.className = 'job-card-wrapper'
 summaryCard.innerHTML = `
     <div id="summary-card" class="job-card">
-        <a class="return-to-top" href="#the-explainer">Baca Instruksi ⤴️</a>
+        <a class="return-to-top" href="#the-explainer">Kembali ke Atas ⤴️</a>
         <div id="explainer-summary-wrapper">
         </div>
         <div id="submission-warning">
@@ -393,6 +393,7 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
 
         summaryCardIcon.innerHTML = (value || value === 0) ? "🟢" : "⚫"
 
+        // scroll to the next page
         jobCardWrapper.scrollBy({
             top: window.innerHeight,
             behavior: 'smooth',
