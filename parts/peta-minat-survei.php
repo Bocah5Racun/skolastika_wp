@@ -325,7 +325,7 @@ shuffledQuestions.forEach((questionObject, index) => {
     jobCard.innerHTML = `
         <div id="q${questionNo}" class="job-card">
             <div class="job-card-counter">${questionNo}/${questionsLength}</div>
-            <img src="<?= $img_dir; ?>/job-images/${id}.png" class="job-card-image">
+            <img src="<?= $img_dir; ?>/job-images/${id}.jpg" class="job-card-image">
             <div class="job-card-description">
                 <div class="job-card-question-pretext">Apakah kamu suka...</div>
                 <div class="job-card-question-text">${question}</div>
