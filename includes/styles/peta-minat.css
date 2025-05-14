@@ -1,0 +1,451 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff500;
+  font-family: "Manrope", sans-serif !important;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+
+.return-to-top {
+  color: #0a26c7;
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgray;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.825em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  color: #0a26c7;
+  margin: 0;
+}
+
+#jump-to-summary {
+  position: fixed;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  z-index: 1000000;
+  padding: 1rem;
+  border-radius: 12px;
+  white-space: nowrap;
+  bottom: -50vh;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: 150ms ease-out;
+  will-change: transform;
+  text-transform: uppercase;
+  right: 50%;
+  transform: translateX(50%);
+}
+#jump-to-summary > img {
+  height: 24px;
+}
+#jump-to-summary.summary--show {
+  bottom: 1rem;
+}
+
+.mobile-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.1) 100%);
+  z-index: 100000;
+  pointer-events: none;
+}
+
+.job-card h1 {
+  font-size: 36px;
+}
+
+.instruction {
+  margin-top: auto;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@keyframes pointDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1rem);
+  }
+  75% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.explainer-desc-wrapper {
+  text-align: center;
+}
+
+.icon {
+  font-size: 48px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.pointdown {
+  animation: pointDown 1s ease-in-out infinite;
+}
+
+#job-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.job-card-wrapper {
+  scroll-snap-align: center;
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.job-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 16px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 1rem;
+  text-align: center;
+  width: clamp(240px, 100% - 3rem, 50vh);
+}
+
+.job-card-logo img {
+  max-height: 42px;
+  width: auto;
+}
+
+.explainer {
+  font-size: 20px;
+  gap: 0.5rem;
+}
+
+.job-card-counter {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.job-card-image {
+  aspect-ratio: 1;
+  background-color: gray;
+  border-radius: 12px;
+  width: 100%;
+  max-height: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.job-card-description {
+  font-size: 20px;
+  text-align: center;
+}
+
+.job-card-question-pretext {
+  font-size: 0.825em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.job-card-rating-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.job-card-rating-hearts-wrapper {
+  display: flex;
+  font-size: clamp(36px, 20vw, 3rem);
+  gap: 1rem;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio] + label {
+  cursor: pointer;
+  filter: saturate(0);
+  transition: 100ms ease;
+}
+
+input[type=radio] + label:hover {
+  transform: scale(1.1);
+}
+
+input[type=radio]:checked + label {
+  transform: scale(1.1);
+  filter: saturate(1);
+}
+
+button.peta-minat-btn {
+  background-color: #0a26c7;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-family: inherit;
+  font-size: 1.125em;
+  transition: 100ms linear;
+}
+button.peta-minat-btn:disabled {
+  background: gray;
+  color: lightgray;
+}
+button.peta-minat-btn:active {
+  scale: 0.95;
+}
+
+#submission-warning {
+  background-color: #e04b4d;
+  border-radius: 4px;
+  text-transform: capitalize;
+  color: white;
+  font-size: 0.9em;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 0;
+  overflow: hidden;
+  transition: 200ms ease-in;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#submission-warning.submission--show {
+  height: 80px;
+  opacity: 1;
+  padding: 0.5rem 1rem;
+}
+
+.submission-icon {
+  line-height: 3rem;
+  font-size: 3rem;
+}
+
+.submission-text {
+  font-weight: 600;
+}
+
+#explainer-summary-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 calc(16.6666666667% - 1rem);
+  text-decoration: none;
+  color: inherit;
+}
+
+.summary-card-no {
+  font-size: 0.825em;
+}
+
+.summary-card-icon {
+  font-size: 1.5em;
+}
+
+#popup {
+  position: fixed;
+  left: 0;
+  bottom: -100vh;
+  background-color: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  z-index: 1000000000000;
+  width: 100vw;
+  height: 100vh;
+  transition: 200ms ease;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: 200ms ease;
+}
+#popup.popup--show {
+  bottom: 0;
+}
+
+.popup-inner-wrapper {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2rem 1rem;
+}
+
+.popup-desc-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 20px;
+}
+.popup-desc-text p {
+  margin: 0;
+}
+
+.popup-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.popup-form-wrapper input[type=text],
+.popup-form-wrapper input[type=tel] {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-size: 20px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+
+.popup-form-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: inherit;
+}
+.popup-form-button-wrapper button {
+  cursor: pointer;
+}
+
+.disclaimer-wrapper {
+  display: flex;
+  text-align: left;
+  gap: 1rem;
+  justify-content: center;
+  font-size: 16px;
+}
+.disclaimer-wrapper input[type=checkbox] {
+  cursor: pointer;
+  width: 30px;
+}
+
+.disclaimer-text {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.popup-btn-submit {
+  background-color: #0a26c7;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.popup-btn-other {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  text-decoration: underline;
+}
+
+.results-card-1 h1 {
+  font-size: clamp(72px, 12vw, 128px);
+  line-height: 100%;
+}
+.results-card-1 .profile-desc {
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(32px, 4vw, 36px);
+}
+.results-card-1 .dimension-names {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem;
+  text-align: left;
+  width: 100%;
+  font-size: 24px;
+}
+.results-card-1 .dimension-names .dimension-name {
+  display: inline-block;
+  font-weight: 600;
+  text-align: right;
+}
+.results-card-1 .dimension-names .dimension-bar-wrapper {
+  height: 36px;
+  border-radius: 8px;
+  width: 100%;
+  background-color: lightgray;
+  position: relative;
+  overflow: hidden;
+}
+.results-card-1 .dimension-names .dimension-bar-wrapper .dimension-bar {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 1000ms ease-in-out;
+  background-color: #0a26c7;
+}
+
+.results-card-text {
+  text-align: left;
+  font-size: 20px;
+}
+
+.results-card-heading {
+  margin: 0;
+}
+
+.results-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 20px;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}/*# sourceMappingURL=peta-minat.css.map */
