@@ -25,13 +25,14 @@
                 <input type="text" name="sekolah" placeholder="Asal sekolah" required>
                 <input type="tel" name="nomor" placeholder="Nomor WhatsApp" required>
                 <div class="disclaimer-wrapper">
-                    <input id="popup-disclaimer" type="checkbox" required>
+                    <input id="popup-disclaimer" type="checkbox">
                     <span>Saya setuju menerima info tentang penawaran dan promosi dari FISIP UPRI.</span>
                 </div>
-                <div class="popup-form-button-wrapper">
-                    <button class="popup-btn-submit" type="submit">Lihat Potensiku</button>
+                <div id="popup-submit-wrapper" class="popup-form-button-wrapper">
+                    <button id="submit-button" class="popup-btn-submit">Lihat Potensiku</button>
                     <a class="popup-btn-other">Cancel</a>
                 </div>
+                <img src="<?= $img_dir; ?>/loading.png" alt="" id="loader">
             </div>
         </div>
     </form>
@@ -52,21 +53,7 @@
                 <p>Kamu tinggal pilih apakah kamu suka atau tidak suka aktivitas-aktivitas di bawah.</p>
                 <p><b>Survei ini hanya butuh waktu 3–5 menit</b>.</p>
             </div>
-            <div class="icon pointdown" style="margin-top: auto;" onclick="scrollToNextPage()">👇</div>
-        </div>
-    </div>
-    <div class="job-card-wrapper">
-        <div class="job-card explainer">
-            <div class="job-card-logo">
-                <img src="<?= esc_url( $logo[0] ); ?>" class="custom-logo">
-            </div>
-            <h1>Peta Minat</h1>
-            <div class="explainer-desc-wrapper">
-                <p>Jangan pikirkan potensi gaji, apakah orang tuamu akan mendukung, atau faktor sosial lainnya dari jenis aktivitas.</p>
-                <p>Pikir saja apakah itu jenis aktivitas yang menyenangkan?</p>
-            </div>
-            <p style="font-size: 1.2em; margin-top: auto; text-align: center;"><b>Siap? Geser layar untuk mulai!</b></p>
-            <div class="icon pointdown" onclick="scrollToNextPage()">👇</div>
+            <img src="<?= $img_dir; ?>/down-arrow.png" class="point-down" onclick="scrollToNextPage()">
         </div>
     </div>
 </div>
@@ -341,7 +328,7 @@ shuffledQuestions.forEach((questionObject, index) => {
                 <label for="q${questionNo}_rating1">😔</label>
                 <input type="radio" id="q${questionNo}_rating2" name="q${questionNo}" value="1" data-dimension="${dimension}" required>
                 <label for="q${questionNo}_rating2">😐</label>
-                <input type="radio" id="q${questionNo}_rating3" name="q${questionNo}" value="2" data-dimension="${dimension}" required>
+                <input type="radio" id="q${questionNo}_rating3" checked name="q${questionNo}" value="2" data-dimension="${dimension}" required>
                 <label for="q${questionNo}_rating3">😊</label>
                 </div>
             </div>
@@ -499,6 +486,18 @@ function getCombinations(str) {
     return result.sort((a, b) => b.length - a.length);
 }
 
-console.log( getCombinations('ACE') )
+// loading animation
+const loader =  document.getElementById('loader')
+const popupSubmitWrapper = document.getElementById('popup-submit-wrapper')
+
+document.getElementById('submit-button').addEventListener('click', () => {
+    popupSubmitWrapper.style.display = 'none'
+    loader.style.display = 'block'
+
+    setTimeout( () => {
+        loader.style.display = 'none'
+        popupSubmitWrapper.style.display = 'flex'
+    }, 10000)
+})
 
 </script>

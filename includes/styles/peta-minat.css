@@ -112,9 +112,14 @@ h4 {
           user-select: none;
 }
 
-.pointdown {
+.point-down {
+  height: 64px;
   cursor: pointer;
-  animation: pointDown 1s ease-in-out infinite;
+  width: auto;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  border-radius: 50%;
 }
 
 #job-cards-wrapper {
@@ -364,7 +369,6 @@ button.peta-minat-btn:active {
   text-align: left;
   gap: 1rem;
   justify-content: center;
-  font-size: clamp(12px, 2vh, 20px);
 }
 .disclaimer-wrapper input[type=checkbox] {
   cursor: pointer;
@@ -380,6 +384,7 @@ button.peta-minat-btn:active {
   background-color: #0a26c7;
   color: white;
   border: 0;
+  cursor: pointer;
   border-radius: 8px;
   font-size: 20px;
   padding: 1rem;
@@ -516,4 +521,21 @@ button.peta-minat-btn:active {
 }
 .karier-heading-wrapper .karier-heading {
   font-weight: 600;
+}
+
+#loader {
+  display: none;
+  height: 36px;
+  width: 36px;
+  margin: 0 auto;
+  animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: 360deg;
+  }
 }/*# sourceMappingURL=peta-minat.css.map */
