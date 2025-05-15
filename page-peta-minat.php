@@ -10,11 +10,12 @@
     <div class="mobile-overlay"></div>
 
     <?php
-        if( !empty($_POST) && $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+        if( ( !empty($_POST) && $_SERVER['REQUEST_METHOD'] == 'POST' ) || isset( $_GET['success'] ) ) {
             get_template_part( 'parts/peta-minat', 'hasil');
         } else {
             get_template_part( 'parts/peta-minat', 'survei');
         }
     ?>
+    
 </body>
 </html>

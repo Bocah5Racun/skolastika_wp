@@ -5,11 +5,11 @@
 ?>
 
 <a href="#explainer-summary-wrapper" id="jump-to-summary">
-    Review Semua Jawabanmu
+    Review Semua Jawaban
 </a>
 
 <div id="popup">
-    <form id="popup-survei" method="POST" class="popup-inner-wrapper">
+    <form autocomplete="off" id="popup-survei" method="POST" class="popup-inner-wrapper">
         <div class="job-card">
             <div class="job-card-logo">
                 <img src="<?= esc_url( $logo[0] ); ?>" class="custom-logo">
@@ -48,8 +48,8 @@
             <h1>Peta Minat</h1>
             <div class="explainer-desc-wrapper">
                 <p>Hai!</p>
-                <p>Survei ini dirancang untuk membantu kamu mencari program studi yang cocok dengan minat dan bakatmu!</p>
-                <p>Caranya gampang! Tinggal pilih apakah kamu suka atau tidak suka jenis-jenis aktivitas yang diberikan di bawah.</p>
+                <p>Survei ini akan membantu kamu mencari program studi yang cocok dengan minat dan bakatmu.</p>
+                <p>Kamu tinggal pilih apakah kamu suka atau tidak suka aktivitas-aktivitas di bawah.</p>
                 <p><b>Survei ini hanya butuh waktu 3–5 menit</b>.</p>
             </div>
             <div class="icon pointdown" style="margin-top: auto;" onclick="scrollToNextPage()">👇</div>
@@ -62,7 +62,8 @@
             </div>
             <h1>Peta Minat</h1>
             <div class="explainer-desc-wrapper">
-                <p>Ketika menjawab, jangan pikirkan potensi gaji, apakah orang tuamu akan mendukung, atau faktor sosial lainnya dari jenis aktivitas. Pilih jawabanmu sesuai dengan perasaanmu—apakah itu jenis aktivitas yang kamu suka?</p>
+                <p>Jangan pikirkan potensi gaji, apakah orang tuamu akan mendukung, atau faktor sosial lainnya dari jenis aktivitas.</p>
+                <p>Pikir saja apakah itu jenis aktivitas yang menyenangkan?</p>
             </div>
             <p style="font-size: 1.2em; margin-top: auto; text-align: center;"><b>Siap? Geser layar untuk mulai!</b></p>
             <div class="icon pointdown" onclick="scrollToNextPage()">👇</div>
@@ -329,9 +330,9 @@ shuffledQuestions.forEach((questionObject, index) => {
     jobCard.innerHTML = `
         <div id="q${questionNo}" class="job-card">
             <div class="job-card-counter">${questionNo}/${questionsLength}</div>
-            <img src="<?= $img_dir; ?>/job-images/${id}.jpg" class="job-card-image">
+            <img src="<?= $img_dir; ?>/survey-images/${id}.jpg" class="job-card-image">
             <div class="job-card-description">
-                <div class="job-card-question-pretext">Apakah kamu suka...</div>
+                <div class="job-card-question-pretext">Kamu suka...</div>
                 <div class="job-card-question-text">${question}</div>
             </div>
             <div class="job-card-rating-wrapper">
@@ -359,7 +360,7 @@ summaryCard.innerHTML = `
         </div>
         <div id="submission-warning">
             <div class="submission-icon">⚠</div>
-            <div class="submission-text">Beberapa pertanyaan belum dijawab!</div>
+            <div id="warning-text" class="submission-text"></div>
         </div>
         <button id="submit" class="peta-minat-btn" onclick="checkPopup()">Lihat Profil Minat</button>
     </div>
@@ -400,11 +401,14 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
 
 // scroll to next page function
 function scrollToNextPage() {
-    jobCardWrapper.scrollBy({
-        top: window.innerHeight,
-        behavior: 'smooth',
-    })
+    setTimeout(() => {
+        jobCardWrapper.scrollBy({
+            top: window.innerHeight,
+            behavior: 'smooth',
+        })
+    }, 75)
 }
+
 // jump to the very bottom
 const summaryJump = document.getElementById("jump-to-summary")
 
@@ -419,6 +423,7 @@ jobCardWrapper.addEventListener("scroll", (e) => {
 // check if all questions answered then show popup
 const popup = document.getElementById('popup')
 const warningBox = document.getElementById('submission-warning')
+const warningText = document.getElementById('warning-text')
 
 function checkAnswers() {
     const ratings = document.querySelectorAll('input[type="radio"]:checked')
@@ -428,10 +433,13 @@ function checkAnswers() {
 
 function checkPopup() {
     const questionsAnswered = checkAnswers()
+    const ratings = document.querySelectorAll('input[type="radio"]:checked')
 
     if(questionsAnswered) {
-        const theRatings = document.querySelectorAll('input[type="radio"]:checked')
-        const ratingsArray = Array.from(theRatings).map( rating => {
+        let notZero = false; // checks if RIASEC score is zero
+
+        const ratingsArray = Array.from(ratings).map( rating => {
+            if(rating.value > 0) notZero = true
             return {
                 name: rating.name,
                 dimension: rating.dataset.dimension,
@@ -441,9 +449,20 @@ function checkPopup() {
 
         const dimensions = document.getElementById('dimensions')
         dimensions.value = JSON.stringify( ratingsArray )
-        popup.classList.add('popup--show')
+
+        if(notZero) {
+            popup.classList.add('popup--show')
+        } else {
+            popup.classList.remove('popup--show')
+            warningText.textContent = 'Kamu harus suka sekurang-kurangnya satu aktivitas untuk mendapatkan profil.'
+            warningBox.classList.add('submission--show')
+            setTimeout(() => {
+                warningBox.classList.remove('submission--show')
+            }, 5000);
+        }
     } else {
         popup.classList.remove('popup--show')
+        warningText.textContent = 'Jawab semua pertanyaan.'
         warningBox.classList.add('submission--show')
         setTimeout(() => {
             warningBox.classList.remove('submission--show')
@@ -460,5 +479,26 @@ popupSubmit.addEventListener("click", () => {
 
 const popupCancel = popup.querySelector('.popup-btn-other')
 popupCancel.addEventListener("click", () => popup.classList.remove("popup--show"))
+
+// test combinations functionfunction getCombinations(str) {
+function getCombinations(str) {
+    const result = [];
+    const chars = str.split("");
+
+    function combine(index, current) {
+        if (current.length > 0) {
+        result.push(current.join(""));
+        }
+
+        for (let i = index; i < chars.length; i++) {
+        combine(i + 1, [...current, chars[i]]);
+        }
+    }
+
+    combine(0, []);
+    return result.sort((a, b) => b.length - a.length);
+}
+
+console.log( getCombinations('ACE') )
 
 </script>
