@@ -156,14 +156,6 @@ function return_desc( $letter ) {
     }
 }
 
-$sorted_profile = str_split( $profile );
-$profile_length = count( $sorted_profile );
-
-
-sort( $sorted_profile );
-$sorted_profile = implode( '', $sorted_profile );
-$long_desc;
-
 // sheets functions
 function get_code_info( $code, $desc = true ) {
     global $api_url;
@@ -222,12 +214,12 @@ function get_jobs_by_code( $code ) {
 
 }
 
-$jobs = get_jobs_by_code( $sorted_profile);
+$jobs = get_jobs_by_code( $profile);
 $bidang_kerja_array = [];
 
 foreach( $jobs as $job ) {
     if( !in_array( $job['domain'], $bidang_kerja_array )) {
-        $bidang_kerja_array[] = $job['domain'];
+        if( $job['zone'] >= 4 ) $bidang_kerja_array[] = $job['domain'];
     }
 }
 
@@ -272,7 +264,7 @@ foreach( $jobs as $job ) {
             <h1><?= $profile; ?></h1>
             <div class="results-section">
                 <div class="results-card-text">
-                    <?= get_code_info( $sorted_profile ); ?>
+                    <?= get_code_info( $profile ); ?>
                 </div>
             </div>
             <h3 class="results-card-heading">Rekomendasi Bidang Kerja</h3>

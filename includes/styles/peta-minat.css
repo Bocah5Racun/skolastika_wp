@@ -480,6 +480,7 @@ button.peta-minat-btn:active {
   list-style-type: none;
   flex-wrap: wrap;
   margin: 0;
+  overflow-y: auto;
   display: flex;
   padding: 0;
   gap: 0.5rem;
