@@ -1,5 +1,7 @@
 <?php
 
+$img_dir = get_template_directory_uri() . '/includes/images/peta-minat';
+
 // API url
 global $api_url, $secret_key;
 $api_url = "https://script.google.com/macros/s/AKfycbxCctR7wiKAV4seJ9iJuyYjfhIBF_BDKoLIbL2z5J0fgmAJfYB1PEJ_kds1_Z6uFs0A/exec";
@@ -30,7 +32,7 @@ if( isset( $_POST['dimensions'] ) ) {
         $the_value = $rating['value'];
     
         if( !str_contains( 'RIASEC', $the_dimension ) ) die( 'Not a valid dimension in $rating' );
-        if( !str_contains( '012', $the_value ) ) die( 'Not a valid value in $the_value' );
+        if( !str_contains( '01234', $the_value ) ) die( 'Not a valid value in $the_value' );
     
         $riasec_scores[ $the_dimension ] += $the_value;
     
@@ -219,6 +221,16 @@ function get_jobs_by_code( $code ) {
     return $out['content'];
 
 }
+
+$jobs = get_jobs_by_code( $sorted_profile);
+$bidang_kerja_array = [];
+
+foreach( $jobs as $job ) {
+    if( !in_array( $job['domain'], $bidang_kerja_array )) {
+        $bidang_kerja_array[] = $job['domain'];
+    }
+}
+
 ?>
 
 <!-- OPEN JOB-CARDS-WRAPPER -->
@@ -243,7 +255,10 @@ function get_jobs_by_code( $code ) {
 
                 <?php endforeach; ?>
             </div>
-            <p style="font-size: 1.2em; margin-top: auto; text-align: center;"><b>Geser untuk melihat karier yang cocok buat tipemu!</b></p>
+            <div class="scroll-for-more">
+                <p><b>Scroll untuk melihat profil minatmu!</b></p>
+                <img src="<?= $img_dir; ?>/down-arrow.png" class="point point--down" onclick="scrollPage( 1 )">
+            </div>
         </div>
     </div>
 
@@ -263,13 +278,12 @@ function get_jobs_by_code( $code ) {
             <h3 class="results-card-heading">Rekomendasi Bidang Kerja</h3>
             <ul class="bidang-list">
                 <?php
-                    $bidang_kerja = get_code_info( $sorted_profile, false );
-                    $bidang_kerja_array = explode( ',', $bidang_kerja );
-                    foreach( $bidang_kerja_array as $bidang ):
+                    foreach( array_slice( $bidang_kerja_array, 0, 6 ) as $bidang ):
                 ?>
                     <li><?= $bidang; ?></li>
                 <?php endforeach; ?>
             </ul>
+            <img src="<?= $img_dir; ?>/down-arrow.png" class="point point--down" onclick="scrollPage( 1 )">
         </div>
     </div>
 
@@ -289,9 +303,7 @@ function get_jobs_by_code( $code ) {
         </div>
         <div class="karier-list-wrapper">
             <div class="karier-list">
-                <?php
-                    $jobs = get_jobs_by_code( $sorted_profile);
-                    
+                <?php                   
                     foreach( $jobs as $job ):
                 ?>
                     <div><?= $job['code'] ;?></div>
@@ -316,17 +328,17 @@ function get_jobs_by_code( $code ) {
     ]
     
     for(let i = 0; i < bars.length; i++) {
-        bars[i].style.width = `${riasec_scores[i] * 100 / 16}%`
+        bars[i].style.width = `${riasec_scores[i] * 100 / 32}%`
     }
 </script>
 
 <script>
     const jobCardWrapper = document.getElementById('job-cards-wrapper')
     // scroll to next page function
-    function scrollToNextPage() {
+    function scrollPage( dir ) {
         setTimeout(() => {
             jobCardWrapper.scrollBy({
-                top: window.innerHeight,
+                top: window.innerHeight * dir,
                 behavior: 'smooth',
             })
         }, 75)

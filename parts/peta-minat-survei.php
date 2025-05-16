@@ -48,12 +48,11 @@
             </div>
             <h1>Peta Minat</h1>
             <div class="explainer-desc-wrapper">
-                <p>Hai!</p>
-                <p>Survei ini akan membantu kamu mencari program studi yang cocok dengan minat dan bakatmu.</p>
+                <p>Survei ini akan membantu kamu mencari program studi yang cocok dengan minat.</p>
                 <p>Kamu tinggal pilih apakah kamu suka atau tidak suka aktivitas-aktivitas di bawah.</p>
-                <p><b>Survei ini hanya butuh waktu 3–5 menit</b>.</p>
+                <p><b>Waktu Penyelesaian: 3–5 menit</b>.</p>
             </div>
-            <img src="<?= $img_dir; ?>/down-arrow.png" class="point-down" onclick="scrollToNextPage()">
+            <img src="<?= $img_dir; ?>/down-arrow.png" class="point point--down"onclick="scrollPage( 1 )">
         </div>
     </div>
 </div>
@@ -316,6 +315,7 @@ shuffledQuestions.forEach((questionObject, index) => {
     jobCard.className = 'job-card-wrapper'
     jobCard.innerHTML = `
         <div id="q${questionNo}" class="job-card">
+            <img src="<?= $img_dir; ?>/down-arrow.png" class="point point--up"onclick="scrollPage( -1 )">
             <div class="job-card-counter">${questionNo}/${questionsLength}</div>
             <img src="<?= $img_dir; ?>/survey-images/${id}.jpg" class="job-card-image">
             <div class="job-card-description">
@@ -323,15 +323,22 @@ shuffledQuestions.forEach((questionObject, index) => {
                 <div class="job-card-question-text">${question}</div>
             </div>
             <div class="job-card-rating-wrapper">
+                <div class="job-card-emoji">😔</div>
                 <div class="job-card-rating-hearts-wrapper">
-                <input type="radio" id="q${questionNo}_rating1" name="q${questionNo}" value="0" data-dimension="${dimension}" required>
-                <label for="q${questionNo}_rating1">😔</label>
-                <input type="radio" id="q${questionNo}_rating2" name="q${questionNo}" value="1" data-dimension="${dimension}" required>
-                <label for="q${questionNo}_rating2">😐</label>
-                <input type="radio" id="q${questionNo}_rating3" checked name="q${questionNo}" value="2" data-dimension="${dimension}" required>
-                <label for="q${questionNo}_rating3">😊</label>
+                    <input type="radio" id="q${questionNo}_rating5" name="q${questionNo}" value="4" data-dimension="${dimension}" required>
+                    <label for="q${questionNo}_rating5"></label>
+                    <input type="radio" id="q${questionNo}_rating4" name="q${questionNo}" value="3" data-dimension="${dimension}" required>
+                    <label for="q${questionNo}_rating4"></label>
+                    <input type="radio" id="q${questionNo}_rating3" name="q${questionNo}" value="2" data-dimension="${dimension}" required>
+                    <label for="q${questionNo}_rating3"></label>
+                    <input type="radio" id="q${questionNo}_rating2" name="q${questionNo}" value="1" data-dimension="${dimension}" required>
+                    <label for="q${questionNo}_rating2"></label>
+                    <input type="radio" id="q${questionNo}_rating1" name="q${questionNo}" value="0" data-dimension="${dimension}" required>
+                    <label for="q${questionNo}_rating1"></label>
                 </div>
+                <div class="job-card-emoji">😊</div>
             </div>
+            <img src="<?= $img_dir; ?>/down-arrow.png" class="point point--down"onclick="scrollPage( 1 )">
         </div>
     `
     jobCardWrapper.appendChild(jobCard)
@@ -380,17 +387,14 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
         const summaryCardIcon = summaryCard.querySelector('.summary-card-icon')
 
         summaryCardIcon.innerHTML = (value || value === 0) ? "🟢" : "⚫"
-
-        // scroll to the next page
-        scrollToNextPage()
     })
 });
 
 // scroll to next page function
-function scrollToNextPage() {
+function scrollPage( dir ) {
     setTimeout(() => {
         jobCardWrapper.scrollBy({
-            top: window.innerHeight,
+            top: window.innerHeight * dir,
             behavior: 'smooth',
         })
     }, 75)
@@ -400,7 +404,7 @@ function scrollToNextPage() {
 const summaryJump = document.getElementById("jump-to-summary")
 
 jobCardWrapper.addEventListener("scroll", (e) => {
-    if(jobCardWrapper.scrollTop >= 1.5 * jobCardWrapper.clientHeight&& jobCardWrapper.scrollTop <= 49.5 * jobCardWrapper.clientHeight) {
+    if(jobCardWrapper.scrollTop >= 0.5 * jobCardWrapper.clientHeight&& jobCardWrapper.scrollTop <= 48.5 * jobCardWrapper.clientHeight) {
         summaryJump.classList.add("summary--show")
     } else {
         summaryJump.classList.remove("summary--show")
@@ -467,25 +471,6 @@ popupSubmit.addEventListener("click", () => {
 const popupCancel = popup.querySelector('.popup-btn-other')
 popupCancel.addEventListener("click", () => popup.classList.remove("popup--show"))
 
-// test combinations functionfunction getCombinations(str) {
-function getCombinations(str) {
-    const result = [];
-    const chars = str.split("");
-
-    function combine(index, current) {
-        if (current.length > 0) {
-        result.push(current.join(""));
-        }
-
-        for (let i = index; i < chars.length; i++) {
-        combine(i + 1, [...current, chars[i]]);
-        }
-    }
-
-    combine(0, []);
-    return result.sort((a, b) => b.length - a.length);
-}
-
 // loading animation
 const loader =  document.getElementById('loader')
 const popupSubmitWrapper = document.getElementById('popup-submit-wrapper')
@@ -499,5 +484,32 @@ document.getElementById('submit-button').addEventListener('click', () => {
         popupSubmitWrapper.style.display = 'flex'
     }, 10000)
 })
+
+// test combos
+function getPermutations(str, length) {
+  const results = [];
+
+  function permute(path, remaining) {
+    if (path.length === length) {
+      results.push(path);
+      return;
+    }
+    for (let i = 0; i < remaining.length; i++) {
+      permute(path + remaining[i], remaining.slice(0, i) + remaining.slice(i + 1));
+    }
+  }
+
+  permute("", str);
+  return results;
+}
+
+const input = "RIASEC";
+const allPermutations = new Set();
+
+for (let len = 1; len <= 3; len++) {
+  getPermutations(input, len).forEach(p => allPermutations.add(p));
+}
+
+console.log([...allPermutations].sort());
 
 </script>
