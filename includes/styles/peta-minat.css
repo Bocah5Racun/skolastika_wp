@@ -68,6 +68,19 @@ h4 {
 #jump-to-summary.summary--show {
   bottom: 1rem;
 }
+@media (max-width: 480px) {
+  #jump-to-summary {
+    right: auto;
+    transform: none;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 12px 0 0 0;
+    right: 0;
+  }
+  #jump-to-summary.summary--show {
+    bottom: 0;
+  }
+}
 
 .mobile-overlay {
   position: fixed;
@@ -159,6 +172,7 @@ h4 {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   align-items: center;
   min-height: 240px;
@@ -166,6 +180,13 @@ h4 {
   padding: 1rem;
   text-align: center;
   width: clamp(320px, 100% - 3rem, 440px);
+}
+@media (max-width: 480px) {
+  .job-card {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+  }
 }
 
 .job-card-logo img {
@@ -483,14 +504,14 @@ button.peta-minat-btn:active {
   overflow-y: auto;
   display: flex;
   padding: 0;
-  gap: 0.5rem;
+  gap: 2px;
 }
 .bidang-list li {
   padding: 0.25rem 0.5rem;
   background-color: #0a26c7;
   color: #fff500;
-  font-size: 0.825em;
-  border-radius: 12px;
+  font-size: 0.8em;
+  border-radius: 8px;
 }
 
 .karier-list-wrapper {

@@ -60,7 +60,7 @@ if( isset( $_POST['dimensions'] ) ) {
         $profile .= $riasec_keys[1];
         array_push( $profile_desc, return_desc( $riasec_keys[1] ) );
     
-        // adds a third dimension if it's >=80% of the second dim's score
+        // adds a third dimension if it's >=75% of the second dim's score
         if( ( $third_dim / $second_dim ) >= 0.75 ) {
             $profile .= $riasec_keys[2];
             $profile_desc[] = return_desc( $riasec_keys[2] );
@@ -128,16 +128,16 @@ $profile_desc = [
 ];
 
 // checks if $second_dim is not zero
-if( $second_dim > 0 ) {
-    $profile .= $riasec_keys[1];
-    array_push( $profile_desc, return_desc( $riasec_keys[1] ) );
-
-    // adds a third dimension if it's >=80% of the second dim's score
-    if( ( $third_dim / $second_dim ) >= 0.8 ) {
-        $profile .= $riasec_keys[2];
-        $profile_desc[] = return_desc( $riasec_keys[2] );
+    if( $second_dim / $first_dim > 0.5 ) {
+        $profile .= $riasec_keys[1];
+        array_push( $profile_desc, return_desc( $riasec_keys[1] ) );
+    
+        // adds a third dimension if it's >=75% of the second dim's score
+        if( ( $third_dim / $second_dim ) >= 0.75 ) {
+            $profile .= $riasec_keys[2];
+            $profile_desc[] = return_desc( $riasec_keys[2] );
+        }
     }
-}
 
 // returns the description of the dimension name
 function return_desc( $letter ) {
@@ -258,6 +258,7 @@ foreach( $jobs as $job ) {
 
     <div class="job-card-wrapper">
         <div class="job-card">
+            <img src="<?= $img_dir; ?>/down-arrow.png" class="point point--up"onclick="scrollPage( -1 )">
             <div class="job-card-logo">
                 <?php the_custom_logo(); ?>
             </div>
@@ -283,6 +284,7 @@ foreach( $jobs as $job ) {
 
 <div class="job-card-wrapper">
     <div class="job-card">
+        <img src="<?= $img_dir; ?>/down-arrow.png" class="point point--up"onclick="scrollPage( -1 )">
         <div class="job-card-logo">
             <?php the_custom_logo(); ?>
         </div>

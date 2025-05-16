@@ -5,7 +5,7 @@
 ?>
 
 <a href="#explainer-summary-wrapper" id="jump-to-summary">
-    Review Semua Jawaban
+    Review Jawaban
 </a>
 
 <div id="popup">
