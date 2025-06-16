@@ -191,7 +191,7 @@
     <div class="section section--upri-yellow study-program-child-cta-container">
         <div class="section-inner">
             <h2>Tertarik untuk berkarier di bidang <?= $study_program; ?>?</h2>
-            <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
+            <a class="single-cta-button" href="<?= get_home_url() . '/pmb/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
         </div>
     </div>
 </section>

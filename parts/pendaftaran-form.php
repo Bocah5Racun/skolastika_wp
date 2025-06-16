@@ -125,7 +125,7 @@
                         </div>
                         <div class="form-input">
                             <label for="program">Tipe Kelas</label>
-                            <small><a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/" target="_blank">Apa itu Kelas Karyawan (Rekognisi Pembelajaran Lampau)?</a></small>
+                            <small><a href="<?= get_site_url(); ?>/pmb/program-rekognisi-pembalajaran-lampau-rpl/" target="_blank">Apa itu Kelas Karyawan (Rekognisi Pembelajaran Lampau)?</a></small>
                             <select name="program" id="program">
                                 <option value="reguler">Kelas Reguler</option>
                                 <option value="karyawan">Kelas Karyawan (RPL)</option>

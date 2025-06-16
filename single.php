@@ -106,7 +106,7 @@
 <section class="section section--upri-yellow study-program-child-cta-container">
     <div class="section-inner centered-box constrained text-center">
         <h2>Gabung bersama kami membuat perubahan positif bagi masyarakat.</h2>
-        <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
+        <a class="single-cta-button" href="<?= get_home_url() . '/pmb/'; ?>">Baca informasi pendaftaran mahasiswa baru →</a>
         <?php if( "Kurikulum" !== get_the_title() ): ?>
             <a href="<?= BROSUR_URL; ?>">Download brosur FISIP UPRI →</a>
         <?php endif;?>

@@ -19,7 +19,7 @@
                         <li>Studi lapangan & kunjungan industri</li>
                         <li>Kuliah hybrid (online dan offline)</li>
                     </ul>
-                    <a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/jalur-studi-di-fisip-upri?nojump#kelas-reguler" class="new-hero-menu-card-button">Baca Info</a>
+                    <a href="<?= get_site_url(); ?>/pmb/jalur-studi-di-fisip-upri?nojump#kelas-reguler" class="new-hero-menu-card-button">Baca Info</a>
                 </div>
                 <div class="new-hero-menu-card">
                     <div class="new-hero-menu-card-title">Kelas Karyawan</div>
@@ -30,7 +30,7 @@
                         <li>Potensi konversi pengalaman kerja jadi SKS</li>
                         <li>Kuliah hybrid (online dan offline)</li>
                     </ul>
-                    <a href="<?= get_site_url(); ?>/penerimaan-mahasiswa-baru/jalur-studi-di-fisip-upri?nojump#kelas-rpl" class="new-hero-menu-card-button">Baca Info</a>
+                    <a href="<?= get_site_url(); ?>/pmb/jalur-studi-di-fisip-upri?nojump#kelas-rpl" class="new-hero-menu-card-button">Baca Info</a>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
         <h3>Konversi pengalaman kerja menjadi SKS.</h3>
         <p class="constrained">Dengan Program RPL, Anda dapat mengkonversi pengetahuan dan pengalaman nyata dari dunia kerja menjadi Satuan Kredit Semester (SKS) untuk gelar Sarjana.</p>
         <div>
-            <a class="see-more see-more--blue" href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca detail tentang program RPL →</a>
+            <a class="see-more see-more--blue" href="https://fisipupri.ac.id/pmb/program-rekognisi-pembalajaran-lampau-rpl/">Baca detail tentang program RPL →</a>
         </div>
     </div>
 </section>
@@ -255,7 +255,7 @@
             ?>
         </div>
         <div>
-            <a class="see-more see-more--blue" href="/penerimaan-mahasiswa-baru/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
+            <a class="see-more see-more--blue" href="/pmb/program-rekognisi-pembalajaran-lampau-rpl/">Baca tentang pengalaman berkuliah di FISIP UPRI →</a>
         </div>
     </div>
 </section>
@@ -412,7 +412,7 @@
             <hr class="separator--blue" />
             <p>Jika Anda ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
             <div class="cta-column text-center">
-                <a href="https://fisipupri.ac.id/penerimaan-mahasiswa-baru/pendaftaran-mahasiswa-baru/" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
+                <a href="https://fisipupri.ac.id/pmb/pendaftaran-mahasiswa-baru/" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
                 <a class="see-more see-more--small see-more--blue" href="https://wa.me/6281244375770">Mau bertanya? →</a>
             </div>
         </div>

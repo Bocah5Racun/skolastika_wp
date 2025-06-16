@@ -59,7 +59,7 @@
     <div class="centered-box constrained">
         <?= the_content(); ?>
     </div>
-    <a class="single-cta-button" href="<?= get_home_url() . '/penerimaan-mahasiswa-baru/'; ?>">Baca informasi tentang pendaftaran mahasiswa baru →</a>
+    <a class="single-cta-button" href="<?= get_home_url() . '/pmb/'; ?>">Baca informasi tentang pendaftaran mahasiswa baru →</a>
     <div class="last-updated">Laman ini terakhir diperbarui pada tanggal <?= get_the_modified_date(); ?>.</div>
 </div>
 

@@ -1,19 +1,28 @@
 <?php
 
+require_once( get_template_directory_uri() . '/includes/peta-minat-config.php' ); // peta minat variables
+
 $img_dir = get_template_directory_uri() . '/includes/images/peta-minat';
 
 // API url
 global $api_url, $secret_key;
-$api_url = "https://script.google.com/macros/s/AKfycbxCctR7wiKAV4seJ9iJuyYjfhIBF_BDKoLIbL2z5J0fgmAJfYB1PEJ_kds1_Z6uFs0A/exec";
-$secret_key = "K3VBLVZ3QV38LRUQ6N1G181R8KVJJNOH";
+$api_url = PM_URL;
+$secret_key = PM_API;
 
 if( isset( $_POST['dimensions'] ) ) {
 
-    // validate and clean $_POST items
-    $nama = isset( $_POST['nama'] ) ? filter_var( $_POST['nama'], FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH) : die( "Name not set" );
-    $sekolah = isset( $_POST['sekolah'] ) ? filter_var( $_POST['sekolah'], FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH) : die( "School not set" );
-    $nomor = isset( $_POST['nomor'] ) ? preg_replace('/[^\d]/', '', $_POST['nomor']) : die( "Number not set" );
-    
+    $post_bool = false;
+
+    if( isset( $_POST['nama'] ) ) {
+        $post_bool = true;
+        // validate and clean $_POST items
+        $nama = isset( $_POST['nama'] ) ? filter_var( $_POST['nama'], FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH) : die( "Name not set" );
+        $sekolah = isset( $_POST['sekolah'] ) ? filter_var( $_POST['sekolah'], FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH) : die( "School not set" );
+        $nomor = isset( $_POST['nomor'] ) ? preg_replace('/[^\d]/', '', $_POST['nomor']) : die( "Number not set" );
+        $promo_bool = isset( $_POST['promo_bool'] ) ? $_POST['promo_bool'] : false;
+        
+    }
+
     $ratings = json_decode( stripslashes( $_POST['dimensions'] ), true );
     
     // validate the dimensions and ratings then add to a total score
@@ -67,26 +76,35 @@ if( isset( $_POST['dimensions'] ) ) {
         }
     }
     
-    // send the results to Google Sheets
-    $return_url = get_the_permalink();
-    $post_data = array(
-        'nama'          => $nama,
-        'sekolah'       => $sekolah,
-        'nomor'         => $nomor,
-        'kode'          => $profile,
-        'action'        => 'add_response',
-        'key'           => $secret_key,
-    );
-    
-    $ch = curl_init();
-    
-    curl_setopt( $ch, CURLOPT_URL, $api_url );
-    curl_setopt( $ch, CURLOPT_POST, 1 );
-    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $post_data) );
-    
-    $result = curl_exec( $ch );
-    
-    curl_close( $ch );
+    if( $post_bool ) {
+        // send the results to Google Sheets
+        $return_url = get_the_permalink();
+        $post_data = array(
+            'nama'          => $nama,
+            'sekolah'       => $sekolah,
+            'nomor'         => $nomor,
+            'kode'          => $profile,
+            'r_score'       => $riasec_scores['R'],
+            'i_score'       => $riasec_scores['I'],
+            'a_score'       => $riasec_scores['A'],
+            's_score'       => $riasec_scores['S'],
+            'e_score'       => $riasec_scores['E'],
+            'c_score'       => $riasec_scores['C'],
+            'action'        => 'add_response',
+            'promo_bool'    => $promo_bool,
+            'key'           => $secret_key,
+        );
+        
+        $ch = curl_init();
+        
+        curl_setopt( $ch, CURLOPT_URL, $api_url );
+        curl_setopt( $ch, CURLOPT_POST, 1 );
+        curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $post_data) );
+        
+        $result = curl_exec( $ch );
+        
+        curl_close( $ch );
+    }
     
     $riasec_string = 'success=true';
     

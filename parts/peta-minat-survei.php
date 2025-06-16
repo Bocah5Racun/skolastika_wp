@@ -2,6 +2,7 @@
     $img_dir = get_template_directory_uri() . '/includes/images/peta-minat';
     $custom_logo_id = get_theme_mod('custom_logo');
     $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+    $allow_record = isset( $_GET['a'] ) ? $_GET['a'] : false;
 ?>
 
 <a href="#explainer-summary-wrapper" id="jump-to-summary">
@@ -16,24 +17,30 @@
             </div>
             <h2>Tinggal Satu Langkah Lagi!</h2>
             <div class="popup-desc-text">
-                <p>Isi informasi di bawah ini untuk menerima <b>Profil Minat</b> dan rekomendasi program studi yang pas buat kamu.</p>
-                <div class="disclaimer-text">Data Anda tidak akan dibagikan atau diperjualbelikan kepada pihak ketiga.</div>
-            </div>
-            <div class="popup-form-wrapper">
-                <input type="hidden" id="dimensions" name="dimensions">
-                <input type="text" name="nama" placeholder="Nama lengkap" required>
-                <input type="text" name="sekolah" placeholder="Asal sekolah" required>
-                <input type="tel" name="nomor" placeholder="Nomor WhatsApp" required>
-                <div class="disclaimer-wrapper">
-                    <input id="popup-disclaimer" type="checkbox">
-                    <span>Saya setuju menerima info tentang penawaran dan promosi dari FISIP UPRI.</span>
+                <?php if( $allow_record ): ?>
+                    <p>Isi informasi di bawah ini untuk menerima <b>Profil Minat</b> dan rekomendasi program studi yang pas buat kamu.</p>
+                    <div class="disclaimer-text">Data kamu tidak akan dibagikan atau diperjualbelikan kepada pihak ketiga.</div>
+                <?php else: ?>
+                    <p>Klik tombol di bawah untuk melihat <b>Profil Minat</b>-mu.</p>
+                <?php endif; ?>
+                <div class="popup-form-wrapper">
+                    <input type="hidden" id="dimensions" name="dimensions">
+                    <?php if( $allow_record ): ?>
+                        <input type="text" name="nama" placeholder="Nama lengkap" required>
+                        <input type="text" name="sekolah" placeholder="Asal sekolah" required>
+                        <input type="tel" name="nomor" placeholder="Nomor WhatsApp" required>
+                        <div class="disclaimer-wrapper">
+                            <input id="popup-disclaimer" name="promo_bool" value="true" type="checkbox">
+                            <label for="popup-disclaimer">Saya setuju menerima info tentang penawaran dan promosi dari FISIP UPRI.</label>
+                        </div>
+                    <?php endif; ?>
+                    </div>
+                    <div id="popup-submit-wrapper" class="popup-form-button-wrapper">
+                        <button id="submit-button" class="popup-btn-submit">Lihat Potensiku</button>
+                        <a class="popup-btn-other">Cancel</a>
+                    </div>
+                    <img src="<?= $img_dir; ?>/loading.png" alt="" id="loader">
                 </div>
-                <div id="popup-submit-wrapper" class="popup-form-button-wrapper">
-                    <button id="submit-button" class="popup-btn-submit">Lihat Potensiku</button>
-                    <a class="popup-btn-other">Cancel</a>
-                </div>
-                <img src="<?= $img_dir; ?>/loading.png" alt="" id="loader">
-            </div>
         </div>
     </form>
 </div>
@@ -325,7 +332,7 @@ shuffledQuestions.forEach((questionObject, index) => {
             <div class="job-card-rating-wrapper">
                 <div class="job-card-emoji">😔</div>
                 <div class="job-card-rating-hearts-wrapper">
-                    <input type="radio" id="q${questionNo}_rating5" name="q${questionNo}" value="4" data-dimension="${dimension}" required>
+                    <input type="radio" id="q${questionNo}_rating5" checked name="q${questionNo}" value="4" data-dimension="${dimension}" required>
                     <label for="q${questionNo}_rating5"></label>
                     <input type="radio" id="q${questionNo}_rating4" name="q${questionNo}" value="3" data-dimension="${dimension}" required>
                     <label for="q${questionNo}_rating4"></label>
