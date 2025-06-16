@@ -183,48 +183,6 @@
     </section>
 </section>
 
-<!-- <section id="alumni" class="section section--upri-blue">
-    <div class="alumni-inner section-inner container text-center">
-        <h2>Kisah Alumni</h2>
-        <hr class="separator--yellow align-center" />
-        <h3>Keunggulan FISIP UPRI tercermin dalam kisah-kisah inspiratif dari alumni-alumni kami.</h3>
-        <div class="alumni-list">
-
-        <?php
-
-            $query = new WP_Query( array(
-                'post_type'         =>'alumni',
-                'posts_per_page'    => 4,
-                'orderby'           => 'rand',
-                )
-            );
-
-            if( $query->have_posts() ):
-                while( $query->have_posts() ):
-                    $query->the_post();
-
-        ?>
-
-            <div class="alumni-card">
-                <a href="<?= get_permalink(); ?>">
-                    <img src="<?= get_the_post_thumbnail_url(); ?>" />
-                    <h3><?= get_the_title(); ?></h3>
-                </a>
-            </div>
-        
-        <?php
-            endwhile;
-            endif;
-            wp_reset_postdata();
-        ?>
-
-        </div>
-        <div>
-            <a class="see-more see-more--yellow" href="/kisah-alumni/">Lihat semua kisah alumni →</a>
-        </div>
-    </div>
-</section> -->
-
 <section id="experience-fisip" class="section">
     <div class="experience-fisip-inner section-inner container">
         <h2>Experience FISIP@UPRI</h2>
@@ -290,7 +248,11 @@
             <a href="<?= get_the_permalink(); ?>">
                 <img class="news-thumbnail" src="<?= get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" />
             </a>
-            <div class="news-label"><?= get_the_category()[0]->name; ?></div>
+            <div class="news-label">
+                <a href="<?= get_category_link( get_the_category()[0]->term_id ); ?>">
+                    <?= get_the_category()[0]->name; ?>
+                </a>
+            </div>
             <a href="<?= get_the_permalink(); ?>">
                 <h2><?= get_the_title(); ?></h2>
             </a>

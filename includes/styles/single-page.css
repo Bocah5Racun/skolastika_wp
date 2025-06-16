@@ -192,6 +192,9 @@
 .more-articles-card-cat a {
   color: #0a26c7;
 }
+.more-articles-card-cat a:hover {
+  text-decoration: underline;
+}
 
 .more-articles-card-title {
   font-size: 1.25em;
