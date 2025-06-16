@@ -12,7 +12,7 @@
     $args = array(
         'post_type'         => 'post',
         'category_name'     => 'blog,news,penelitian',
-        'posts_per_page'    => 10,
+        'posts_per_page'    => 12,
     );
 
     $query = new WP_Query( $args );
