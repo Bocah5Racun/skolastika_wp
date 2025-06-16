@@ -268,7 +268,7 @@
 
         </div>
         <div>
-            <a class="see-more see-more--yellow" href="#">Lihat semua →</a>
+            <a class="see-more see-more--yellow" href="<?= get_permalink( get_option( 'page_for_posts' ) ); ?>">Lihat semua →</a>
         </div>
     </div>
 </div>
