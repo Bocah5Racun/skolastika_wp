@@ -418,8 +418,4 @@ wp_reset_postdata();
 
 ?>
 
-<div class="footer-vista" style="background-image: url('<?= $the_footer_image_url; ?>'); background-size: cover;">
-    <div class="dark-gradient"></div>
-</div>
-
 <?php get_footer(); ?>

@@ -619,11 +619,6 @@
   grid-column: 1/3;
 }
 
-.footer-vista {
-  position: relative;
-  height: clamp(260px, 60vh, 780px);
-}
-
 .news-carousel {
   display: flex;
   padding: 0 1rem;
