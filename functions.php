@@ -9,6 +9,7 @@ function skolastika_theme_styles() {
 
     if( is_front_page() ) wp_enqueue_style( 'front-page', get_template_directory_uri() . '/includes/styles/front-page.css', array(), true, 'all' );
     if( is_single() || is_page() ) wp_enqueue_style( 'single-page', get_template_directory_uri() . '/includes/styles/single-page.css', array(), true, 'all' );
+    if( is_archive() ) wp_enqueue_style( 'archive', get_template_directory_uri() . '/includes/styles/category.css', array(), true, 'all' );
     if( is_singular( 'study-program-about' ) ) wp_enqueue_style( 'single-study-program-about', get_template_directory_uri() . '/includes/styles/single-study-program-about.css', array(), true, 'all' );
     if( is_singular( 'staff' ) ) wp_enqueue_style( 'single-staff', get_template_directory_uri() . '/includes/styles/single-staff.css', array(), true, 'all' );
     if( is_page() ) wp_enqueue_style( 'page', get_template_directory_uri() . '/includes/styles/page.css', array(), true, 'all' );
