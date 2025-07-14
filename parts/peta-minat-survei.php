@@ -315,6 +315,9 @@ const shuffledQuestions = questionsDatabase.sort(() => Math.random() - 0.5);
 
 const jobCardWrapper = document.getElementById('job-cards-wrapper')
 
+/**
+ * Generates cards for each of the shuffled questions
+ */
 shuffledQuestions.forEach((questionObject, index) => {
     const {id, question, dimension} = questionObject
     const jobCard = document.createElement('div')
@@ -332,7 +335,7 @@ shuffledQuestions.forEach((questionObject, index) => {
             <div class="job-card-rating-wrapper">
                 <div class="job-card-emoji">😔</div>
                 <div class="job-card-rating-hearts-wrapper">
-                    <input type="radio" id="q${questionNo}_rating5" checked name="q${questionNo}" value="4" data-dimension="${dimension}" required>
+                    <input type="radio" id="q${questionNo}_rating5" name="q${questionNo}" value="4" data-dimension="${dimension}" required>
                     <label for="q${questionNo}_rating5"></label>
                     <input type="radio" id="q${questionNo}_rating4" name="q${questionNo}" value="3" data-dimension="${dimension}" required>
                     <label for="q${questionNo}_rating4"></label>
