@@ -17,7 +17,7 @@ if( isset( $_POST['dimensions'] ) ) {
         $post_bool = true;
         // validate and clean $_POST items
         $nama = isset( $_POST['nama'] ) ? filter_var( $_POST['nama'], FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH) : die( "Name not set" );
-        $sekolah = isset( $_POST['sekolah'] ) ? filter_var( $_POST['sekolah'], FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH) : die( "School not set" );
+        $sekolah = isset( $_POST['sekolah'] ) ? filter_var( $_POST['sekolah'], FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH) : "-";
         $nomor = isset( $_POST['nomor'] ) ? preg_replace('/[^\d]/', '', $_POST['nomor']) : die( "Number not set" );
         $promo_bool = isset( $_POST['promo_bool'] ) ? $_POST['promo_bool'] : false;
         

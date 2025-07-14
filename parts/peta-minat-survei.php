@@ -25,15 +25,15 @@
                 <?php endif; ?>
                 <div class="popup-form-wrapper">
                     <input type="hidden" id="dimensions" name="dimensions">
+                    <input type="text" name="nama" placeholder="Nama lengkap" required>
                     <?php if( $allow_record ): ?>
-                        <input type="text" name="nama" placeholder="Nama lengkap" required>
-                        <input type="text" name="sekolah" placeholder="Asal sekolah" required>
-                        <input type="tel" name="nomor" placeholder="Nomor WhatsApp" required>
-                        <div class="disclaimer-wrapper">
-                            <input id="popup-disclaimer" name="promo_bool" value="true" type="checkbox">
-                            <label for="popup-disclaimer">Saya setuju menerima info tentang penawaran dan promosi dari FISIP UPRI.</label>
-                        </div>
+                    <input type="text" name="sekolah" placeholder="Asal sekolah" required>
                     <?php endif; ?>
+                    <input type="tel" name="nomor" placeholder="Nomor WhatsApp" required>
+                    <div class="disclaimer-wrapper">
+                        <input id="popup-disclaimer" name="promo_bool" value="true" type="checkbox">
+                        <label for="popup-disclaimer">Saya setuju menerima info tentang penawaran dan promosi dari FISIP UPRI.</label>
+                    </div>
                     </div>
                     <div id="popup-submit-wrapper" class="popup-form-button-wrapper">
                         <button id="submit-button" class="popup-btn-submit">Lihat Potensiku</button>
