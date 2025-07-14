@@ -1,6 +1,6 @@
 <?php
 
-require_once( get_template_directory_uri() . '/includes/peta-minat-config.php' ); // peta minat variables
+require_once( get_template_directory() . '/includes/peta-minat-config.php' ); // peta minat variables
 
 $img_dir = get_template_directory_uri() . '/includes/images/peta-minat';
 
