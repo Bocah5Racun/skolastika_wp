@@ -1,4 +1,17 @@
 <?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    $dir_path = dirname(__DIR__, 5);
+
+    require_once(dirname(__DIR__, 1) . '/vendor/autoload.php');
+
+    //Grab relevant .env constants
+    $dotenv = Dotenv\Dotenv::createImmutable($dir_path);
+    $dotenv->load();
+
+    //Process the form
     const ADMIN_EMAIL = "janisalande@komkom.id";
     const VALID_KEYS = [
         'department',
@@ -38,8 +51,8 @@
     $supporting_documents = array();
 
     // update the sheet
-    $url = "https://script.google.com/macros/s/AKfycbzqCamAnaRmcIvIZ-O009YTg32nuJdLx_47fKcVuvhIzMheUM_3ycPyn_BuW1bRj0xv/exec";
-    $key = "K3VBLVZ3QV38LRUQ6N1G181R8KVJJNOH";
+    $url = $_ENV['SHEET_URL'];
+    $key = $_ENV['SHEET_KEY'];
     $post_data = array(
         'nama'          => $full_name,
         'kota'          => $city,
@@ -62,6 +75,49 @@
     curl_close( $ch );
 
     session_write_close();
+
+    //Send an email
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->SMTPDebug = 2;
+    $mail->host= $_ENV['MAIL_HOST'];
+    $mail->port = $_ENV['MAIL_PORT'];
+
+    //Credentials
+    $mail->SMTPAuth = true;
+    $mail->Username = $_ENV['MAIL_USERNAME'];
+    $mail->Password = $_ENV['MAIL_PASSWORD'];
+
+    //Recipients
+    $mail->setFrom($_ENV['MAIL_USERNAME'], 'Tim Admisi FISIP UPRI');
+    $mail->addAddress($email);
+
+    //Content
+    $mail->isHTML(true);
+    $mail->Subject = '💡 Selesaikan Pendaftaran Kuliah di FISIP UPRI';
+    $batas = '31 Juli, 2025'; //Registration deadline
+
+    $htmlBody = (function ($path, $vars = []) {
+        ob_start();
+        extract($vars);
+        include $path;
+        return ob_get_clean();
+    })(
+        'email-template.php',
+        [
+            'nama' => $full_name,
+            'prodi' => $department,
+            'tipe' => $program,
+            'nomor' => $phone,
+            'batas' => $batas,
+        ]
+        );
+    
+    $mail->Body = $htmlBody;
+
+    if (!$mail->send()) {
+        error_log("Failed to send message to $email");
+    }
 
     header( "Location: {$return_url}?success" );
 

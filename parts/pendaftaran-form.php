@@ -133,6 +133,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- <button type="submit" class="button button--blue">Submit →</button> -->
                 <button type="submit" class="g-recaptcha button button--blue" data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" data-callback="onSubmit" data-action="submit">Submit →</button>
             </form>
 .        </article>
