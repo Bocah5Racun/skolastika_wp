@@ -198,7 +198,7 @@ button {
   border: none;
 }
 
-.reg-loader {
+#reg-loader {
   display: none;
   padding: 1rem;
   background-color: lightgray;
