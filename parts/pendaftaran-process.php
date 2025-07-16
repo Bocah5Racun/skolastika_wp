@@ -82,6 +82,8 @@
     $mail->SMTPDebug = 2;
     $mail->host= $_ENV['MAIL_HOST'];
     $mail->port = $_ENV['MAIL_PORT'];
+    $mail->SMTPDebug = 2; // or 3 for more
+    $mail->Debugoutput = 'html'; // optional
 
     //Credentials
     $mail->SMTPAuth = true;
