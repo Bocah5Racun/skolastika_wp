@@ -76,51 +76,6 @@
 
     session_write_close();
 
-    //Send an email
-    $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->SMTPDebug = 2;
-    $mail->host= $_ENV['MAIL_HOST'];
-    $mail->port = $_ENV['MAIL_PORT'];
-    $mail->SMTPDebug = 2; // or 3 for more
-    $mail->Debugoutput = 'html'; // optional
-
-    //Credentials
-    $mail->SMTPAuth = true;
-    $mail->Username = $_ENV['MAIL_USERNAME'];
-    $mail->Password = $_ENV['MAIL_PASSWORD'];
-
-    //Recipients
-    $mail->setFrom($_ENV['MAIL_USERNAME'], 'Tim Admisi FISIP UPRI');
-    $mail->addAddress($email);
-
-    //Content
-    $mail->isHTML(true);
-    $mail->Subject = '💡 Selesaikan Pendaftaran Kuliah di FISIP UPRI';
-    $batas = '31 Juli, 2025'; //Registration deadline
-
-    $htmlBody = (function ($path, $vars = []) {
-        ob_start();
-        extract($vars);
-        include $path;
-        return ob_get_clean();
-    })(
-        'email-template.php',
-        [
-            'nama' => $full_name,
-            'prodi' => $department,
-            'tipe' => $program,
-            'nomor' => $phone,
-            'batas' => $batas,
-        ]
-        );
-    
-    $mail->Body = $htmlBody;
-
-    if (!$mail->send()) {
-        error_log("Failed to send message to $email");
-    }
-
     header( "Location: {$return_url}?success" );
 
 ?>
