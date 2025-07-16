@@ -197,6 +197,14 @@ button {
   padding: 1rem;
   border: none;
 }
+button:disabled {
+  background-color: lightgray !important;
+  color: #333;
+  cursor: not-allowed;
+}
+button:disabled:hover {
+  text-decoration: none !important;
+}
 
 .button--blue {
   background-color: #0a26c7;
