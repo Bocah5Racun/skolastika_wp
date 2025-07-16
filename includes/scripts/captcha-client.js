@@ -7,12 +7,6 @@ function onSubmit(token) {
     //Disable button
     button.textContent = "Loading...";
     button.disabled = true;
-
-    setTimeout(() => {
-      button.textContent = "Submit →";
-      button.disabled = false;
-    }, 30000);
-
     form.submit();
   } else {
     grecaptcha.reset();
