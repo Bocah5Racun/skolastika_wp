@@ -197,13 +197,17 @@ button {
   padding: 1rem;
   border: none;
 }
-button:disabled {
-  background-color: lightgray !important;
+
+.reg-loader {
+  display: none;
+  padding: 1rem;
+  background-color: lightgray;
   color: #333;
-  cursor: not-allowed;
-}
-button:disabled:hover {
-  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin: 0 auto;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .button--blue {

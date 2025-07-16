@@ -1,6 +1,6 @@
 <?php 
     get_header();
-    $study_program = get_the_title( wp_get_post_parent_id() );
+    $study_prloadm = get_the_title( wp_get_post_parent_id() );
     session_write_close();
 ?>
 
@@ -134,6 +134,7 @@
                     </div>
                 </div>
                 <button id="reg-submit" type="submit" class="g-recaptcha button button--blue" data-sitekey="6LcVlcQpAAAAANAtJ4wpBIswn4Cxn7Iiic1Xk09t" data-callback="onSubmit" data-action="submit">Submit →</button>
+                <div class="reg-loader">⏳ Loading...</div>
             </form>
 .        </article>
     </div>
