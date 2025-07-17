@@ -295,7 +295,8 @@ button {
 }
 
 .constrained {
-  width: clamp(330px, 50vw, 600px);
+  min-width: 280px;
+  width: 65ch;
 }
 @media (max-width: 768px) {
   .constrained {

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 .m-1 {
   margin: 0.5rem;
 }
@@ -197,12 +198,10 @@
 }
 
 .more-articles-card-title {
-  font-size: 1.25em;
   font-weight: 600;
   line-height: 1.4;
   overflow: hidden;
   width: 100%;
-  height: 3em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -286,29 +285,12 @@
   text-align: center;
 }
 
-article h1,
-article h2,
-article h3 {
-  margin: 0;
-  margin-bottom: 0.25rem;
-}
 article h1 {
-  font-family: "Unbounded", sans-serif;
-  font-size: clamp(20px, 8vw, 48px);
-  line-height: 1.25;
-  margin: 0;
-}
-article h2 {
-  font-size: 1.5em;
-  line-height: 1.325;
+  font-family: "Inter", sans-serif;
+  font-size: 3rem;
 }
 article h3 {
   color: #505050;
-  font-size: 1.2em;
-  line-height: 1.325;
-}
-article p {
-  margin-bottom: 2em;
 }
 article ol,
 article ul {
@@ -329,18 +311,24 @@ article ol {
 article ol li {
   position: relative;
   counter-increment: list-counter;
-  padding-left: 2.125rem;
+  padding-left: 3rem;
 }
 article ol li::before {
   background-color: #0a0a0a;
+  border-radius: 50%;
   color: #fff;
   content: counter(list-counter);
+  display: block;
   font-weight: 700;
+  font-size: 0.85em;
+  left: 0;
   line-height: 1rem;
-  margin-left: -2.125rem;
-  margin-right: 0.5rem;
-  padding: 0.325rem 0.5rem;
-  position: relative;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  position: absolute;
+  text-align: center;
+  height: 15px;
+  width: 15px;
   top: 2px;
 }
 article hr {
