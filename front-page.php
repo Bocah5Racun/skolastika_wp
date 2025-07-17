@@ -8,7 +8,7 @@
     <div class="new-hero-inner container">
         <img class="new-hero-model" src="<?= get_template_directory_uri() . "/includes/images/hero-model.png"; ?>" />
         <div class="new-hero-text-container">
-            <div class="new-hero-title">Sarjana Administrasi atau Komunikasi dalam <span class="cta--yellow">2 Tahun!</span>*</div>
+            <h2 class="new-hero-title">Sarjana Administrasi atau Komunikasi dalam <span class="cta--yellow">2 Tahun!</span>*</h2>
             <div class="new-hero-conditions">* Khusus untuk Kelas Karyawan</div>
             <div class="new-hero-menu-container">
                 <div class="new-hero-menu-card">
@@ -76,7 +76,6 @@
 <section id="prodi" class="section">
     <div class="prodi-inner section-inner container text-center">
         <h2>Berjuang Meraih Sukses.</h2>
-        <hr class="separator--blue align-center" />
         <p class="centered-box constrained">Klik link di bawah untuk belajar bagaimana program-program studi FISIP UPRI dapat membantu Anda meraih keberhasilan dan mewujudkan potensi.</p>
         <p style="font-weight: 200;"><i>Semua Program Studi di FISIP UPRI terakreditasi BAN-PT.</i></p>
         <div>
@@ -120,7 +119,6 @@
     <div class="section-inner container">
         <div class="details-left-col">
             <h2>Dampak Sosial yang Nyata.</h2>
-            <hr class="separator--yellow" />
             <h3>FISIP UPRI berkomitmen menghasilkan lulusan dengan kepekaan sosial yang tinggi.</h3>
             <p> Kurikulum FISIP UPRI fokus pada isu-isu sosial dan mendorong solusi yang berkelanjutan. Melalui kolaborasi dengan organisasi lokal dan internasional, mahasiswa dibimbing agar dapat membuat perubahan yang berdampak langsung pada masyarakat.</p>
         </div>
@@ -160,7 +158,6 @@
 <section id="prodi" class="section">
     <div class="prodi-inner section-inner container">
         <h2>Kembangkan Karir. Kuliah Sambil Kerja.</h2>
-        <hr class="separator--blue" />
         <h3>Konversi pengalaman kerja menjadi SKS.</h3>
         <p class="constrained">Dengan Program RPL, Anda dapat mengkonversi pengetahuan dan pengalaman nyata dari dunia kerja menjadi Satuan Kredit Semester (SKS) untuk gelar Sarjana.</p>
         <div>
@@ -173,7 +170,6 @@
     <section class="brosur-inner container">
         <div class="brosur-form-container">
             <h2>Download Brosur FISIP UPRI</h2>
-            <hr class="separator--blue" />
             <p>Dapatkan semua informasi terpenting mengenai proses pembelajaran dan pengalaman berkuliah di UPRI.</p>
             <a href="https://fisipupri.ac.id/wp-content/uploads/2024/07/brosur_fisip_upri_2024.pdf" id="btn-download-brosur" class="button button--blue">Download Brosur</a>
         </div>
@@ -186,7 +182,6 @@
 <section id="experience-fisip" class="section">
     <div class="experience-fisip-inner section-inner container">
         <h2>Experience FISIP@UPRI</h2>
-        <hr class="separator--blue" />
         <h3>Ruang yang nyaman untuk seluruh mahasiswa dan civitas akademika.</h3>
         <p class="constrained">Kami menyediakan berbagai layanan dan fasilitas demi proses perkuliahan yang kondusif untuk belajar.</p>
         <div class="experience-fisip-list">
@@ -221,7 +216,6 @@
 <section id="news" class="section section--dark container--full">
     <div class="news-inner section-inner text-center">
         <h2>Info FISIP</h2>
-        <hr class="separator--yellow align-center" />
         <h3>Berita dan informasi terbaru tentang FISIP UPRI.</h3>
         <div class="news-carousel container">
         
@@ -277,7 +271,6 @@
 <section id="final-cta" class="section">
     <div class="final-cta-inner section-inner container">
         <h2>Siap Memulai Perjalanan Akademik Anda?</h2>
-        <hr class="separator--blue" />
         <h3>Mari kita bersama-sama membuat dampak positif dalam komunitas.</h3>
         <p class="constrained">Wujudkan potensi penuh Anda dengan pendidikan berkualitas di FISIP UPRI. Kejar ilmu, kembangkan diri, berjuang meraih sukses. </p>
         <div class="final-cta-box">
@@ -371,7 +364,6 @@
         </div>
         <div class="mid-cta-text">
             <h2>Awali Masa Depan yang Cerah. Daftar Sekarang.</h2>
-            <hr class="separator--blue" />
             <p>Jika Anda ingin menjadi agen perubahan positif di komunitas, gabung bersama kami di FISIP UPRI.</p>
             <div class="cta-column text-center">
                 <a href="https://fisipupri.ac.id/pmb/pendaftaran-mahasiswa-baru/" class="cta cta--blue">Klik untuk Memulai Registrasi →</a>
@@ -383,7 +375,7 @@
 
 <div id="question" class="question text-center">
     <a id="question-close">X</a>
-    <h2>Mau bertanya?</h2>
+    <h2>Punya pertanyaan?</h2>
     <a href="https://wa.me/6281244375770" target="_blank"><img class="chat_whatsapp" src="<?= get_template_directory_uri() . "/includes/images/chat_on_whatsapp.png"; ?>" /></a>
 </div>
 

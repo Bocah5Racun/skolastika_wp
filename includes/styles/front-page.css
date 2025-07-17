@@ -280,8 +280,10 @@
 .study-program-card {
   align-items: flex-end;
   background-color: #0a0a0a;
+  border-radius: 1rem;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   position: relative;
 }
 .study-program-card a {
@@ -365,12 +367,6 @@
   }
 }
 
-.details-left-col {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1rem, 5vw, 2rem);
-}
-
 .details-right-col {
   display: grid;
   height: 100%;
@@ -402,6 +398,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  margin-top: 1.4rem;
 }
 @media (max-width: 768px) {
   .prodi-list {
@@ -445,6 +442,7 @@
   gap: 1rem;
   grid-template-areas: "a b c d" "e b f g";
   grid-auto-rows: 200px;
+  margin-bottom: 1.4rem;
 }
 @media (max-width: 768px) {
   .experience-fisip-list {
@@ -496,9 +494,6 @@
   padding: 2rem;
   background-color: #fff500;
   grid-area: form;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 }
 .brosur-inner > div:nth-child(2) {
   width: 25%;
@@ -567,15 +562,10 @@
 .final-cta-list a {
   align-self: flex-start;
   flex: 1;
+  font-weight: 600;
   padding: 1rem;
   background-color: #fff500;
-  font-size: 1.5rem;
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.33);
-}
-@media (max-width: 480px) {
-  .final-cta-list a {
-    font-size: 1.25em;
-  }
 }
 .final-cta-list a:hover {
   text-decoration: underline;
@@ -624,6 +614,7 @@
   padding: 0 1rem;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 1.4rem;
   text-align: left;
 }
 .news-carousel .news-card {
@@ -719,7 +710,8 @@
 }
 
 #btn-download-brosur {
-  align-self: center;
+  display: inline-block;
+  margin-top: 1.4rem;
   font-size: 1.25em;
   padding: 1rem;
   text-align: center;
@@ -852,7 +844,7 @@
   display: block;
   -o-object-fit: contain;
      object-fit: contain;
-  width: clamp(180px, 33vw, 600px);
+  width: clamp(180px, 24vw, 500px);
 }
 @media (max-width: 1024px) {
   .new-hero-model {
@@ -864,15 +856,15 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
   text-align: center;
 }
 
 .new-hero-title {
   font-family: "Unbounded", sans-serif;
-  font-size: 2.125rem;
   font-weight: 700;
+  margin-bottom: 0 !important;
   text-align: center;
 }
 
