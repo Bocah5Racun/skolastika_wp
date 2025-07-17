@@ -280,9 +280,9 @@
 
 .post-caption,
 .wp-block-image :where(figcaption) {
-  color: #777;
+  color: #333;
   font-style: italic;
-  margin-top: 0.125rem;
+  margin-top: 0.75rem;
   text-align: center;
 }
 
