@@ -162,22 +162,22 @@ h3 {
 }
 
 h1 {
-  font-size: 4.235801032em;
+  font-size: 4rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2.617924em;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 @media (max-width: 768px) {
   h2 {
-    font-size: 2em;
+    font-size: 2rem;
   }
 }
 
 h3 {
-  font-size: 1.618em;
+  font-size: 1.25rem;
   font-weight: 300;
 }
 
