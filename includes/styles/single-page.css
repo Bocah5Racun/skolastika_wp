@@ -428,7 +428,6 @@ article .section-inner {
   gap: 2rem;
   background-color: #f5f390;
   padding: 1rem;
-  font-size: 1.25rem;
 }
 @media (max-width: 768px) {
   .study-program-info-inner {
