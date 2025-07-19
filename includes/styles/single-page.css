@@ -334,7 +334,6 @@ article ol li::before {
   text-align: center;
   height: 1.65rem;
   width: 1.65rem;
-  top: 2px;
 }
 article hr {
   margin: 1.25rem 0;
