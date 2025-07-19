@@ -318,21 +318,22 @@ article ol li {
   padding-left: 3rem;
 }
 article ol li::before {
+  align-items: center;
   background-color: #0a0a0a;
   border-radius: 50%;
   color: #fff;
   content: counter(list-counter);
-  display: block;
+  display: flex;
   font-weight: 700;
   font-size: 0.85em;
+  justify-content: center;
   left: 0;
   line-height: 1rem;
   margin-right: 1rem;
-  padding: 0.5rem;
   position: absolute;
   text-align: center;
-  height: 15px;
-  width: 15px;
+  height: 1.65rem;
+  width: 1.65rem;
   top: 2px;
 }
 article hr {
