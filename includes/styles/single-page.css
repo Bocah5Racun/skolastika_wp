@@ -315,7 +315,7 @@ article ol {
 article ol li {
   position: relative;
   counter-increment: list-counter;
-  padding-left: 3rem;
+  padding-left: 2.35rem;
 }
 article ol li::before {
   align-items: center;
