@@ -1,6 +1,6 @@
 <?php
 
-    if( !isset( $_SESSION['popup_timer'] ) ) $_SESSION['popup_timer'] = time();
+    if( !isset( $_COOKIE['popup_timer'] ) ) $_COOKIE['popup_timer'] = time();
 
     get_header(); ?>
 

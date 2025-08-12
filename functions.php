@@ -310,7 +310,16 @@ function skolastika_theme_study_programs_filter() {
 }
 
 function skolastika_theme_session() {
-    if( !session_id() ) session_start();
+    if(
+        !session_id() &&
+        !is_admin() &&
+        !wp_doing_ajax() &&
+        !wp_doing_cron() &&
+        !defined('REST_REQUEST')
+        )
+    {
+        session_start();
+    }
 }
 
 function skolastika_gsap_scripts() {
