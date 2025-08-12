@@ -82,7 +82,9 @@
     $query = new WP_Query( $args );
 
     if( $query->have_posts() ):
+
 ?>
+
 <section id="blog" class="section">
     <div class="section-inner container">
         <h2>Blog <?= get_the_title(); ?></h2>

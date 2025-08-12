@@ -31,6 +31,7 @@ function skolastika_theme_scripts() {
             if( $popup_timer > 120 || $popup_timer < 2 ) {
                 wp_enqueue_script( 'popup-ad', get_template_directory_uri() . '/includes/scripts/popup-ad.js', array( 'jquery' ), true, true );
                 $_SESSION['popup_timer'] = time();
+                session_write_close();
             }
         }
         session_write_close();
