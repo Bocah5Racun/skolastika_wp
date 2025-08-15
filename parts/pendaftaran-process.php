@@ -28,6 +28,8 @@
 
     $_SESSION["submission_time"] = time();
 
+    session_write_close();
+
     // check that files and post keys are set
     if( !isset( $_POST ) ) die("You didn't send anything!");
 

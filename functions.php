@@ -24,14 +24,13 @@ function skolastika_theme_scripts() {
     }
     if( is_front_page() ) {
         wp_enqueue_script( 'jquery' );
-        if( array_key_exists( 'popup_timer', $_SESSION ) ) {
+        if( isset( $_COOKIE['popup_timer'] ) ) {
 
-            $popup_timer = time() - $_SESSION['popup_timer'];
+            $popup_timer = time() - $_COOKIE['popup_timer'];
 
             if( $popup_timer > 120 || $popup_timer < 2 ) {
                 wp_enqueue_script( 'popup-ad', get_template_directory_uri() . '/includes/scripts/popup-ad.js', array( 'jquery' ), true, true );
-                $_SESSION['popup_timer'] = time();
-                session_write_close();
+                setcookie( 'popup_timer', time() );
             }
         }
         session_write_close();

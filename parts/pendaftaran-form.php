@@ -1,7 +1,6 @@
 <?php 
     get_header();
     $study_prloadm = get_the_title( wp_get_post_parent_id() );
-    session_write_close();
 ?>
 
 <div id="single-hero-container">

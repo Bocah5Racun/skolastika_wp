@@ -1,8 +1,4 @@
-<?php
-
-    if( !isset( $_COOKIE['popup_timer'] ) ) $_COOKIE['popup_timer'] = time();
-
-    get_header(); ?>
+<?php get_header(); ?>
 
 <section id="new-hero" class="container--full">
     <div class="new-hero-inner container">
