@@ -24,6 +24,7 @@ function skolastika_theme_scripts() {
     }
     if( is_front_page() ) {
         wp_enqueue_script( 'jquery' );
+        wp_enqueue_script( 'popup-ad', get_template_directory_uri() . '/includes/scripts/popup-ad.js', array('jquery'), null, true );
         wp_localize_script( 'popup-ad', 'ajaxObject', array( 'url' => get_site_url() ) );
     };
 }
