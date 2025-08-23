@@ -24,16 +24,6 @@ function skolastika_theme_scripts() {
     }
     if( is_front_page() ) {
         wp_enqueue_script( 'jquery' );
-        if( isset( $_COOKIE['popup_timer'] ) ) {
-
-            $popup_timer = time() - $_COOKIE['popup_timer'];
-
-            if( $popup_timer > 120 || $popup_timer < 2 ) {
-                wp_enqueue_script( 'popup-ad', get_template_directory_uri() . '/includes/scripts/popup-ad.js', array( 'jquery' ), true, true );
-                setcookie( 'popup_timer', time() );
-            }
-        }
-        session_write_close();
         wp_localize_script( 'popup-ad', 'ajaxObject', array( 'url' => get_site_url() ) );
     };
 }
@@ -308,19 +298,6 @@ function skolastika_theme_study_programs_filter() {
     }
 }
 
-function skolastika_theme_session() {
-    if(
-        !session_id() &&
-        !is_admin() &&
-        !wp_doing_ajax() &&
-        !wp_doing_cron() &&
-        !defined('REST_REQUEST')
-        )
-    {
-        session_start();
-    }
-}
-
 function skolastika_gsap_scripts() {
     // The core GSAP library
     wp_enqueue_script( 'gsap-js', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), false, true );
@@ -330,14 +307,13 @@ function skolastika_gsap_scripts() {
     if( is_front_page() ) wp_enqueue_script( 'whatsapp-popup', get_template_directory_uri() . '/includes/scripts/whatsapp-popup.js', array(), true, true );
 }
 
-add_action( 'init', 'skolastika_theme_session' );
 add_action( 'init', 'skolastika_theme_menus' );
 add_action( 'init', 'skolastika_theme_posttypes' );
 add_action( 'init', 'skolastika_theme_taxonomies' );
 
 add_action( 'restrict_manage_posts', 'skolastika_theme_study_programs_filter' );
+add_action( 'wp_enqueue-scripts', 'skolastika_theme_scripts' );
 add_action( 'wp_enqueue_scripts', 'skolastika_theme_styles' );
-add_action( 'wp_enqueue_scripts', 'skolastika_theme_scripts' );
 add_action( 'wp_enqueue_scripts', 'skolastika_gsap_scripts' );
 
 add_theme_support( 'custom-logo' );

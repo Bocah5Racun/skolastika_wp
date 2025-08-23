@@ -8,7 +8,10 @@ jQuery.ajax({
 });
 
 function showPopup(results) {
-  const postId = results.id;
+  if (getCookie("popup_timer")) return;
+
+  document.cookie = "popup_timer=1; max-age=300; path=/";
+
   const thumbnailUrl = results._embedded["wp:featuredmedia"][0].source_url;
 
   const popup = document.createElement("div");
@@ -28,4 +31,10 @@ function showPopup(results) {
   popup.querySelector(".popup-closer").addEventListener("click", (e) => {
     popup.remove();
   });
+}
+
+function getCookie(name) {
+  let value = "; " + document.cookie;
+  let parts = value.split("; " + name + "=");
+  if (parts.length === 2) return parts.pop().split(";").shift();
 }
