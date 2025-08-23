@@ -29,8 +29,6 @@ const scrollListener = document.addEventListener("scroll", () => {
   const prevToggle = questionToggle;
   questionToggle = fromBottom < 50 || fromTop > 0 ? false : true;
 
-  console.log(`${fromBottom}`);
-
   if (prevToggle != questionToggle) {
     if (questionToggle) {
       questionTl.reverse(0);

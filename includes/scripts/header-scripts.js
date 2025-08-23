@@ -7,7 +7,6 @@ burger.addEventListener("click", () => {
 });
 
 mobileMenuCloser.addEventListener("click", () => {
-  console.log("Clicked Closer!");
   toggleBurger(false);
 });
 

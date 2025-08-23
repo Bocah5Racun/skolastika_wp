@@ -313,7 +313,7 @@ add_action( 'init', 'skolastika_theme_posttypes' );
 add_action( 'init', 'skolastika_theme_taxonomies' );
 
 add_action( 'restrict_manage_posts', 'skolastika_theme_study_programs_filter' );
-add_action( 'wp_enqueue-scripts', 'skolastika_theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'skolastika_theme_scripts' );
 add_action( 'wp_enqueue_scripts', 'skolastika_theme_styles' );
 add_action( 'wp_enqueue_scripts', 'skolastika_gsap_scripts' );
 

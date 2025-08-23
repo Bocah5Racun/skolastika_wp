@@ -332,7 +332,6 @@ foreach( $jobs as $job ) {
 <script>
     const bars = document.querySelectorAll('.dimension-bar')
 
-    console.log(bars)
     const riasec_scores = [
         <?php foreach( $riasec_values as $value ): ?>
             <?= $value; ?>,

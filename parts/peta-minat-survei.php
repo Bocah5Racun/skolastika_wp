@@ -475,7 +475,6 @@ function checkPopup() {
 const popupSubmit = popup.querySelector('.popup-btn-submit')
 popupSubmit.addEventListener("click", () => {
     const questionsAnswered = checkAnswers()
-    if(questionsAnswered) console.log("All answered!")
 })
 
 const popupCancel = popup.querySelector('.popup-btn-other')
@@ -519,7 +518,5 @@ const allPermutations = new Set();
 for (let len = 1; len <= 3; len++) {
   getPermutations(input, len).forEach(p => allPermutations.add(p));
 }
-
-console.log([...allPermutations].sort());
 
 </script>
