@@ -20,7 +20,7 @@ if( isset( $_POST['dimensions'] ) ) {
         $sekolah = isset( $_POST['sekolah'] ) ? filter_var( $_POST['sekolah'], FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH) : "-";
         $nomor = isset( $_POST['nomor'] ) ? preg_replace('/[^\d]/', '', $_POST['nomor']) : die( "Number not set" );
         $promo_bool = isset( $_POST['promo_bool'] ) ? $_POST['promo_bool'] : false;
-        
+        $admin_view = isset( $_POST['role'] ) ? '1' : false;
     }
 
     $ratings = json_decode( stripslashes( $_POST['dimensions'] ), true );
@@ -265,13 +265,31 @@ foreach( $jobs as $job ) {
 
                 <?php endforeach; ?>
             </div>
+            <div class="results-section">
+                <div class="results-card-text">
+                    <?= get_code_info( $profile ); ?>
+                </div>
+            </div>
             <div class="scroll-for-more">
-                <p><b>Scroll untuk melihat profil minatmu!</b></p>
+                <p><b>
+                    <?php if( $admin_view ): ?>
+                    Scroll untuk melihat profil minatmu!
+                    <?php else: ?>
+                    Bawa hasil ini ke booth Universitas Pejuang Republik Indonesia (UPRI) untuk konsultasi memilih jurusan yang pas dengan minatmu!
+                    <?php endif; ?>
+                </b></p>
+                <?php if( $admin_view ): ?>
                 <img src="<?= $img_dir; ?>/down-arrow.png" class="point point--down" onclick="scrollPage( 1 )">
+                <?php endif;?>
             </div>
         </div>
     </div>
 
+
+<?php
+    // only show the following cards if in admin view
+    if( $admin_view ):
+?>
 <!-- CARD NO. 2 -->
 
     <div class="job-card-wrapper">
@@ -326,6 +344,8 @@ foreach( $jobs as $job ) {
         </div>
     </div>
 </div>
+
+<?php endif; ?>
 
 <!-- CLOSE JOB-CARDS-WRAPPER -->
 
