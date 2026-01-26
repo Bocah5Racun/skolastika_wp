@@ -35,6 +35,7 @@ if( isset( $_POST['dimensions'] ) ) {
     ];
     
     $admin_view = isset( $_GET['role'] ) ? '1' : false; // to show admin view
+    var_dump( $admin_view );
     
     foreach( $ratings as $rating ) {
     
