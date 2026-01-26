@@ -427,7 +427,7 @@ button.peta-minat-btn:active {
 }
 
 .results-card-1 h1 {
-  font-size: clamp(32px, 12vw, 96px);
+  font-size: clamp(20px, 8vh, 96px);
   line-height: 100%;
 }
 .results-card-1 .profile-desc {
@@ -469,7 +469,7 @@ button.peta-minat-btn:active {
 }
 
 .results-card-text {
-  text-align: left;
+  text-align: center;
   font-size: clamp(14px, 1.5vh, 20px);
 }
 .results-card-text p:not(last-child) {
@@ -569,7 +569,7 @@ button.peta-minat-btn:active {
   }
 }
 .scroll-for-more {
-  font-size: 1.2em;
+  font-size: clamp(14px, 2vh, 20px);
   text-align: center;
 }
 

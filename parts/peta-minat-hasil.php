@@ -275,7 +275,7 @@ foreach( $jobs as $job ) {
                     <?php if( $admin_view ): ?>
                     Scroll untuk melihat profil minatmu!
                     <?php else: ?>
-                    Bawa hasil ini ke booth Universitas Pejuang Republik Indonesia (UPRI) untuk konsultasi memilih jurusan yang pas dengan minatmu!
+                    Bawa hasil ke booth Universitas Pejuang Republik Indonesia untuk konsultasi memilih jurusan sesuai dengan minatmu!
                     <?php endif; ?>
                 </b></p>
                 <?php if( $admin_view ): ?>
