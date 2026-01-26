@@ -2,7 +2,7 @@
     $img_dir = get_template_directory_uri() . '/includes/images/peta-minat';
     $custom_logo_id = get_theme_mod('custom_logo');
     $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-    $allow_record = isset( $_GET['a'] ) ? $_GET['a'] : false;
+    $disable_school = isset( $_GET['disable_school'] ) ? $_GET['disable_school'] : false;
 ?>
 
 <a href="#explainer-summary-wrapper" id="jump-to-summary">
@@ -17,7 +17,7 @@
             </div>
             <h2>Tinggal Satu Langkah Lagi!</h2>
             <div class="popup-desc-text">
-                <?php if( $allow_record ): ?>
+                <?php if( $disable_school === false ): ?>
                     <p>Isi informasi di bawah ini untuk menerima <b>Profil Minat</b> dan rekomendasi program studi yang pas buat kamu.</p>
                     <div class="disclaimer-text">Data kamu tidak akan dibagikan atau diperjualbelikan kepada pihak ketiga.</div>
                 <?php else: ?>
@@ -26,7 +26,7 @@
                 <div class="popup-form-wrapper">
                     <input type="hidden" id="dimensions" name="dimensions">
                     <input type="text" name="nama" placeholder="Nama lengkap" required>
-                    <?php if( $allow_record ): ?>
+                    <?php if( $disable_school === false ): ?>
                     <input type="text" name="sekolah" placeholder="Asal sekolah" required>
                     <?php endif; ?>
                     <input type="tel" name="nomor" placeholder="Nomor WhatsApp" required>
