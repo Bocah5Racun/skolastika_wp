@@ -451,7 +451,7 @@ button.peta-minat-btn:active {
   text-align: right;
 }
 .results-card-1 .dimension-names .dimension-bar-wrapper {
-  height: 36px;
+  height: 100%;
   border-radius: 8px;
   width: 100%;
   background-color: lightgray;
@@ -470,7 +470,7 @@ button.peta-minat-btn:active {
 
 .results-card-text {
   text-align: left;
-  font-size: clamp(16px, 2vh, 20px);
+  font-size: clamp(14px, 1.5vh, 20px);
 }
 .results-card-text p:not(last-child) {
   margin-bottom: 1rem;
