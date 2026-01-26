@@ -128,7 +128,6 @@ $riasec_scores = [
 ];
 
 $admin_view = isset( $_GET['role'] ) ? '1' : false; // to show admin view
-var_dump( $admin_view );
 
 // sort the $riasec_scores array descending order based on dimension score
 arsort( $riasec_scores );
