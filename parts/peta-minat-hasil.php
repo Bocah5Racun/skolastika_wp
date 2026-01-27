@@ -234,6 +234,7 @@ function get_jobs_by_code( $code ) {
 }
 
 $jobs = get_jobs_by_code( $profile);
+$code_info = get_code_info( $profile );
 $bidang_kerja_array = [];
 
 foreach( $jobs as $job ) {
@@ -268,7 +269,7 @@ foreach( $jobs as $job ) {
             </div>
             <div class="results-section">
                 <div class="results-card-text">
-                    <?= get_code_info( $profile ); ?>
+                    <?= $code_info; ?>
                 </div>
             </div>
             <div class="scroll-for-more">
@@ -302,7 +303,7 @@ foreach( $jobs as $job ) {
             <h1><?= $profile; ?></h1>
             <div class="results-section">
                 <div class="results-card-text">
-                    <?= get_code_info( $profile ); ?>
+                    <?= $code_info; ?>
                 </div>
             </div>
             <h3 class="results-card-heading">Rekomendasi Bidang Kerja</h3>
