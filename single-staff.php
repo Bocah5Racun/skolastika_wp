@@ -82,44 +82,45 @@
     </div>
 </section>
 
-<?php
-
-    global $post;
-    $args = array(
+<section class="more-articles">
+    <h2 class="more-articles-title">Artikel Terkait</h2>
+    <div class="more-articles-container">
+    <?php
+        $args = array(
         'category__name'    => 'Blog',
         'tag'               => $post->post_name,
         'posts_per_page'    => 8,
     );
     $query = new WP_Query( $args );
 
-    if( $query->have_posts() ) :
-?>
-
-<section id="staff-articles" class="section">
-    <div class="staff-articles-inner section-inner container">
-        <h2>Artikel Terkait</h2>
-        <div class="staff-articles-container">
-
-<?php
-        while( $query->have_posts() ) :
-            $query->the_post();
-?>
-
-<a href="<?= get_the_permalink(); ?>" class="staff-article-card">
-    <img src="<?= get_the_post_thumbnail_url(); ?>" />
-    <h3><?= get_the_title(); ?></h3>
-</a>
-
-<?php endwhile; ?>
-
+        if( $query->have_posts() ):
+            while( $query->have_posts() ):
+                $query->the_post();
+    ?>
+    
+    <div class="more-articles-card">
+        <a href="<?= get_the_permalink(); ?>">
+            <img class="more-articles-card-img" src="<?= get_the_post_thumbnail_url( get_the_ID(), "medium_large" );?> " alt="" />
+        </a>
+        <div class="more-articles-card-cat">
+            <?php
+                $the_category = get_the_category()[0];
+            ?>
+            <a class="more-articles-cat-link" href="<?= get_category_link( $the_category->term_id ); ?>">
+                <?= $the_category->name; ?>
+            </a>
         </div>
-    </div>  
+        <a href="<?= get_the_permalink(); ?>" class="more-articles-card-title"><?= get_the_title(); ?></a>
+        <div class="more-articles-card-date"><?= get_the_date(); ?></div>
+    </div>
+    
+    <?php 
+        endwhile;
+        endif;
+        wp_reset_postdata()
+    ?>
+    </div>
 </section>
-
-<?php
-    endif;
-    wp_reset_postdata();
-?>
 
 <?php
     if( isset( $cv_meta ) && isset( $cv_meta['job_list'] ) && !empty( $cv_meta['job_list'] ) ):
