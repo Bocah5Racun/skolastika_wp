@@ -485,12 +485,14 @@ const loader =  document.getElementById('loader')
 const popupSubmitWrapper = document.getElementById('popup-submit-wrapper')
 
 document.getElementById('submit-button').addEventListener('click', () => {
+    this.disabled = true
     popupSubmitWrapper.style.display = 'none'
     loader.style.display = 'block'
 
     setTimeout( () => {
         loader.style.display = 'none'
         popupSubmitWrapper.style.display = 'flex'
+        this.disabled = false
     }, 10000)
 })
 
