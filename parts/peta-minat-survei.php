@@ -493,7 +493,7 @@ document.getElementById('submit-button').addEventListener('click', () => {
         loader.style.display = 'none'
         popupSubmitWrapper.style.display = 'flex'
         this.disabled = false
-    }, 10000)
+    }, 25000)
 })
 
 // test combos
